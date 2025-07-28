@@ -12,4 +12,64 @@
 
 ## Theory {-#theory-random-sampling}
 
+#### 1. What is Meant by a Sample, a Population, and Statistical Inference?
+
+*   **Population:** This refers to the entire group of individuals or items that we are interested in studying. For example, all car insurance policies in a company.
+*   **Sample:** This is a subset of the population from which data is collected. It's a manageable group used to draw conclusions about the larger, often impractical-to-observe, population.
+*   **Statistical Inference:** This is the process of drawing conclusions about a population based on data obtained from a sample. It extends inferential analysis from a sample to the wider population. This involves estimating population parameters and testing hypotheses.
+
+#### 2. Defining a Random Sample
+
+*   A **random sample** is a set of random variables, X₁, X₂, ..., Xₙ, that are **independent and identically distributed (IID)** from a specific population.
+*   **Characteristics of a random sample:**
+    *   Each item in the population has a probability of inclusion in the sample that is proportional to its frequency in the parent population.
+    *   The inclusion or exclusion of different items operates independently.
+
+#### 3. Understanding a Statistic and its Sampling Distribution
+
+*   **Statistic:** A statistic is a function derived solely from a random sample X. For instance, the sample mean (X̄ = ΣXᵢ / n) and sample variance (S² = Σ(Xᵢ - X̄)² / (n-1)) are examples of statistics.
+*   **Sampling Distribution:** The distribution of a statistic is known as its sampling distribution.
+*   **Standard Error:** The standard deviation of a sampling statistic is specifically termed its **standard error**.
+
+#### 4. Mean and Variance of Sample Mean (X̄) and Sample Variance (S²)
+
+For a random sample of size *n* from a population with mean μ and variance σ²:
+
+*   **Mean of the Sample Mean (E[X̄]):**
+    *   E[X̄] = μ.
+    *   *Derivation:* E[X̄] = E[(1/n) ΣXᵢ] = (1/n) ΣE[Xᵢ] = (1/n) Σμ = (1/n) * nμ = μ.
+
+*   **Variance of the Sample Mean (Var[X̄]):**
+    *   Var[X̄] = σ²/n.
+    *   *Derivation:* Var[X̄] = Var[(1/n) ΣXᵢ] = (1/n)² ΣVar[Xᵢ] (due to independence) = (1/n)² Σσ² = (1/n)² * nσ² = σ²/n.
+
+*   **Mean of the Sample Variance (E[S²]):**
+    *   E[S²] = σ². This indicates that the sample variance S² is an unbiased estimator of the population variance σ².
+    *   *Derivation:* E[S²] = E[(1/(n-1)) Σ(Xᵢ - X̄)²] = E[(1/(n-1)) (ΣXᵢ² - nX̄²)]. Using E[Xᵢ²] = Var[Xᵢ] + E[Xᵢ]² = σ² + μ² and E[X̄²] = Var[X̄] + E[X̄]² = (σ²/n) + μ², the derivation simplifies to E[S²] = σ².
+
+#### 5. Basic Sampling Distributions for Normal Samples
+
+*   **Sample Mean (X̄) when population variance (σ²) is known:**
+    *   If a random sample is drawn from a Normal(μ, σ²) distribution, then the sample mean X̄ follows a **Normal(μ, σ²/n)** distribution exactly.
+    *   The pivotal quantity (X̄ - μ) / (σ/√n) follows a Standard Normal (N(0,1)) distribution. This also holds approximately for large samples from *any* distribution due to the Central Limit Theorem.
+
+*   **Sample Variance (S²) from a Normal population:**
+    *   If S² is the sample variance from a Normal(μ, σ²) distribution, then **(n-1)S²/σ²** follows a **Chi-squared (χ²)** distribution with (n-1) degrees of freedom.
+    *   *Important Note:* This result is strictly for samples from normal distributions and does not hold for non-normal distributions.
+
+#### 6. The t-statistic for Random Samples from a Normal Distribution
+
+*   **Sample Mean (X̄) when population variance (σ²) is unknown:**
+    *   If S is the sample standard deviation from a Normal(μ, σ²) distribution, then the t-statistic **(X̄ - μ) / (S/√n)** follows a **t-distribution** with (n-1) degrees of freedom.
+    *   This distribution is more spread out than the standard normal due to the additional uncertainty from estimating σ² with S.
+
+#### 7. F-Distribution for Ratio of Two Sample Variances from Independent Normal Samples
+
+*   **Definition of F-distribution:** If U and V are independent random variables following Chi-squared (χ²) distributions with *m* and *n* degrees of freedom respectively, then the ratio **(U/m) / (V/n)** follows an **F-distribution** with *m* and *n* degrees of freedom (Fₘ,ₙ).
+*   **Application for variance ratios:** For two independent random samples from Normal(μ₁, σ₁²) and Normal(μ₂, σ₂²) distributions, with sample variances S₁² and S₂² respectively:
+    *   The ratio **(S₁²/σ₁²) / (S₂²/σ₂²)** follows an **F-distribution** with (n₁-1) and (n₂-1) degrees of freedom (F(n₁-1),(n₂-1)).
+    *   This is typically used to test for the equality of two population variances (i.e., H₀: σ₁² = σ₂²).
+
+Keep these critical points at your fingertips, and you'll be well on your way to acing your CS1 exam!
+
 ## `R` Practice {-#practice-random-sampling}

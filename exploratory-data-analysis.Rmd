@@ -9,4 +9,63 @@
 
 ## Theory {-#theory-exploratory-data-analysis}
 
+#### 1. Purpose of Exploratory Data Analysis
+*   EDA is the process of analysing data to gain initial insights into its nature, patterns, and relationships between variables *before* formal statistical techniques are applied.
+*   Its primary aim is to understand "what is going on" with the data, summarising it into a more easily understood format.
+
+#### 2. Tools for Summary Statistics and Data Visualisation
+EDA employs various tools depending on the number of variables:
+
+*   **For Univariate Data (Single Variable)**:
+    *   **Summary Statistics**:
+        *   Measures of central tendency: Mean, Median, Mode.
+        *   Measures of dispersion: Standard Deviation, Interquartile Range (IQR), Range, Skewness.
+    *   **Graphical Displays**:
+        *   Line plots.
+        *   Bar charts (for discrete or categorical data).
+        *   Histograms (for continuous data, where bar *area* represents frequency).
+        *   Stem and leaf diagrams (displaying distribution and aiding quartile identification).
+        *   Cumulative frequency graphs (for estimating percentiles).
+        *   Boxplots (Box and Whisker Plots) (showing lowest/highest values, median, quartiles; useful for comparing datasets).
+        *   Quantile-quantile (Q-Q) plots.
+
+*   **For Bivariate or Multivariate Data (Multiple Variables)**:
+    *   **Summary Statistics**: Individual variable summary statistics.
+    *   **Graphical Displays**:
+        *   Scatterplots (to visualise relationships between pairs of variables).
+
+#### 3. Correlation Measures for Bivariate Data
+These coefficients quantify the strength and direction of relationships between variables:
+
+*   **Pearson's Correlation Coefficient (r)**:
+    *   **Definition**: Measures the strength and direction of a *linear* relationship between two quantitative variables.
+    *   **Formula**: `r = s_xy / (s_x * s_y)`.
+    *   **Interpretation**: Values range from -1 to +1. Near +1 indicates a strong positive linear relationship, near -1 indicates a strong negative linear relationship, and near 0 indicates no linear correlation.
+    *   **Statistical Inference**: A t-distribution based test is available for the hypothesis that the population correlation coefficient (ρ) is zero. Fisher's transformation can be used for testing hypotheses about specific non-zero values of ρ.
+    *   **Crucial Caveat**: Correlation does not necessarily imply causation.
+
+*   **Spearman's Rank Correlation Coefficient (r_s)**:
+    *   **Definition**: Measures the strength of a *monotonic* (not necessarily linear) relationship between two variables.
+    *   **Calculation**: Applied by calculating Pearson's formula on the *ranks* of the data.
+    *   **Statistical Inference**: Tests exist for both small samples (using permutations of ranks) and medium to large samples (using an approximate Normal distribution).
+
+*   **Kendall's Rank Correlation Coefficient (τ)**:
+    *   **Definition**: Another non-parametric measure of monotonic association, based on the number of concordant and discordant pairs in the data.
+    *   **Statistical Inference**: Similar to Spearman's, tests are available for small samples (permutations) and medium to large samples (using an approximate Normal distribution).
+
+#### 4. Principal Components Analysis (PCA)
+*   **Purpose**: PCA is a method for reducing the dimensionality of a complex dataset by identifying the key components necessary to model and understand the data.
+*   **Mechanism**: It creates uncorrelated linear combinations of the original variables, where these new components (principal components) maximise the variance explained.
+*   **Process**:
+    1.  Calculate the centred data.
+    2.  Obtain eigenvectors of the scaled covariance matrix, which represent the "rotation" of the data.
+    3.  Compute the principal components, which are the new uncorrelated variables.
+    4.  Evaluate the explanatory power (variance) of each component.
+    5.  Reduce the number of components by discarding those that explain less variance.
+    6.  Reconstruct the original data using the reduced set of components.
+*   **Component Selection Criteria**:
+    *   **Cumulative Variance Explained**: Retain components that collectively explain a target percentage (e.g., 90%) of the total variance.
+    *   **Scree Test**: Plot a scree diagram and keep components before the graph "levels off".
+    *   **Kaiser Criterion**: If data is scaled, keep components whose variance is greater than 1.
+
 ## `R` Practice {-#practice-exploratory-data-analysis}

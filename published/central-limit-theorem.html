@@ -4,23 +4,23 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 5 Central Limit Theorem | Actuarial Statistics</title>
-  <meta name="description" content="Actuarial statistics for actuaries providing R code examples." />
+  <title>Chapter 5 Central Limit Theorem | Actuarial Statistics (Priyam’s Fork)</title>
+  <meta name="description" content="A modified version of the book on actuarial statistics, with additional notes and examples." />
   <meta name="generator" content="bookdown 0.43 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 5 Central Limit Theorem | Actuarial Statistics" />
+  <meta property="og:title" content="Chapter 5 Central Limit Theorem | Actuarial Statistics (Priyam’s Fork)" />
   <meta property="og:type" content="book" />
   
-  <meta property="og:description" content="Actuarial statistics for actuaries providing R code examples." />
-  <meta name="github-repo" content="agarbiak/CS1" />
+  <meta property="og:description" content="A modified version of the book on actuarial statistics, with additional notes and examples." />
+  <meta name="github-repo" content="priyam0k/CS1" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 5 Central Limit Theorem | Actuarial Statistics" />
+  <meta name="twitter:title" content="Chapter 5 Central Limit Theorem | Actuarial Statistics (Priyam’s Fork)" />
   
-  <meta name="twitter:description" content="Actuarial statistics for actuaries providing R code examples." />
+  <meta name="twitter:description" content="A modified version of the book on actuarial statistics, with additional notes and examples." />
   
 
-<meta name="author" content="Alex Garbiak" />
+<meta name="author" content="Priyam" />
 
 
 
@@ -53,71 +53,6 @@
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
-<style type="text/css">
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { color: #008000; } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { color: #008000; font-weight: bold; } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-</style>
 
 <style type="text/css">
   
@@ -214,7 +149,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6" data-path="data-analysis.html"><a href="data-analysis.html"><i class="fa fa-check"></i><b>6</b> Data Analysis</a>
 <ul>
 <li class="chapter" data-level="" data-path="data-analysis.html"><a href="data-analysis.html#objectives-data-analysis"><i class="fa fa-check"></i>Learning Objectives</a></li>
-<li class="chapter" data-level="" data-path="data-analysis.html"><a href="data-analysis.html#theory-data-analysis"><i class="fa fa-check"></i>Theory</a></li>
+<li class="chapter" data-level="" data-path="data-analysis.html"><a href="data-analysis.html#theory-data-analysis"><i class="fa fa-check"></i>Theory</a>
+<ul>
+<li class="chapter" data-level="6.0.1" data-path="data-analysis.html"><a href="data-analysis.html#definition-and-purpose"><i class="fa fa-check"></i><b>6.0.1</b> 1. Definition and Purpose</a></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="data-analysis.html"><a href="data-analysis.html#practice-data-analysis"><i class="fa fa-check"></i><code>R</code> Practice</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html"><i class="fa fa-check"></i><b>7</b> Exploratory Data Analysis</a>
@@ -282,7 +220,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Actuarial Statistics</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Actuarial Statistics (Priyam’s Fork)</a>
           </h1>
         </div>
 
@@ -301,6 +239,45 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="theory-clt" class="section level2 unnumbered hasAnchor">
 <h2>Theory<a href="central-limit-theorem.html#theory-clt" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="statement-of-the-central-limit-theorem-clt-for-a-sequence-of-independent-identically-distributed-random-variables" class="section level4 hasAnchor" number="5.0.0.1">
+<h4><span class="header-section-number">5.0.0.1</span> 1. Statement of the Central Limit Theorem (CLT) for a sequence of independent, identically distributed random variables<a href="central-limit-theorem.html#statement-of-the-central-limit-theorem-clt-for-a-sequence-of-independent-identically-distributed-random-variables" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>The Central Limit Theorem (CLT) is a powerful statistical theorem that describes the shape of the sampling distribution of the sample mean (or sum) from <em>any</em> population, provided the sample size is sufficiently large.</p>
+<ul>
+<li><strong>For the Sample Mean (X̄)</strong>:
+<ul>
+<li>If you draw a random sample of size <em>n</em> from <em>any</em> population with a finite mean (μ) and finite variance (σ²), then the distribution of the sample mean (X̄) will <em>approximately</em> follow a Normal distribution for large <em>n</em>.</li>
+<li>Specifically, the standardised sample mean, given by <code>(X̄ - μ) / (σ/√n)</code>, approaches a standard normal distribution, N(0,1), as <em>n</em> tends to infinity.</li>
+<li>This implies that for a sufficiently large <em>n</em>, <code>X̄ ≈ N(μ, σ²/n)</code>.</li>
+<li><strong>Crucial Note</strong>: This approximation becomes <em>exact</em> for any sample size <em>n</em> if the parent population itself is already normally distributed.</li>
+</ul></li>
+<li><strong>For the Sum of Sample Values (ΣXᵢ)</strong>:
+<ul>
+<li>Similarly, for the sum of <em>n</em> independent and identically distributed (IID) random variables (ΣXᵢ) from a population with mean (μ) and variance (σ²), the distribution of this sum will <em>approximately</em> follow a Normal distribution for large <em>n</em>.</li>
+<li>The standardised sum, given by <code>(ΣXᵢ - nμ) / (σ√n)</code>, approaches a standard normal distribution, N(0,1), as <em>n</em> tends to infinity.</li>
+<li>This means that for large enough <em>n</em>, <code>ΣXᵢ ≈ N(nμ, nσ²)</code>, which is exactly true if the original population is normal.</li>
+</ul></li>
+<li><strong>Factor to Consider</strong>: The “degree of skewness” of the underlying population is a key factor in determining the minimum sample size needed for the CLT to provide a reasonable approximation.</li>
+</ul>
+</div>
+<div id="generating-simulated-samples-and-comparing-with-the-normal-distribution" class="section level4 hasAnchor" number="5.0.0.2">
+<h4><span class="header-section-number">5.0.0.2</span> 2. Generating Simulated Samples and Comparing with the Normal Distribution<a href="central-limit-theorem.html#generating-simulated-samples-and-comparing-with-the-normal-distribution" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>While specific R code for visual comparison isn’t extensively detailed across all provided sources for this exact learning objective, the principle is a critical part of understanding the CLT.</p>
+<ul>
+<li><strong>Simulation Process</strong>:
+<ol style="list-style-type: decimal">
+<li>Choose a non-normal distribution (e.g., Exponential, Poisson, etc.) with known parameters.</li>
+<li>Repeatedly draw a large number (e.g., 1,000 or 10,000) of random samples of a specific size (<em>n</em>) from this chosen distribution. You can use R functions like <code>rpois()</code>, <code>rexp()</code>, etc., for this.</li>
+<li>For each of these samples, calculate the sample mean (or sum). This collection of sample means forms your empirical “sampling distribution”.</li>
+</ol></li>
+<li><strong>Comparison with the Normal Distribution</strong>:
+<ol style="list-style-type: decimal">
+<li>Plot a histogram of your empirically generated sampling distribution (of sample means).</li>
+<li>Calculate the theoretical mean (μ) and variance (σ²/n) for the Normal distribution that the CLT predicts for your sample means.</li>
+<li>Overlay the probability density function (PDF) of this theoretical Normal distribution onto the histogram of your simulated sample means.</li>
+<li>Observe that as the sample size (<em>n</em>) used in each simulation increases, the histogram of the sampling distribution will increasingly resemble the bell-shaped, symmetrical Normal distribution, regardless of the initial non-normal shape of the parent population. This visual demonstration powerfully illustrates the CLT in action.</li>
+</ol></li>
+</ul>
+</div>
 </div>
 <div id="practice-clt" class="section level2 unnumbered hasAnchor">
 <h2><code>R</code> Practice<a href="central-limit-theorem.html#practice-clt" class="anchor-section" aria-label="Anchor link to header"></a></h2>

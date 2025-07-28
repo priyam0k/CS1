@@ -10,7 +10,7 @@ biblio-style: apalike
 link-citations: yes
 github-repo: priyam0k/CS1
 description: "A modified version of the book on actuarial statistics, with additional notes and examples."
-favicon: img/fav.png
+favicon: img/favicon.ico
 ---
 
 # Introduction {-}

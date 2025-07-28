@@ -7,4 +7,36 @@
 
 ## Theory {-#theory-clt}
 
+#### 1. Statement of the Central Limit Theorem (CLT) for a sequence of independent, identically distributed random variables
+
+The Central Limit Theorem (CLT) is a powerful statistical theorem that describes the shape of the sampling distribution of the sample mean (or sum) from *any* population, provided the sample size is sufficiently large.
+
+*   **For the Sample Mean (X̄)**:
+    *   If you draw a random sample of size *n* from *any* population with a finite mean (μ) and finite variance (σ²), then the distribution of the sample mean (X̄) will *approximately* follow a Normal distribution for large *n*.
+    *   Specifically, the standardised sample mean, given by `(X̄ - μ) / (σ/√n)`, approaches a standard normal distribution, N(0,1), as *n* tends to infinity.
+    *   This implies that for a sufficiently large *n*, `X̄ ≈ N(μ, σ²/n)`.
+    *   **Crucial Note**: This approximation becomes *exact* for any sample size *n* if the parent population itself is already normally distributed.
+
+*   **For the Sum of Sample Values (ΣXᵢ)**:
+    *   Similarly, for the sum of *n* independent and identically distributed (IID) random variables (ΣXᵢ) from a population with mean (μ) and variance (σ²), the distribution of this sum will *approximately* follow a Normal distribution for large *n*.
+    *   The standardised sum, given by `(ΣXᵢ - nμ) / (σ√n)`, approaches a standard normal distribution, N(0,1), as *n* tends to infinity.
+    *   This means that for large enough *n*, `ΣXᵢ ≈ N(nμ, nσ²)`, which is exactly true if the original population is normal.
+
+*   **Factor to Consider**: The "degree of skewness" of the underlying population is a key factor in determining the minimum sample size needed for the CLT to provide a reasonable approximation.
+
+#### 2. Generating Simulated Samples and Comparing with the Normal Distribution
+
+While specific R code for visual comparison isn't extensively detailed across all provided sources for this exact learning objective, the principle is a critical part of understanding the CLT.
+
+*   **Simulation Process**:
+    1.  Choose a non-normal distribution (e.g., Exponential, Poisson, etc.) with known parameters.
+    2.  Repeatedly draw a large number (e.g., 1,000 or 10,000) of random samples of a specific size (*n*) from this chosen distribution. You can use R functions like `rpois()`, `rexp()`, etc., for this.
+    3.  For each of these samples, calculate the sample mean (or sum). This collection of sample means forms your empirical "sampling distribution".
+
+*   **Comparison with the Normal Distribution**:
+    1.  Plot a histogram of your empirically generated sampling distribution (of sample means).
+    2.  Calculate the theoretical mean (μ) and variance (σ²/n) for the Normal distribution that the CLT predicts for your sample means.
+    3.  Overlay the probability density function (PDF) of this theoretical Normal distribution onto the histogram of your simulated sample means.
+    4.  Observe that as the sample size (*n*) used in each simulation increases, the histogram of the sampling distribution will increasingly resemble the bell-shaped, symmetrical Normal distribution, regardless of the initial non-normal shape of the parent population. This visual demonstration powerfully illustrates the CLT in action.
+
 ## `R` Practice {-#practice-clt}

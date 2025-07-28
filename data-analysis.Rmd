@@ -9,4 +9,71 @@
 
 ## Theory {-#theory-data-analysis}
 
+### 1. Definition and Purpose
+*   **Data analysis** is the process of gathering raw data and then analysing or processing it into information that can be used for specific purposes.
+*   The overall basis of this course involves dealing with data, such as claim types and amounts, and summarising and analysing them to construct statistical models for predictions.
+
+#### 2. Key Forms of Data Analysis
+Data analysis primarily takes three forms:
+*   **Descriptive Analysis**: Involves summarising data into a simpler, more easily understood format using summary statistics (e.g., measures of central tendency like mean, median, mode; and measures of dispersion like standard deviation, interquartile range, skewness) and graphical displays. It aims to describe the data presented, not to draw specific conclusions.
+*   **Inferential Analysis**: Draws conclusions about a population based on data gathered from a sample. It involves estimating population parameters and testing hypotheses, often assuming large, randomly selected samples accurately represent the wider population.
+*   **Predictive Analysis**: Extends inferential analysis principles to analyse past data and make predictions about future events. This often involves using a "training set" to identify relationships and a "test set" to assess their strength, with regression analysis being a typical example.
+
+#### 3. The Data Analysis Process
+The key steps in a data analysis process are sequential and systematic:
+1.  **Develop clear objectives** for the analysis.
+2.  **Identify required data items**.
+3.  **Collect data from appropriate sources**.
+4.  **Process and format data** (e.g., inputting into spreadsheets or databases).
+5.  **Clean data** by addressing unusual, missing, or inconsistent values.
+6.  **Conduct exploratory data analysis** (which may include descriptive, inferential, or predictive analysis).
+7.  **Model the data**.
+8.  **Communicate the results**.
+9.  **Monitor the process** by updating data and repeating analysis if necessary.
+
+#### 4. Types of Data
+Data can be categorised to define how it should be summarised and analysed:
+*   **Numerical (Quantitative) Data**: Consists of numbers or quantities.
+    *   **Discrete Data**: Can only take particular whole values (e.g., number of claims). Typically obtained by counting.
+    *   **Continuous Data**: Can take any value within a specified range (e.g., claim amount, time). Typically obtained by measuring and often rounded.
+*   **Categorical (Qualitative) Data**: Consists of non-numerical information.
+    *   **Attribute (Dichotomous) Data**: Has only two categories (e.g., claim/no claim).
+    *   **Nominal Data**: Cannot be ordered in any way (e.g., hair colour, policy type).
+    *   **Ordinal Data**: Can be ordered (e.g., tidiness ratings, agreement levels).
+
+#### 5. Summarising Data
+*   **In Tables**:
+    *   **Frequency Distributions**: Show how frequencies are shared amongst data values. Suitable for categorical or discrete numerical data.
+    *   **Grouped Frequency Distributions**: Organise data into classes or groups, suitable for continuous data where values are spread out.
+    *   **Cumulative Frequency Tables**: Accumulate (add up) frequencies, useful for finding positions of data values like the median.
+*   **In Diagrams**:
+    *   **Bar Charts**: Used for discrete or categorical data, displaying frequency with bars that have gaps between them.
+    *   **Histograms**: Used for continuous data, similar to bar charts but with a continuous x-axis and no gaps between bars. The *area* of each bar represents the frequency, requiring calculation of **frequency density** (frequency / class width) for bar height.
+    *   **Stem and Leaf Diagrams**: Split each data value into a "stem" (e.g., tens) and a "leaf" (e.g., units). Useful for showing data distribution and finding quartiles.
+    *   **Cumulative Frequency Graphs**: Plot the cumulative frequency against the upper class boundary of each group, useful for estimating percentiles.
+    *   **Boxplots (Box and Whisker Plots)**: Display the lowest value, highest value, median, lower quartile (Q1), and upper quartile (Q3). They effectively show the middle 50% of data and are useful for comparing data sets.
+
+#### 6. Comparing Data Sets
+When comparing data sets, focus on three key features:
+*   **Location**: Where the data is centred or grouped (e.g., using mean, median, mode).
+*   **Spread**: How spread out or variable the values are (e.g., using range, interquartile range, standard deviation).
+*   **Skewness (Shape)**: The asymmetry of the distribution (positively skewed, symmetrical, or negatively skewed).
+
+#### 7. Data Management Principles
+*   **Data Sources**: **Primary source** is the original population or sample. A **secondary source** makes this collected information available for others.
+*   **Data Characteristics**:
+    *   **Censored Data**: The value of a variable is only partially known (e.g., a lower bound in survival studies).
+    *   **Truncated Data**: Measurements are completely unknown as they were not recorded.
+    *   **Big Data**: Characterised by:
+        *   **Volume**: Size of the data set.
+        *   **Velocity**: Speed of data arrival and processing.
+        *   **Variety**: Data from many different sources and formats.
+        *   **Veracity/Reliability**: Difficulty in ascertaining reliability of individual data elements.
+
+#### 8. Reproducibility
+*   **Replication** refers to an independent third party repeating an experiment and obtaining consistent results. It can be difficult if studies are large, rely on expensive data, or involve unique occurrences.
+*   **Reproducibility** refers to ensuring an analysis can be precisely re-run, yielding the same results. This is often taken as a reasonable alternative standard to replication.
+*   **Elements required for reproducibility** include original data, fully documented computer code, good version control, details of the software environment, and setting random seeds where randomness is involved.
+*   **Value of Reproducibility**: Essential for technical review, regulatory compliance, extending research, comparison, and error reduction in actuarial analysis.
+
 ## `R` Practice {-#practice-data-analysis}
