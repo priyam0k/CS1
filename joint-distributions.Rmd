@@ -70,4 +70,5 @@ Understanding the distribution of sums or linear combinations of random variable
 
 ### 6. Practical Applications
 The principles of joint distributions are applied in various problem types within the CS1 curriculum, including calculations of probabilities, means, variances, covariances, and correlations for discrete and continuous scenarios. They are foundational for understanding concepts in later chapters, such as conditional expectation and the Central Limit Theorem.
+
 ## `R` Practice {-#practice-joint-distributions}
