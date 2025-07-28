@@ -10,5 +10,64 @@
 6. Derive the mean and variance of linear combinations of random variables.
 
 ## Theory {-#theory-joint-distributions}
+Joint distributions are a fundamental concept in actuarial statistics, extending the study of single random variables to situations involving two or more random variables simultaneously. This area of study is covered in **Chapter 4** of the CS1 course materials.
 
+Here's a summary of key aspects related to joint distributions:
+
+### 1. Definition and Representation
+A joint distribution describes the probability of two or more random variables taking on specific values or falling within certain ranges.
+
+*   **Joint Probability Function (Discrete)**: For discrete random variables **X** and **Y**, the joint probability function, `P(X = x, Y = y)`, must satisfy two conditions:
+    *   `P(X = x, Y = y) ≥ 0` for all possible values of `x` and `y`.
+    *   `Σx Σy P(X = x, Y = y) = 1` over all possible pairs of `x` and `y`.
+*   **Joint Probability Density Function (Continuous)**: For continuous random variables **X** and **Y**, the joint probability density function, `f(x, y)`, must satisfy:
+    *   `f(x, y) ≥ 0` for all `x` and `y`.
+    *   `∫∫ f(x, y) dy dx = 1` over the entire range of `X` and `Y`.
+    This function can be used to calculate probabilities over a specified area, `P(x1 < X < x2, y1 < Y < y2) = ∫(x1 to x2) ∫(y1 to y2) f(x, y) dy dx`.
+
+### 2. Marginal and Conditional Distributions
+From a joint distribution, you can derive marginal distributions (for individual variables) and conditional distributions (for one variable given the value of another).
+
+*   **Marginal Probability (Density) Functions**: These functions describe the probability distribution of each random variable independently, derived by summing or integrating the joint function over the other variable's entire range:
+    *   For **discrete** variables: `P(X = x) = Σy P(X = x, Y = y)`.
+    *   For **continuous** variables: `fX(x) = ∫ f(x, y) dy` and `fY(y) = ∫ f(x, y) dx`.
+*   **Conditional Probability (Density) Functions**: These functions describe the distribution of one variable given that the other variable has taken a specific value:
+    *   `P(X = x | Y = y) = P(X = x, Y = y) / P(Y = y)` (for discrete cases).
+    *   `fX|Y(x | y) = f(x, y) / fY(y)` (for continuous cases).
+
+### 3. Independence of Random Variables
+Two random variables, **X** and **Y**, are considered **independent** if the joint probability (density) function can be expressed as the product of their marginal probability (density) functions:
+*   `P(X = x, Y = y) = P(X = x) P(Y = y)` (discrete).
+*   `f(x, y) = fX(x) fY(y)` (continuous).
+If variables are independent, information about one does not change the probability distribution of the other.
+
+### 4. Expectation, Covariance, and Correlation
+These measures quantify aspects of the joint behaviour of random variables.
+
+*   **Expectation of a Function**: The expected value of a function `g(X, Y)` of two random variables is calculated by summing/integrating `g(x, y)` multiplied by the joint probability (density) function:
+    *   `E[g(X, Y)] = Σx Σy g(x, y) P(X = x, Y = y)` (discrete).
+    *   `E[g(X, Y)] = ∫∫ g(x, y) f(x, y) dy dx` (continuous).
+*   **Covariance (`cov[X, Y]`)**: This measures the linear relationship between two random variables.
+    *   `cov[X, Y] = E[(X - E[X])(Y - E[Y])] = E[XY] - E[X]E[Y]`.
+    *   If **X** and **Y** are independent, their covariance is zero.
+*   **Correlation Coefficient (`ρ` or `corr(X, Y)`)**: Pearson's linear correlation coefficient is a dimensionless measure of the strength and direction of a linear relationship.
+    *   `corr(X, Y) = cov[X, Y] / (sqrt(var[X] var[Y]))`.
+    *   The value of `corr(X, Y)` ranges from **-1 to +1**. A value of 1 or -1 indicates a perfect linear relationship, while 0 indicates no linear relationship.
+
+### 5. Linear Combinations and Sums of Random Variables
+Understanding the distribution of sums or linear combinations of random variables is crucial in actuarial science.
+
+*   **Mean of Linear Combinations**: The expectation of a sum or linear combination is the sum of the expectations of individual terms:
+    *   `E[c1X1 + ... + cnXn] = c1E[X1] + ... + cnE[Xn]`.
+*   **Variance of Linear Combinations**: The variance of a sum includes covariance terms:
+    *   `var[c1X1 + ... + cnXn] = Σ(i=1 to n) c_i^2 var[Xi] + 2 Σ(i<j) ci cj cov[Xi, Xj]`.
+    *   If the random variables are **uncorrelated** (or independent), the covariance terms are zero, simplifying the formula to `var[Σ c_i X_i] = Σ c_i^2 var[X_i]`.
+*   **Moment Generating Functions (MGFs) for Sums**: MGFs are powerful tools for determining the distribution of sums of independent random variables.
+    *   If `Y = X1 + ... + Xn` and `X1, ..., Xn` are independent, `MY(t) = MX1(t) * ... * MXn(t)`.
+    *   If they are also **identically distributed** (IID), `MY(t) = [MX(t)]^n`.
+    *   Examples include the sum of independent Poisson variables being Poisson, and the sum of independent Exponential variables being Gamma.
+*   **Convolutions**: These are used to find the probability function or density function of a sum of independent random variables.
+
+### 6. Practical Applications
+The principles of joint distributions are applied in various problem types within the CS1 curriculum, including calculations of probabilities, means, variances, covariances, and correlations for discrete and continuous scenarios. They are foundational for understanding concepts in later chapters, such as conditional expectation and the Central Limit Theorem.
 ## `R` Practice {-#practice-joint-distributions}
