@@ -4,23 +4,23 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 6 Data Analysis | Actuarial Statistics</title>
-  <meta name="description" content="Actuarial statistics for actuaries providing R code examples." />
+  <title>Chapter 6 Data Analysis | Actuarial Statistics (Priyam’s Fork)</title>
+  <meta name="description" content="A modified version of the book on actuarial statistics, with additional notes and examples." />
   <meta name="generator" content="bookdown 0.43 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 6 Data Analysis | Actuarial Statistics" />
+  <meta property="og:title" content="Chapter 6 Data Analysis | Actuarial Statistics (Priyam’s Fork)" />
   <meta property="og:type" content="book" />
   
-  <meta property="og:description" content="Actuarial statistics for actuaries providing R code examples." />
-  <meta name="github-repo" content="agarbiak/CS1" />
+  <meta property="og:description" content="A modified version of the book on actuarial statistics, with additional notes and examples." />
+  <meta name="github-repo" content="priyam0k/CS1" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 6 Data Analysis | Actuarial Statistics" />
+  <meta name="twitter:title" content="Chapter 6 Data Analysis | Actuarial Statistics (Priyam’s Fork)" />
   
-  <meta name="twitter:description" content="Actuarial statistics for actuaries providing R code examples." />
+  <meta name="twitter:description" content="A modified version of the book on actuarial statistics, with additional notes and examples." />
   
 
-<meta name="author" content="Alex Garbiak" />
+<meta name="author" content="Priyam" />
 
 
 
@@ -53,71 +53,6 @@
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
-<style type="text/css">
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { color: #008000; } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { color: #008000; font-weight: bold; } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-</style>
 
 <style type="text/css">
   
@@ -214,7 +149,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6" data-path="data-analysis.html"><a href="data-analysis.html"><i class="fa fa-check"></i><b>6</b> Data Analysis</a>
 <ul>
 <li class="chapter" data-level="" data-path="data-analysis.html"><a href="data-analysis.html#objectives-data-analysis"><i class="fa fa-check"></i>Learning Objectives</a></li>
-<li class="chapter" data-level="" data-path="data-analysis.html"><a href="data-analysis.html#theory-data-analysis"><i class="fa fa-check"></i>Theory</a></li>
+<li class="chapter" data-level="" data-path="data-analysis.html"><a href="data-analysis.html#theory-data-analysis"><i class="fa fa-check"></i>Theory</a>
+<ul>
+<li class="chapter" data-level="6.0.1" data-path="data-analysis.html"><a href="data-analysis.html#definition-and-purpose"><i class="fa fa-check"></i><b>6.0.1</b> 1. Definition and Purpose</a></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="data-analysis.html"><a href="data-analysis.html#practice-data-analysis"><i class="fa fa-check"></i><code>R</code> Practice</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html"><i class="fa fa-check"></i><b>7</b> Exploratory Data Analysis</a>
@@ -282,7 +220,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Actuarial Statistics</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Actuarial Statistics (Priyam’s Fork)</a>
           </h1>
         </div>
 
@@ -303,6 +241,97 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="theory-data-analysis" class="section level2 unnumbered hasAnchor">
 <h2>Theory<a href="data-analysis.html#theory-data-analysis" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="definition-and-purpose" class="section level3 hasAnchor" number="6.0.1">
+<h3><span class="header-section-number">6.0.1</span> 1. Definition and Purpose<a href="data-analysis.html#definition-and-purpose" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li><strong>Data analysis</strong> is the process of gathering raw data and then analysing or processing it into information that can be used for specific purposes.</li>
+<li>The overall basis of this course involves dealing with data, such as claim types and amounts, and summarising and analysing them to construct statistical models for predictions.</li>
+</ul>
+<div id="key-forms-of-data-analysis" class="section level4 hasAnchor" number="6.0.1.1">
+<h4><span class="header-section-number">6.0.1.1</span> 2. Key Forms of Data Analysis<a href="data-analysis.html#key-forms-of-data-analysis" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Data analysis primarily takes three forms:
+* <strong>Descriptive Analysis</strong>: Involves summarising data into a simpler, more easily understood format using summary statistics (e.g., measures of central tendency like mean, median, mode; and measures of dispersion like standard deviation, interquartile range, skewness) and graphical displays. It aims to describe the data presented, not to draw specific conclusions.
+* <strong>Inferential Analysis</strong>: Draws conclusions about a population based on data gathered from a sample. It involves estimating population parameters and testing hypotheses, often assuming large, randomly selected samples accurately represent the wider population.
+* <strong>Predictive Analysis</strong>: Extends inferential analysis principles to analyse past data and make predictions about future events. This often involves using a “training set” to identify relationships and a “test set” to assess their strength, with regression analysis being a typical example.</p>
+</div>
+<div id="the-data-analysis-process" class="section level4 hasAnchor" number="6.0.1.2">
+<h4><span class="header-section-number">6.0.1.2</span> 3. The Data Analysis Process<a href="data-analysis.html#the-data-analysis-process" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>The key steps in a data analysis process are sequential and systematic:
+1. <strong>Develop clear objectives</strong> for the analysis.
+2. <strong>Identify required data items</strong>.
+3. <strong>Collect data from appropriate sources</strong>.
+4. <strong>Process and format data</strong> (e.g., inputting into spreadsheets or databases).
+5. <strong>Clean data</strong> by addressing unusual, missing, or inconsistent values.
+6. <strong>Conduct exploratory data analysis</strong> (which may include descriptive, inferential, or predictive analysis).
+7. <strong>Model the data</strong>.
+8. <strong>Communicate the results</strong>.
+9. <strong>Monitor the process</strong> by updating data and repeating analysis if necessary.</p>
+</div>
+<div id="types-of-data" class="section level4 hasAnchor" number="6.0.1.3">
+<h4><span class="header-section-number">6.0.1.3</span> 4. Types of Data<a href="data-analysis.html#types-of-data" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Data can be categorised to define how it should be summarised and analysed:
+* <strong>Numerical (Quantitative) Data</strong>: Consists of numbers or quantities.
+* <strong>Discrete Data</strong>: Can only take particular whole values (e.g., number of claims). Typically obtained by counting.
+* <strong>Continuous Data</strong>: Can take any value within a specified range (e.g., claim amount, time). Typically obtained by measuring and often rounded.
+* <strong>Categorical (Qualitative) Data</strong>: Consists of non-numerical information.
+* <strong>Attribute (Dichotomous) Data</strong>: Has only two categories (e.g., claim/no claim).
+* <strong>Nominal Data</strong>: Cannot be ordered in any way (e.g., hair colour, policy type).
+* <strong>Ordinal Data</strong>: Can be ordered (e.g., tidiness ratings, agreement levels).</p>
+</div>
+<div id="summarising-data" class="section level4 hasAnchor" number="6.0.1.4">
+<h4><span class="header-section-number">6.0.1.4</span> 5. Summarising Data<a href="data-analysis.html#summarising-data" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<ul>
+<li><strong>In Tables</strong>:
+<ul>
+<li><strong>Frequency Distributions</strong>: Show how frequencies are shared amongst data values. Suitable for categorical or discrete numerical data.</li>
+<li><strong>Grouped Frequency Distributions</strong>: Organise data into classes or groups, suitable for continuous data where values are spread out.</li>
+<li><strong>Cumulative Frequency Tables</strong>: Accumulate (add up) frequencies, useful for finding positions of data values like the median.</li>
+</ul></li>
+<li><strong>In Diagrams</strong>:
+<ul>
+<li><strong>Bar Charts</strong>: Used for discrete or categorical data, displaying frequency with bars that have gaps between them.</li>
+<li><strong>Histograms</strong>: Used for continuous data, similar to bar charts but with a continuous x-axis and no gaps between bars. The <em>area</em> of each bar represents the frequency, requiring calculation of <strong>frequency density</strong> (frequency / class width) for bar height.</li>
+<li><strong>Stem and Leaf Diagrams</strong>: Split each data value into a “stem” (e.g., tens) and a “leaf” (e.g., units). Useful for showing data distribution and finding quartiles.</li>
+<li><strong>Cumulative Frequency Graphs</strong>: Plot the cumulative frequency against the upper class boundary of each group, useful for estimating percentiles.</li>
+<li><strong>Boxplots (Box and Whisker Plots)</strong>: Display the lowest value, highest value, median, lower quartile (Q1), and upper quartile (Q3). They effectively show the middle 50% of data and are useful for comparing data sets.</li>
+</ul></li>
+</ul>
+</div>
+<div id="comparing-data-sets" class="section level4 hasAnchor" number="6.0.1.5">
+<h4><span class="header-section-number">6.0.1.5</span> 6. Comparing Data Sets<a href="data-analysis.html#comparing-data-sets" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>When comparing data sets, focus on three key features:
+* <strong>Location</strong>: Where the data is centred or grouped (e.g., using mean, median, mode).
+* <strong>Spread</strong>: How spread out or variable the values are (e.g., using range, interquartile range, standard deviation).
+* <strong>Skewness (Shape)</strong>: The asymmetry of the distribution (positively skewed, symmetrical, or negatively skewed).</p>
+</div>
+<div id="data-management-principles" class="section level4 hasAnchor" number="6.0.1.6">
+<h4><span class="header-section-number">6.0.1.6</span> 7. Data Management Principles<a href="data-analysis.html#data-management-principles" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<ul>
+<li><strong>Data Sources</strong>: <strong>Primary source</strong> is the original population or sample. A <strong>secondary source</strong> makes this collected information available for others.</li>
+<li><strong>Data Characteristics</strong>:
+<ul>
+<li><strong>Censored Data</strong>: The value of a variable is only partially known (e.g., a lower bound in survival studies).</li>
+<li><strong>Truncated Data</strong>: Measurements are completely unknown as they were not recorded.</li>
+<li><strong>Big Data</strong>: Characterised by:
+<ul>
+<li><strong>Volume</strong>: Size of the data set.</li>
+<li><strong>Velocity</strong>: Speed of data arrival and processing.</li>
+<li><strong>Variety</strong>: Data from many different sources and formats.</li>
+<li><strong>Veracity/Reliability</strong>: Difficulty in ascertaining reliability of individual data elements.</li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+<div id="reproducibility" class="section level4 hasAnchor" number="6.0.1.7">
+<h4><span class="header-section-number">6.0.1.7</span> 8. Reproducibility<a href="data-analysis.html#reproducibility" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<ul>
+<li><strong>Replication</strong> refers to an independent third party repeating an experiment and obtaining consistent results. It can be difficult if studies are large, rely on expensive data, or involve unique occurrences.</li>
+<li><strong>Reproducibility</strong> refers to ensuring an analysis can be precisely re-run, yielding the same results. This is often taken as a reasonable alternative standard to replication.</li>
+<li><strong>Elements required for reproducibility</strong> include original data, fully documented computer code, good version control, details of the software environment, and setting random seeds where randomness is involved.</li>
+<li><strong>Value of Reproducibility</strong>: Essential for technical review, regulatory compliance, extending research, comparison, and error reduction in actuarial analysis.</li>
+</ul>
+</div>
+</div>
 </div>
 <div id="practice-data-analysis" class="section level2 unnumbered hasAnchor">
 <h2><code>R</code> Practice<a href="data-analysis.html#practice-data-analysis" class="anchor-section" aria-label="Anchor link to header"></a></h2>
