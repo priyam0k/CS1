@@ -1,0 +1,1044 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 2 Discrete Probability Distributions | Actuarial Statistics</title>
+  <meta name="description" content="Actuarial statistics for actuaries providing R code examples." />
+  <meta name="generator" content="bookdown 0.43 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 2 Discrete Probability Distributions | Actuarial Statistics" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="Actuarial statistics for actuaries providing R code examples." />
+  <meta name="github-repo" content="agarbiak/CS1" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 2 Discrete Probability Distributions | Actuarial Statistics" />
+  
+  <meta name="twitter:description" content="Actuarial statistics for actuaries providing R code examples." />
+  
+
+<meta name="author" content="Alex Garbiak" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
+<link rel="prev" href="r-setup.html"/>
+<link rel="next" href="continuous-probability-distributions.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Actuarial Statistics</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introduction</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#motivation"><i class="fa fa-check"></i>Motivation</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="r-setup.html"><a href="r-setup.html"><i class="fa fa-check"></i><b>1</b> R Setup</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="r-setup.html"><a href="r-setup.html#preparing-your-environment-for-r"><i class="fa fa-check"></i><b>1.1</b> Preparing your environment for <code>R</code></a></li>
+<li class="chapter" data-level="1.2" data-path="r-setup.html"><a href="r-setup.html#basic-interations-with-r"><i class="fa fa-check"></i><b>1.2</b> Basic interations with <code>R</code></a></li>
+<li class="chapter" data-level="1.3" data-path="r-setup.html"><a href="r-setup.html#functions-in-r"><i class="fa fa-check"></i><b>1.3</b> Functions in <code>R</code></a></li>
+<li class="chapter" data-level="1.4" data-path="r-setup.html"><a href="r-setup.html#data-structures-in-r"><i class="fa fa-check"></i><b>1.4</b> Data structures in <code>R</code></a>
+<ul>
+<li class="chapter" data-level="" data-path="r-setup.html"><a href="r-setup.html#matrices"><i class="fa fa-check"></i>Matrices</a></li>
+<li class="chapter" data-level="" data-path="r-setup.html"><a href="r-setup.html#dataframes"><i class="fa fa-check"></i>Dataframes</a></li>
+<li class="chapter" data-level="" data-path="r-setup.html"><a href="r-setup.html#lists"><i class="fa fa-check"></i>Lists</a></li>
+</ul></li>
+<li class="chapter" data-level="1.5" data-path="r-setup.html"><a href="r-setup.html#logical-expressions-in-r"><i class="fa fa-check"></i><b>1.5</b> Logical expressions in <code>R</code></a></li>
+<li class="chapter" data-level="1.6" data-path="r-setup.html"><a href="r-setup.html#extending-r-with-packages"><i class="fa fa-check"></i><b>1.6</b> Extending <code>R</code> with packages</a></li>
+<li class="chapter" data-level="1.7" data-path="r-setup.html"><a href="r-setup.html#importing-data"><i class="fa fa-check"></i><b>1.7</b> Importing data</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="discrete-probability-distributions.html"><a href="discrete-probability-distributions.html"><i class="fa fa-check"></i><b>2</b> Discrete Probability Distributions</a>
+<ul>
+<li class="chapter" data-level="" data-path="discrete-probability-distributions.html"><a href="discrete-probability-distributions.html#objectives-discrete-distributions"><i class="fa fa-check"></i>Learning Objectives</a></li>
+<li class="chapter" data-level="" data-path="discrete-probability-distributions.html"><a href="discrete-probability-distributions.html#theory-discrete-distributions"><i class="fa fa-check"></i>Theory</a></li>
+<li class="chapter" data-level="2.1" data-path="discrete-probability-distributions.html"><a href="discrete-probability-distributions.html#in-built-probability-distributions"><i class="fa fa-check"></i><b>2.1</b> In-built probability distributions</a></li>
+<li class="chapter" data-level="" data-path="discrete-probability-distributions.html"><a href="discrete-probability-distributions.html#discrete-probability-distributions-covered"><i class="fa fa-check"></i>Discrete probability distributions covered</a></li>
+<li class="chapter" data-level="2.2" data-path="discrete-probability-distributions.html"><a href="discrete-probability-distributions.html#geometric-distribution"><i class="fa fa-check"></i><b>2.2</b> Geometric distribution</a></li>
+<li class="chapter" data-level="2.3" data-path="discrete-probability-distributions.html"><a href="discrete-probability-distributions.html#binomial-distribution"><i class="fa fa-check"></i><b>2.3</b> Binomial distribution</a></li>
+<li class="chapter" data-level="2.4" data-path="discrete-probability-distributions.html"><a href="discrete-probability-distributions.html#negative-binomial-distribution"><i class="fa fa-check"></i><b>2.4</b> Negative binomial distribution</a></li>
+<li class="chapter" data-level="2.5" data-path="discrete-probability-distributions.html"><a href="discrete-probability-distributions.html#hypergeometric-distribution"><i class="fa fa-check"></i><b>2.5</b> Hypergeometric distribution</a></li>
+<li class="chapter" data-level="2.6" data-path="discrete-probability-distributions.html"><a href="discrete-probability-distributions.html#poisson-distribution"><i class="fa fa-check"></i><b>2.6</b> Poisson distribution</a></li>
+<li class="chapter" data-level="2.7" data-path="discrete-probability-distributions.html"><a href="discrete-probability-distributions.html#discrete-uniform"><i class="fa fa-check"></i><b>2.7</b> Uniform distribution</a></li>
+<li class="chapter" data-level="" data-path="discrete-probability-distributions.html"><a href="discrete-probability-distributions.html#practice-discrete-distributions"><i class="fa fa-check"></i><code>R</code> Practice</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="continuous-probability-distributions.html"><a href="continuous-probability-distributions.html"><i class="fa fa-check"></i><b>3</b> Continuous Probability Distributions</a>
+<ul>
+<li class="chapter" data-level="" data-path="continuous-probability-distributions.html"><a href="continuous-probability-distributions.html#objectives-continuous-distributions"><i class="fa fa-check"></i>Learning Objectives</a></li>
+<li class="chapter" data-level="" data-path="continuous-probability-distributions.html"><a href="continuous-probability-distributions.html#theory-continuous-distributions"><i class="fa fa-check"></i>Theory</a></li>
+<li class="chapter" data-level="3.1" data-path="continuous-probability-distributions.html"><a href="continuous-probability-distributions.html#in-built-probability-distributions-1"><i class="fa fa-check"></i><b>3.1</b> In-built probability distributions</a></li>
+<li class="chapter" data-level="" data-path="continuous-probability-distributions.html"><a href="continuous-probability-distributions.html#continuous-probability-distributions-covered"><i class="fa fa-check"></i>Continuous probability distributions covered</a></li>
+<li class="chapter" data-level="3.2" data-path="continuous-probability-distributions.html"><a href="continuous-probability-distributions.html#normal-distribution"><i class="fa fa-check"></i><b>3.2</b> Normal distribution</a></li>
+<li class="chapter" data-level="3.3" data-path="continuous-probability-distributions.html"><a href="continuous-probability-distributions.html#lognormal-distribution"><i class="fa fa-check"></i><b>3.3</b> Lognormal distribution</a></li>
+<li class="chapter" data-level="3.4" data-path="continuous-probability-distributions.html"><a href="continuous-probability-distributions.html#exponential-distribution"><i class="fa fa-check"></i><b>3.4</b> Exponential distribution</a></li>
+<li class="chapter" data-level="3.5" data-path="continuous-probability-distributions.html"><a href="continuous-probability-distributions.html#gamma-distribution"><i class="fa fa-check"></i><b>3.5</b> Gamma distribution</a></li>
+<li class="chapter" data-level="3.6" data-path="continuous-probability-distributions.html"><a href="continuous-probability-distributions.html#chi2-distribution"><i class="fa fa-check"></i><b>3.6</b> <span class="math inline">\(\chi^2\)</span> distribution</a></li>
+<li class="chapter" data-level="3.7" data-path="continuous-probability-distributions.html"><a href="continuous-probability-distributions.html#students-t-distribution"><i class="fa fa-check"></i><b>3.7</b> Student’s <span class="math inline">\(t\)</span> distribution</a></li>
+<li class="chapter" data-level="3.8" data-path="continuous-probability-distributions.html"><a href="continuous-probability-distributions.html#f-distribution"><i class="fa fa-check"></i><b>3.8</b> <span class="math inline">\(F\)</span> distribution</a></li>
+<li class="chapter" data-level="3.9" data-path="continuous-probability-distributions.html"><a href="continuous-probability-distributions.html#beta-distribution"><i class="fa fa-check"></i><b>3.9</b> Beta distribution</a></li>
+<li class="chapter" data-level="3.10" data-path="continuous-probability-distributions.html"><a href="continuous-probability-distributions.html#continuous-uniform"><i class="fa fa-check"></i><b>3.10</b> Uniform distribution</a></li>
+<li class="chapter" data-level="3.11" data-path="continuous-probability-distributions.html"><a href="continuous-probability-distributions.html#inverse-transform-method"><i class="fa fa-check"></i><b>3.11</b> Inverse transform method</a></li>
+<li class="chapter" data-level="" data-path="continuous-probability-distributions.html"><a href="continuous-probability-distributions.html#practice-continuous-distributions"><i class="fa fa-check"></i><code>R</code> Practice</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="joint-and-conditional-distributions.html"><a href="joint-and-conditional-distributions.html"><i class="fa fa-check"></i><b>4</b> Joint and Conditional Distributions</a>
+<ul>
+<li class="chapter" data-level="" data-path="joint-and-conditional-distributions.html"><a href="joint-and-conditional-distributions.html#objectives-joint-distributions"><i class="fa fa-check"></i>Learning Objectives</a></li>
+<li class="chapter" data-level="" data-path="joint-and-conditional-distributions.html"><a href="joint-and-conditional-distributions.html#theory-joint-distributions"><i class="fa fa-check"></i>Theory</a>
+<ul>
+<li class="chapter" data-level="4.0.1" data-path="joint-and-conditional-distributions.html"><a href="joint-and-conditional-distributions.html#definition-and-representation"><i class="fa fa-check"></i><b>4.0.1</b> 1. Definition and Representation</a></li>
+<li class="chapter" data-level="4.0.2" data-path="joint-and-conditional-distributions.html"><a href="joint-and-conditional-distributions.html#marginal-and-conditional-distributions"><i class="fa fa-check"></i><b>4.0.2</b> 2. Marginal and Conditional Distributions</a></li>
+<li class="chapter" data-level="4.0.3" data-path="joint-and-conditional-distributions.html"><a href="joint-and-conditional-distributions.html#independence-of-random-variables"><i class="fa fa-check"></i><b>4.0.3</b> 3. Independence of Random Variables</a></li>
+<li class="chapter" data-level="4.0.4" data-path="joint-and-conditional-distributions.html"><a href="joint-and-conditional-distributions.html#expectation-covariance-and-correlation"><i class="fa fa-check"></i><b>4.0.4</b> 4. Expectation, Covariance, and Correlation</a></li>
+<li class="chapter" data-level="4.0.5" data-path="joint-and-conditional-distributions.html"><a href="joint-and-conditional-distributions.html#linear-combinations-and-sums-of-random-variables"><i class="fa fa-check"></i><b>4.0.5</b> 5. Linear Combinations and Sums of Random Variables</a></li>
+<li class="chapter" data-level="4.0.6" data-path="joint-and-conditional-distributions.html"><a href="joint-and-conditional-distributions.html#practical-applications"><i class="fa fa-check"></i><b>4.0.6</b> 6. Practical Applications</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="joint-and-conditional-distributions.html"><a href="joint-and-conditional-distributions.html#practice-joint-distributions"><i class="fa fa-check"></i><code>R</code> Practice</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="central-limit-theorem.html"><a href="central-limit-theorem.html"><i class="fa fa-check"></i><b>5</b> Central Limit Theorem</a>
+<ul>
+<li class="chapter" data-level="" data-path="central-limit-theorem.html"><a href="central-limit-theorem.html#objectives-clt"><i class="fa fa-check"></i>Learning Objectives</a></li>
+<li class="chapter" data-level="" data-path="central-limit-theorem.html"><a href="central-limit-theorem.html#theory-clt"><i class="fa fa-check"></i>Theory</a></li>
+<li class="chapter" data-level="" data-path="central-limit-theorem.html"><a href="central-limit-theorem.html#practice-clt"><i class="fa fa-check"></i><code>R</code> Practice</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="data-analysis.html"><a href="data-analysis.html"><i class="fa fa-check"></i><b>6</b> Data Analysis</a>
+<ul>
+<li class="chapter" data-level="" data-path="data-analysis.html"><a href="data-analysis.html#objectives-data-analysis"><i class="fa fa-check"></i>Learning Objectives</a></li>
+<li class="chapter" data-level="" data-path="data-analysis.html"><a href="data-analysis.html#theory-data-analysis"><i class="fa fa-check"></i>Theory</a></li>
+<li class="chapter" data-level="" data-path="data-analysis.html"><a href="data-analysis.html#practice-data-analysis"><i class="fa fa-check"></i><code>R</code> Practice</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html"><i class="fa fa-check"></i><b>7</b> Exploratory Data Analysis</a>
+<ul>
+<li class="chapter" data-level="" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#objectives-exploratory-data-analysis"><i class="fa fa-check"></i>Learning Objectives</a></li>
+<li class="chapter" data-level="" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#theory-exploratory-data-analysis"><i class="fa fa-check"></i>Theory</a></li>
+<li class="chapter" data-level="" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#practice-exploratory-data-analysis"><i class="fa fa-check"></i><code>R</code> Practice</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="random-sampling.html"><a href="random-sampling.html"><i class="fa fa-check"></i><b>8</b> Random Sampling</a>
+<ul>
+<li class="chapter" data-level="" data-path="random-sampling.html"><a href="random-sampling.html#objectives-random-sampling"><i class="fa fa-check"></i>Learning Objectives</a></li>
+<li class="chapter" data-level="" data-path="random-sampling.html"><a href="random-sampling.html#theory-random-sampling"><i class="fa fa-check"></i>Theory</a></li>
+<li class="chapter" data-level="" data-path="random-sampling.html"><a href="random-sampling.html#practice-random-sampling"><i class="fa fa-check"></i><code>R</code> Practice</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="estimation-and-estimators.html"><a href="estimation-and-estimators.html"><i class="fa fa-check"></i><b>9</b> Estimation and estimators</a>
+<ul>
+<li class="chapter" data-level="" data-path="estimation-and-estimators.html"><a href="estimation-and-estimators.html#objectives-estimators"><i class="fa fa-check"></i>Learning Objectives</a></li>
+<li class="chapter" data-level="" data-path="estimation-and-estimators.html"><a href="estimation-and-estimators.html#theory-estimators"><i class="fa fa-check"></i>Theory</a></li>
+<li class="chapter" data-level="" data-path="estimation-and-estimators.html"><a href="estimation-and-estimators.html#practice-estimators"><i class="fa fa-check"></i><code>R</code> Practice</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="confidence-intervals.html"><a href="confidence-intervals.html"><i class="fa fa-check"></i><b>10</b> Confidence Intervals</a>
+<ul>
+<li class="chapter" data-level="" data-path="confidence-intervals.html"><a href="confidence-intervals.html#objectives-confidence-intervals"><i class="fa fa-check"></i>Learning Objectives</a></li>
+<li class="chapter" data-level="" data-path="confidence-intervals.html"><a href="confidence-intervals.html#theory-confidence-intervals"><i class="fa fa-check"></i>Theory</a></li>
+<li class="chapter" data-level="" data-path="confidence-intervals.html"><a href="confidence-intervals.html#practice-confidence-intervals"><i class="fa fa-check"></i><code>R</code> Practice</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html"><i class="fa fa-check"></i><b>11</b> Hypothesis Testing</a>
+<ul>
+<li class="chapter" data-level="" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html#objectives-hypothesis-testing"><i class="fa fa-check"></i>Learning Objectives</a></li>
+<li class="chapter" data-level="" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html#theory-hypothesis-testing"><i class="fa fa-check"></i>Theory</a></li>
+<li class="chapter" data-level="" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html#practice-hypothesis-testing"><i class="fa fa-check"></i><code>R</code> Practice</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="goodness-of-fit.html"><a href="goodness-of-fit.html"><i class="fa fa-check"></i><b>12</b> Goodness of Fit</a>
+<ul>
+<li class="chapter" data-level="" data-path="goodness-of-fit.html"><a href="goodness-of-fit.html#objectives-goodness-of-fit"><i class="fa fa-check"></i>Learning Objectives</a></li>
+<li class="chapter" data-level="" data-path="goodness-of-fit.html"><a href="goodness-of-fit.html#theory-goodness-of-fit"><i class="fa fa-check"></i>Theory</a></li>
+<li class="chapter" data-level="" data-path="goodness-of-fit.html"><a href="goodness-of-fit.html#practice-goodness-of-fit"><i class="fa fa-check"></i><code>R</code> Practice</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="linear-regression.html"><a href="linear-regression.html"><i class="fa fa-check"></i><b>13</b> Linear Regression</a>
+<ul>
+<li class="chapter" data-level="" data-path="linear-regression.html"><a href="linear-regression.html#objectives-linear-regression"><i class="fa fa-check"></i>Learning Objectives</a></li>
+<li class="chapter" data-level="" data-path="linear-regression.html"><a href="linear-regression.html#theory-linear-regression"><i class="fa fa-check"></i>Theory</a></li>
+<li class="chapter" data-level="" data-path="linear-regression.html"><a href="linear-regression.html#practice-linear-regression"><i class="fa fa-check"></i><code>R</code> Practice</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="generalised-linear-models.html"><a href="generalised-linear-models.html"><i class="fa fa-check"></i><b>14</b> Generalised Linear Models</a>
+<ul>
+<li class="chapter" data-level="" data-path="generalised-linear-models.html"><a href="generalised-linear-models.html#objectives-glm"><i class="fa fa-check"></i>Learning Objectives</a></li>
+<li class="chapter" data-level="" data-path="generalised-linear-models.html"><a href="generalised-linear-models.html#theory-glm"><i class="fa fa-check"></i>Theory</a></li>
+<li class="chapter" data-level="" data-path="generalised-linear-models.html"><a href="generalised-linear-models.html#practice-glm"><i class="fa fa-check"></i><code>R</code> Practice</a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="bayesian-statistics.html"><a href="bayesian-statistics.html"><i class="fa fa-check"></i><b>15</b> Bayesian Statistics</a>
+<ul>
+<li class="chapter" data-level="" data-path="bayesian-statistics.html"><a href="bayesian-statistics.html#objectives-bayesian-stats"><i class="fa fa-check"></i>Learning Objectives</a></li>
+<li class="chapter" data-level="" data-path="bayesian-statistics.html"><a href="bayesian-statistics.html#theory-bayesian-stats"><i class="fa fa-check"></i>Theory</a></li>
+<li class="chapter" data-level="" data-path="bayesian-statistics.html"><a href="bayesian-statistics.html#practice-bayesian-stats"><i class="fa fa-check"></i><code>R</code> Practice</a></li>
+</ul></li>
+<li class="divider"></li>
+<li>Adapted by <a href="https://github.com/priyam0k">Priyam</a> from the original by <a href="https://github.com/agarbiak" target="blank">Alex Garbiak</a>.</li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Actuarial Statistics</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="discrete-probability-distributions" class="section level1 hasAnchor" number="2">
+<h1><span class="header-section-number">Chapter 2</span> Discrete Probability Distributions<a href="discrete-probability-distributions.html#discrete-probability-distributions" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="objectives-discrete-distributions" class="section level2 unnumbered hasAnchor">
+<h2>Learning Objectives<a href="discrete-probability-distributions.html#objectives-discrete-distributions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ol style="list-style-type: decimal">
+<li>Define and explain the key characteristics of the discrete distributions:</li>
+</ol>
+<ul>
+<li>geometric,</li>
+<li>binomial,</li>
+<li>negative binomial,</li>
+<li>hypergeometric,</li>
+<li>Poisson and</li>
+<li>uniform on a finite set.</li>
+</ul>
+<ol start="2" style="list-style-type: decimal">
+<li>Evaluate probabilities and quantiles associated with such distributions.</li>
+</ol>
+</div>
+<div id="theory-discrete-distributions" class="section level2 unnumbered hasAnchor">
+<h2>Theory<a href="discrete-probability-distributions.html#theory-discrete-distributions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><code>R</code> was designed to be used for statistical computing - so it handles <strong>randomness</strong> well!</p>
+<p>Using <code>R</code> we can guarantee reproducibility (and enhance sharability) by using the function <code class="sourceCode r"><span class="fu">set.seed</span>(seed)</code> where <code>seed</code> is a single value integer. Using this approach we guarantee the generation of the same sequence of random numbers everytime we call this function. Use <code class="sourceCode r">?set.seed</code> to learn more about this function.</p>
+<p>Let’s see <code>set.seed</code> in action:</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="discrete-probability-distributions.html#cb22-1" tabindex="-1"></a><span class="co"># We make five random draws from the integer range [1, 10]</span></span>
+<span id="cb22-2"><a href="discrete-probability-distributions.html#cb22-2" tabindex="-1"></a><span class="co"># We cannot guarantee reproducing this outcome when sharing the code: </span></span>
+<span id="cb22-3"><a href="discrete-probability-distributions.html#cb22-3" tabindex="-1"></a><span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="dv">5</span>)</span></code></pre></div>
+<pre><code>## [1] 10  8  4  2  6</code></pre>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="discrete-probability-distributions.html#cb24-1" tabindex="-1"></a><span class="co"># Now we set a seed value before making the five random draws</span></span>
+<span id="cb24-2"><a href="discrete-probability-distributions.html#cb24-2" tabindex="-1"></a><span class="co"># We guarantee a fixed output which enhances reproducibility and sharability:</span></span>
+<span id="cb24-3"><a href="discrete-probability-distributions.html#cb24-3" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>) <span class="co"># Fixes result</span></span>
+<span id="cb24-4"><a href="discrete-probability-distributions.html#cb24-4" tabindex="-1"></a></span>
+<span id="cb24-5"><a href="discrete-probability-distributions.html#cb24-5" tabindex="-1"></a><span class="co"># Using set.seed(42) we guarantee five random draws within the integer range [1, 10] will be:</span></span>
+<span id="cb24-6"><a href="discrete-probability-distributions.html#cb24-6" tabindex="-1"></a><span class="co"># 1, 5, 10, 8, 2</span></span>
+<span id="cb24-7"><a href="discrete-probability-distributions.html#cb24-7" tabindex="-1"></a><span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="dv">5</span>)</span></code></pre></div>
+<pre><code>## [1]  1  5 10  8  2</code></pre>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="discrete-probability-distributions.html#cb26-1" tabindex="-1"></a><span class="co"># We can re-initialise the seed with the same value</span></span>
+<span id="cb26-2"><a href="discrete-probability-distributions.html#cb26-2" tabindex="-1"></a><span class="co"># Observe that the same sequence of random numbers are generated:</span></span>
+<span id="cb26-3"><a href="discrete-probability-distributions.html#cb26-3" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>) <span class="co"># Fixes result</span></span>
+<span id="cb26-4"><a href="discrete-probability-distributions.html#cb26-4" tabindex="-1"></a><span class="co"># Guarantee we draw 1, 5, 10, 8, 2 again</span></span>
+<span id="cb26-5"><a href="discrete-probability-distributions.html#cb26-5" tabindex="-1"></a><span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="dv">5</span>)</span></code></pre></div>
+<pre><code>## [1]  1  5 10  8  2</code></pre>
+</div>
+<div id="in-built-probability-distributions" class="section level2 hasAnchor" number="2.1">
+<h2><span class="header-section-number">2.1</span> In-built probability distributions<a href="discrete-probability-distributions.html#in-built-probability-distributions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><code>R</code> has in-built functions for probability distributions:</p>
+<ul>
+<li><strong>d</strong><em>&lt;distribution-name&gt;</em> <span class="math inline">\(:=\)</span> <strong>d</strong>ensity (“<em>PDF</em>”), <em>i.e.</em> <span class="math inline">\(f_X(x)\)</span></li>
+<li><strong>p</strong><em>&lt;distribution-name&gt;</em> <span class="math inline">\(:=\)</span> <strong>p</strong>robability distribution cumulative function (“<em>CDF</em>”), <em>i.e.</em> <span class="math inline">\(F_X(x) =\boldsymbol{P}(X \leq x)\)</span></li>
+<li><strong>q</strong><em>&lt;distribution-name&gt;</em> <span class="math inline">\(:=\)</span> <strong>q</strong>uantile function, <em>i.e.</em> return <span class="math inline">\(x\)</span> such that <span class="math inline">\(\boldsymbol{P}(X \leq x) = p\)</span></li>
+<li><strong>r</strong><em>&lt;distribution-name&gt;</em> <span class="math inline">\(:=\)</span> <strong>r</strong>andom deviates, <em>i.e.</em> (<em>psuedo</em>) random number generator for a given distribution</li>
+<li><em>Where &lt;distribution-name&gt;</em> <span class="math inline">\(=\)</span> Normal, uniform, lognormal, Student’s <span class="math inline">\(t\)</span>, Poisson, binormal, Weibull … see <code class="sourceCode r">?<span class="fu">distributions</span>()</code> for more information</li>
+</ul>
+<p>To give some quick examples (we will explore these in more detail later in this chapter and the next chapter):</p>
+<table>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead>
+<tr>
+<th>R Code</th>
+<th>Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code class="sourceCode r"><span class="fu">rnorm</span>(<span class="dv">1</span>)</code></td>
+<td>Generates <span class="math inline">\(x_1\)</span> where <span class="math inline">\(X \sim \mathcal{N}(0,\,1)\)</span></td>
+</tr>
+<tr>
+<td><code class="sourceCode r"><span class="fu">rnorm</span>(y, <span class="at">mean=</span><span class="dv">10</span>, <span class="at">sd=</span><span class="dv">2</span>)</code></td>
+<td>Generates <span class="math inline">\(\{y_1,\,y_2,\,\dots\}\)</span> with <span class="math inline">\(Y \sim \mathcal{N}(10,\,2^2)\)</span></td>
+</tr>
+<tr>
+<td><code class="sourceCode r"><span class="fu">runif</span>(<span class="dv">3</span>, <span class="at">min=</span><span class="dv">5</span>, <span class="at">max=</span><span class="dv">10</span>)</code></td>
+<td>Generates <span class="math inline">\(\{z_1,\,z_2,\,z_3\}\)</span> where <span class="math inline">\(Z \sim \mathcal{U}(5,\,10)\)</span></td>
+</tr>
+<tr>
+<td><code class="sourceCode r"><span class="fu">dbinom</span>(<span class="dv">4</span>, <span class="at">size=</span><span class="dv">5</span>, <span class="at">prob=</span><span class="fl">0.5</span>)</code></td>
+<td>Computes <span class="math inline">\(\boldsymbol{P}(X = 4)\)</span> where <span class="math inline">\(X \sim Bin(5,\,0.5)\)</span></td>
+</tr>
+<tr>
+<td><code class="sourceCode r"><span class="fu">pgamma</span>(<span class="fl">0.2</span>, <span class="at">shape=</span><span class="dv">2</span>, <span class="at">rate=</span><span class="dv">2</span>)</code></td>
+<td>Computes <span class="math inline">\(F_Y(0.2)\)</span> where <span class="math inline">\(Y \sim \mathcal{\Gamma}(2,\,2)\)</span>, i.e. <span class="math inline">\(\boldsymbol{P}(Y\leq 0.2)\)</span></td>
+</tr>
+<tr>
+<td><code class="sourceCode r"><span class="fu">qexp</span>(<span class="fl">0.5</span>, <span class="at">rate =</span> <span class="dv">2</span>)</code></td>
+<td>Determines smallest value of <span class="math inline">\(z\)</span> for <span class="math inline">\(\boldsymbol{P}(Z \leq z) = 0.5\)</span> where <span class="math inline">\(Z \sim Exp(2)\)</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="discrete-probability-distributions-covered" class="section level2 unnumbered hasAnchor">
+<h2>Discrete probability distributions covered<a href="discrete-probability-distributions.html#discrete-probability-distributions-covered" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>We will consider how to interact with the following discrete probability distributions in <code>R</code>:</p>
+<ul>
+<li>Geometric</li>
+<li>Binomial</li>
+<li>Negative binomial</li>
+<li>Hypergeometric</li>
+<li>Poisson</li>
+<li>Uniform (on a finite set)</li>
+</ul>
+<p>For each distribution above we will determine how to calculate:</p>
+<ul>
+<li>A random deviate following the discrete distribution <span class="math inline">\(X\)</span>,</li>
+<li>The probability mass function (“<em>PMF</em>”), <span class="math inline">\(P(X = k)\)</span> for distribution <span class="math inline">\(X\)</span> and <span class="math inline">\(-\infty &lt; k &lt; \infty\)</span> (noting the <em>PMF</em> <span class="math inline">\(= 0\)</span> for most values of <span class="math inline">\(k\)</span>),</li>
+<li>The cumulative distribution function (“<em>CDF</em>”), <span class="math inline">\(P(X \leq k)\)</span>,</li>
+<li>A range of PMFs, i.e. <span class="math inline">\(P(k_1 \leq X \leq k_2)\)</span>, and</li>
+<li>The quantile function to find <span class="math inline">\(k\)</span> representing the value such that <span class="math inline">\(P(X \leq k) = p\)</span>, i.e. the <em>pth</em> percentile.</li>
+</ul>
+<p>We will finish off with a plot of the distribution.</p>
+</div>
+<div id="geometric-distribution" class="section level2 hasAnchor" number="2.2">
+<h2><span class="header-section-number">2.2</span> Geometric distribution<a href="discrete-probability-distributions.html#geometric-distribution" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The geometric probability distribution (<span class="math inline">\(X\)</span>) can be defined by the number of failures (<span class="math inline">\(k\)</span>) in Bernoulli trials before achieving a success. A Bernoulli trial is a random experiment with exactly two outcomes, {“<em>success</em>”, “<em>failure</em>”}, in which the probability of success is constant in every experiment. More formally, if we have <span class="math inline">\(k \in \{0,\,1,\,2,\, \dots \}\)</span> independent, identically distributed (“<em>i.i.d.</em>”) Bernoulli trials before a “<em>success</em>” with the <span class="math inline">\(P(\)</span>“<em>success</em>”<span class="math inline">\()\)</span> on each trial defined as <span class="math inline">\(p\)</span>, then:</p>
+<p><span class="math display">\[P(X = k) = (1 - p)^{k}p\]</span></p>
+<p>We have <span class="math inline">\(X \sim Geo(p)\)</span> with <span class="math inline">\(p \in (0, 1]\)</span>.</p>
+<p>In <code>R</code> we can generate random deviates following a geometric distribution using the function <code class="sourceCode r"><span class="fu">rgeom</span>(n, prob)</code> where:</p>
+<ul>
+<li><em>n</em> is the <em>number</em> of random deviates we want to generate, and</li>
+<li><em>prob</em> is the <em>probability</em> of success in any given Bernoulli trial.</li>
+</ul>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="discrete-probability-distributions.html#cb28-1" tabindex="-1"></a><span class="co"># Guarantee reproducibility</span></span>
+<span id="cb28-2"><a href="discrete-probability-distributions.html#cb28-2" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
+<span id="cb28-3"><a href="discrete-probability-distributions.html#cb28-3" tabindex="-1"></a></span>
+<span id="cb28-4"><a href="discrete-probability-distributions.html#cb28-4" tabindex="-1"></a><span class="co"># Generate 5 random deviates following X~Geo(0.25)</span></span>
+<span id="cb28-5"><a href="discrete-probability-distributions.html#cb28-5" tabindex="-1"></a><span class="fu">rgeom</span>(<span class="dv">5</span>, <span class="fl">0.25</span>)</span></code></pre></div>
+<pre><code>## [1] 1 1 0 1 2</code></pre>
+<p>If we wanted to find the x<sup>th</sup> percentile of <span class="math inline">\(X \sim Geo(p)\)</span> we would use the quantile function, <code class="sourceCode r"><span class="fu">qgeom</span>(p, prob)</code>.</p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="discrete-probability-distributions.html#cb30-1" tabindex="-1"></a><span class="co"># Find the 99th percentile of X~Geo(0.25)</span></span>
+<span id="cb30-2"><a href="discrete-probability-distributions.html#cb30-2" tabindex="-1"></a>percentile_99 <span class="ot">&lt;-</span> <span class="fu">qgeom</span>(<span class="fl">0.99</span>, <span class="fl">0.25</span>)</span>
+<span id="cb30-3"><a href="discrete-probability-distributions.html#cb30-3" tabindex="-1"></a></span>
+<span id="cb30-4"><a href="discrete-probability-distributions.html#cb30-4" tabindex="-1"></a><span class="fu">paste0</span>(</span>
+<span id="cb30-5"><a href="discrete-probability-distributions.html#cb30-5" tabindex="-1"></a>  <span class="st">&quot;The 99th percentile of X~Geo(0.25) is &quot;</span>,</span>
+<span id="cb30-6"><a href="discrete-probability-distributions.html#cb30-6" tabindex="-1"></a>  percentile_99,</span>
+<span id="cb30-7"><a href="discrete-probability-distributions.html#cb30-7" tabindex="-1"></a>  <span class="st">&quot;.&quot;</span></span>
+<span id="cb30-8"><a href="discrete-probability-distributions.html#cb30-8" tabindex="-1"></a>)</span></code></pre></div>
+<pre><code>## [1] &quot;The 99th percentile of X~Geo(0.25) is 16.&quot;</code></pre>
+<p>If we wish to find <span class="math inline">\(P(X \leq k)\)</span> then we need to use the function for the cumulative distribution function, <code class="sourceCode r"><span class="fu">pgeom</span>(q, prob)</code> where:</p>
+<ul>
+<li><em>q</em> equates to <span class="math inline">\(k\)</span> failures before success in a sequence of i.i.d. Bernoulli trials,</li>
+<li><em>prob</em> is the <em>probability</em> of success in any given Bernoulli trial.</li>
+</ul>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="discrete-probability-distributions.html#cb32-1" tabindex="-1"></a><span class="co"># Find P(X &lt;= 7) with X~Geo(0.25)</span></span>
+<span id="cb32-2"><a href="discrete-probability-distributions.html#cb32-2" tabindex="-1"></a>prob_geom <span class="ot">&lt;-</span> <span class="fu">pgeom</span>(<span class="dv">7</span>, <span class="fl">0.25</span>)</span>
+<span id="cb32-3"><a href="discrete-probability-distributions.html#cb32-3" tabindex="-1"></a></span>
+<span id="cb32-4"><a href="discrete-probability-distributions.html#cb32-4" tabindex="-1"></a><span class="fu">paste0</span>(</span>
+<span id="cb32-5"><a href="discrete-probability-distributions.html#cb32-5" tabindex="-1"></a>  <span class="st">&quot;P(X &lt;= 7) with X~Geo(0.25) is &quot;</span>,</span>
+<span id="cb32-6"><a href="discrete-probability-distributions.html#cb32-6" tabindex="-1"></a>  <span class="fu">format</span>(prob_geom, <span class="at">digits =</span> <span class="dv">4</span>),</span>
+<span id="cb32-7"><a href="discrete-probability-distributions.html#cb32-7" tabindex="-1"></a>  <span class="st">&quot;.&quot;</span></span>
+<span id="cb32-8"><a href="discrete-probability-distributions.html#cb32-8" tabindex="-1"></a>)</span></code></pre></div>
+<pre><code>## [1] &quot;P(X &lt;= 7) with X~Geo(0.25) is 0.8999.&quot;</code></pre>
+<p>We can find <span class="math inline">\(P(X = k)\)</span> using the <code class="sourceCode r"><span class="fu">dgeom</span>()</code> function call:</p>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="discrete-probability-distributions.html#cb34-1" tabindex="-1"></a><span class="co"># Find P(X = 7) with X~Geo(0.25)</span></span>
+<span id="cb34-2"><a href="discrete-probability-distributions.html#cb34-2" tabindex="-1"></a>prob_geom <span class="ot">&lt;-</span> <span class="fu">dgeom</span>(<span class="dv">7</span>, <span class="fl">0.25</span>)</span></code></pre></div>
+<p>We find that <span class="math inline">\(P(X = 7) =\)</span> 0.0333709716796875.</p>
+<p>It helps to visualise the probability distribution. We <em>can</em> do this in base <code>R</code> with the <code class="sourceCode r"><span class="fu">plot</span>()</code> function. However for illustrative purposes we will use the <code>ggplot2</code> package from the <a href="https://www.tidyverse.org/packages/"><code>tidyverse</code></a> suite of packages. <code>ggplot2</code> allows for rich visualisations<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a> using a consistent syntax.</p>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="discrete-probability-distributions.html#cb35-1" tabindex="-1"></a><span class="co"># Plot the distribution function of X~Geo(0.25)</span></span>
+<span id="cb35-2"><a href="discrete-probability-distributions.html#cb35-2" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb35-3"><a href="discrete-probability-distributions.html#cb35-3" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> <span class="fu">rgeom</span>(<span class="dv">1000</span>, <span class="fl">0.25</span>)) </span>
+<span id="cb35-4"><a href="discrete-probability-distributions.html#cb35-4" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x=</span>x)) <span class="sc">+</span> <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="fl">0.5</span>)</span></code></pre></div>
+<p><img src="book_files/figure-html/discrete-distributions-geometric-5-1.png" width="672" /></p>
+</div>
+<div id="binomial-distribution" class="section level2 hasAnchor" number="2.3">
+<h2><span class="header-section-number">2.3</span> Binomial distribution<a href="discrete-probability-distributions.html#binomial-distribution" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The binomial probability distribution (<span class="math inline">\(Y\)</span>) can be defined by the number of successes in a sequence of <span class="math inline">\(n\)</span> i.i.d. Bernoulli trials. A Bernoulli trial is a random experiment with exactly two outcomes, {“<em>success</em>”, “<em>failure</em>”}, wherein the probability of success is <span class="math inline">\(p\)</span>. We often state the probability of failure as <span class="math inline">\(q = 1 - p\)</span> for convenience. More formally, if we have <span class="math inline">\(k \in \{0,\,1,\,2,\, \dots,\, n \}\)</span> successes given <span class="math inline">\(n\)</span> i.i.d. Bernoulli trials with the <span class="math inline">\(P(\)</span>“<em>success</em>”<span class="math inline">\()\)</span> on each trial defined as <span class="math inline">\(p\)</span>, then:</p>
+<p><span class="math display">\[P(Y = k) = \binom{n}{k}p^k(1 - p)^{n - k}\]</span></p>
+<p>It can help to think of this as:</p>
+<ul>
+<li><span class="math inline">\(p^k\)</span> chance of <span class="math inline">\(k\)</span> successes,</li>
+<li><span class="math inline">\((1 - p)^{n - k}\)</span> chance of <span class="math inline">\(n - k\)</span> failures,</li>
+<li>the ordering of the <span class="math inline">\(k\)</span> successes can occur anywhere within the <span class="math inline">\(n\)</span> trials, hence <span class="math inline">\(\binom{n}{k}\)</span>.</li>
+</ul>
+<p>We can generate random deviates following the binomial distribution <span class="math inline">\(Y \sim Bin(n,\,p)\)</span> using <code class="sourceCode r"><span class="fu">rbinom</span>(n, size, prob)</code> where:</p>
+<ul>
+<li><em>n</em> is the <em>number</em> of random deviates we want to generate,</li>
+<li><em>size</em> is the number of i.i.d. Bernoulli trials performed, and</li>
+<li><em>prob</em> is the probability of success in any given trial.</li>
+</ul>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="discrete-probability-distributions.html#cb36-1" tabindex="-1"></a><span class="co"># Generate 5 random deviates on Y~Bin(10, 0.55)</span></span>
+<span id="cb36-2"><a href="discrete-probability-distributions.html#cb36-2" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
+<span id="cb36-3"><a href="discrete-probability-distributions.html#cb36-3" tabindex="-1"></a><span class="fu">rbinom</span>(<span class="dv">5</span>, <span class="dv">10</span>, <span class="fl">0.55</span>)</span></code></pre></div>
+<pre><code>## [1] 3 3 6 4 5</code></pre>
+<p>To find <span class="math inline">\(P(Y \leq k)\)</span> we can use the function <code class="sourceCode r"><span class="fu">pbinom</span>(p, size, prob)</code> where:</p>
+<ul>
+<li><em>p</em> is the probability of interest,</li>
+<li><em>size</em> is the number of i.i.d. Bernoulli trials performed, and</li>
+<li><em>prob</em> is the probability of success in any given trial.</li>
+</ul>
+<p>Suppose we were told the probability of having a boy at birth was 0.5131451<a href="#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a>. Additionally, suppose we were told that there were 1,264 births<a href="#fn6" class="footnote-ref" id="fnref6"><sup>6</sup></a>. Given this, we are curious to know what is the probability of there being less than 632 boys (<em>i.e. &lt; 50%</em>) amongst the new babies.</p>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="discrete-probability-distributions.html#cb38-1" tabindex="-1"></a><span class="co"># Find P(Y &lt;= 632) with Y~Binom(1264, 0.5131451)</span></span>
+<span id="cb38-2"><a href="discrete-probability-distributions.html#cb38-2" tabindex="-1"></a>prob_binom <span class="ot">&lt;-</span> <span class="fu">pbinom</span>(<span class="dv">632</span>, <span class="dv">1264</span>, <span class="fl">0.5131451</span>)</span>
+<span id="cb38-3"><a href="discrete-probability-distributions.html#cb38-3" tabindex="-1"></a></span>
+<span id="cb38-4"><a href="discrete-probability-distributions.html#cb38-4" tabindex="-1"></a><span class="fu">paste0</span>(</span>
+<span id="cb38-5"><a href="discrete-probability-distributions.html#cb38-5" tabindex="-1"></a>  <span class="st">&quot;P(Y &lt;= 632) with Y~Binom(1264, 0.5131451) is &quot;</span>,</span>
+<span id="cb38-6"><a href="discrete-probability-distributions.html#cb38-6" tabindex="-1"></a>  <span class="fu">format</span>(prob_binom, <span class="at">digits =</span> <span class="dv">4</span>),</span>
+<span id="cb38-7"><a href="discrete-probability-distributions.html#cb38-7" tabindex="-1"></a>  <span class="st">&quot;.&quot;</span></span>
+<span id="cb38-8"><a href="discrete-probability-distributions.html#cb38-8" tabindex="-1"></a>)</span></code></pre></div>
+<pre><code>## [1] &quot;P(Y &lt;= 632) with Y~Binom(1264, 0.5131451) is 0.1822.&quot;</code></pre>
+<p>To find <span class="math inline">\(P(Y = k)\)</span> we can use the function <code class="sourceCode r"><span class="fu">dbinom</span>(x, size, prob)</code> where:</p>
+<ul>
+<li><em>x</em> is the quantile of interest,</li>
+<li><em>size</em> is the number of i.i.d Bernoulli trials performed, and</li>
+<li><em>prob</em> is the probability of success in any given trial.</li>
+</ul>
+<p>Throwing a fair coin, we are curious to compute the probability of observing 4 heads in a sequence of 5 tosses:</p>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="discrete-probability-distributions.html#cb40-1" tabindex="-1"></a><span class="co"># Find P(Y = 4) where Y~Binom(5, 0.5)</span></span>
+<span id="cb40-2"><a href="discrete-probability-distributions.html#cb40-2" tabindex="-1"></a>prob_binom <span class="ot">&lt;-</span> <span class="fu">dbinom</span>(<span class="dv">4</span>, <span class="dv">5</span>, <span class="fl">0.5</span>)</span>
+<span id="cb40-3"><a href="discrete-probability-distributions.html#cb40-3" tabindex="-1"></a></span>
+<span id="cb40-4"><a href="discrete-probability-distributions.html#cb40-4" tabindex="-1"></a><span class="fu">paste0</span>(</span>
+<span id="cb40-5"><a href="discrete-probability-distributions.html#cb40-5" tabindex="-1"></a>  <span class="st">&quot;P(Y = 4) with Y~Binom(5, 0.5) is &quot;</span>,</span>
+<span id="cb40-6"><a href="discrete-probability-distributions.html#cb40-6" tabindex="-1"></a>  <span class="fu">format</span>(prob_binom, <span class="at">digits =</span> <span class="dv">4</span>),</span>
+<span id="cb40-7"><a href="discrete-probability-distributions.html#cb40-7" tabindex="-1"></a>  <span class="st">&quot;.&quot;</span></span>
+<span id="cb40-8"><a href="discrete-probability-distributions.html#cb40-8" tabindex="-1"></a>)</span></code></pre></div>
+<pre><code>## [1] &quot;P(Y = 4) with Y~Binom(5, 0.5) is 0.1562.&quot;</code></pre>
+<p>If we wanted to find <span class="math inline">\(P(k_1 \leq Y \leq k_2)\)</span> we can also use the function <code class="sourceCode r"><span class="fu">dbinom</span>(x, size, prob)</code> with <em>x</em> entered as a vector and summing over the output.</p>
+<p>Continuing the fair coin example, we are curious what is the probability of observing at least 1 head and at most 3 heads in a sequence of 5 tosses:</p>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="discrete-probability-distributions.html#cb42-1" tabindex="-1"></a><span class="co"># Find P(1 &lt;= Y &lt;= 3) where Y~Binom(5, 0.5)</span></span>
+<span id="cb42-2"><a href="discrete-probability-distributions.html#cb42-2" tabindex="-1"></a>prob_binom <span class="ot">&lt;-</span> <span class="fu">sum</span>(<span class="fu">dbinom</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="dv">5</span>, <span class="fl">0.5</span>))</span>
+<span id="cb42-3"><a href="discrete-probability-distributions.html#cb42-3" tabindex="-1"></a></span>
+<span id="cb42-4"><a href="discrete-probability-distributions.html#cb42-4" tabindex="-1"></a><span class="fu">paste0</span>(</span>
+<span id="cb42-5"><a href="discrete-probability-distributions.html#cb42-5" tabindex="-1"></a>  <span class="st">&quot;P(1 &lt;= Y &lt;= 3) with Y~Binom(5, 0.5) is &quot;</span>,</span>
+<span id="cb42-6"><a href="discrete-probability-distributions.html#cb42-6" tabindex="-1"></a>  <span class="fu">format</span>(prob_binom, <span class="at">digits =</span> <span class="dv">4</span>),</span>
+<span id="cb42-7"><a href="discrete-probability-distributions.html#cb42-7" tabindex="-1"></a>  <span class="st">&quot;.&quot;</span></span>
+<span id="cb42-8"><a href="discrete-probability-distributions.html#cb42-8" tabindex="-1"></a>)</span></code></pre></div>
+<pre><code>## [1] &quot;P(1 &lt;= Y &lt;= 3) with Y~Binom(5, 0.5) is 0.7812.&quot;</code></pre>
+<p>When we are interested in finding the <em>yth</em> percentile we can use the quantile function, <code class="sourceCode r"><span class="fu">qbinom</span>(p, size, prob)</code> where:</p>
+<ul>
+<li><em>p</em> is the percentile of interest,</li>
+<li><em>size</em> is the number of i.i.d Bernoulli trials performed, and</li>
+<li><em>prob</em> is the probability of success in any given Bernoulli trial.</li>
+</ul>
+<p>Continuing the baby boys example, we now are curious what is the 99th percentile of baby births being boys. Recall that the probability (<em>p</em>) of having a boy at birth was 0.5131451 and that there were 1,264 births (<em>n</em>) in Guildford in 2019.</p>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="discrete-probability-distributions.html#cb44-1" tabindex="-1"></a><span class="co"># Find the 99th percentile of Y~Binom(1264, 0.5131451)</span></span>
+<span id="cb44-2"><a href="discrete-probability-distributions.html#cb44-2" tabindex="-1"></a>percentile_99 <span class="ot">&lt;-</span> <span class="fu">qbinom</span>(<span class="fl">0.99</span>, <span class="dv">1264</span>, <span class="fl">0.5131451</span>)</span>
+<span id="cb44-3"><a href="discrete-probability-distributions.html#cb44-3" tabindex="-1"></a></span>
+<span id="cb44-4"><a href="discrete-probability-distributions.html#cb44-4" tabindex="-1"></a><span class="fu">paste0</span>(</span>
+<span id="cb44-5"><a href="discrete-probability-distributions.html#cb44-5" tabindex="-1"></a>  <span class="st">&quot;The 99th percentile of Y~Binom(1264, 0.5131451) is &quot;</span>,</span>
+<span id="cb44-6"><a href="discrete-probability-distributions.html#cb44-6" tabindex="-1"></a>  percentile_99,</span>
+<span id="cb44-7"><a href="discrete-probability-distributions.html#cb44-7" tabindex="-1"></a>  <span class="st">&quot;.&quot;</span></span>
+<span id="cb44-8"><a href="discrete-probability-distributions.html#cb44-8" tabindex="-1"></a>)</span></code></pre></div>
+<pre><code>## [1] &quot;The 99th percentile of Y~Binom(1264, 0.5131451) is 690.&quot;</code></pre>
+<p>Finally, we finish with a plot of binomial distributions and note that with large <span class="math inline">\(n\)</span> the shape of the distribution begins to form the normal distribution (as long as <span class="math inline">\(p\)</span> is not near the extremes of 0 or 1).</p>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="discrete-probability-distributions.html#cb46-1" tabindex="-1"></a><span class="co"># Plot the distribution function of X, Y, Z with:</span></span>
+<span id="cb46-2"><a href="discrete-probability-distributions.html#cb46-2" tabindex="-1"></a><span class="co"># X,Y,Z~Binom(n, p) for various {n, p}</span></span>
+<span id="cb46-3"><a href="discrete-probability-distributions.html#cb46-3" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb46-4"><a href="discrete-probability-distributions.html#cb46-4" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
+<span id="cb46-5"><a href="discrete-probability-distributions.html#cb46-5" tabindex="-1"></a></span>
+<span id="cb46-6"><a href="discrete-probability-distributions.html#cb46-6" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb46-7"><a href="discrete-probability-distributions.html#cb46-7" tabindex="-1"></a>  <span class="at">dist_types =</span> <span class="fu">factor</span>(    </span>
+<span id="cb46-8"><a href="discrete-probability-distributions.html#cb46-8" tabindex="-1"></a>    <span class="fu">rep</span>(<span class="fu">c</span>(</span>
+<span id="cb46-9"><a href="discrete-probability-distributions.html#cb46-9" tabindex="-1"></a>      <span class="st">&quot;n = 20, p = 0.5&quot;</span>,</span>
+<span id="cb46-10"><a href="discrete-probability-distributions.html#cb46-10" tabindex="-1"></a>      <span class="st">&quot;n = 20, p = 0.7&quot;</span>,</span>
+<span id="cb46-11"><a href="discrete-probability-distributions.html#cb46-11" tabindex="-1"></a>      <span class="st">&quot;n = 40, p = 0.5&quot;</span></span>
+<span id="cb46-12"><a href="discrete-probability-distributions.html#cb46-12" tabindex="-1"></a>      ), <span class="at">each =</span> <span class="dv">1000</span></span>
+<span id="cb46-13"><a href="discrete-probability-distributions.html#cb46-13" tabindex="-1"></a>    )</span>
+<span id="cb46-14"><a href="discrete-probability-distributions.html#cb46-14" tabindex="-1"></a>  ),</span>
+<span id="cb46-15"><a href="discrete-probability-distributions.html#cb46-15" tabindex="-1"></a>  <span class="at">dist_values =</span> <span class="fu">c</span>(</span>
+<span id="cb46-16"><a href="discrete-probability-distributions.html#cb46-16" tabindex="-1"></a>    <span class="fu">rbinom</span>(<span class="dv">1000</span>, <span class="dv">20</span>, <span class="fl">0.5</span>),</span>
+<span id="cb46-17"><a href="discrete-probability-distributions.html#cb46-17" tabindex="-1"></a>    <span class="fu">rbinom</span>(<span class="dv">1000</span>, <span class="dv">20</span>, <span class="fl">0.7</span>),</span>
+<span id="cb46-18"><a href="discrete-probability-distributions.html#cb46-18" tabindex="-1"></a>    <span class="fu">rbinom</span>(<span class="dv">1000</span>, <span class="dv">40</span>, <span class="fl">0.5</span>)</span>
+<span id="cb46-19"><a href="discrete-probability-distributions.html#cb46-19" tabindex="-1"></a>  )</span>
+<span id="cb46-20"><a href="discrete-probability-distributions.html#cb46-20" tabindex="-1"></a>) </span>
+<span id="cb46-21"><a href="discrete-probability-distributions.html#cb46-21" tabindex="-1"></a></span>
+<span id="cb46-22"><a href="discrete-probability-distributions.html#cb46-22" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> dist_values, <span class="at">fill =</span> dist_types)) <span class="sc">+</span></span>
+<span id="cb46-23"><a href="discrete-probability-distributions.html#cb46-23" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">1</span>, <span class="at">alpha =</span> <span class="fl">0.75</span>, <span class="at">position =</span> <span class="st">&quot;identity&quot;</span>) <span class="sc">+</span></span>
+<span id="cb46-24"><a href="discrete-probability-distributions.html#cb46-24" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Distribution values&quot;</span>) <span class="sc">+</span></span>
+<span id="cb46-25"><a href="discrete-probability-distributions.html#cb46-25" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Count&quot;</span>) <span class="sc">+</span></span>
+<span id="cb46-26"><a href="discrete-probability-distributions.html#cb46-26" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb46-27"><a href="discrete-probability-distributions.html#cb46-27" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">fill =</span> <span class="st">&quot;&quot;</span>) <span class="sc">+</span></span>
+<span id="cb46-28"><a href="discrete-probability-distributions.html#cb46-28" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;Histogram of binomial distributions for various n, p&quot;</span>)</span></code></pre></div>
+<p><img src="book_files/figure-html/discrete-distributions-binomial-6-1.png" width="672" /></p>
+</div>
+<div id="negative-binomial-distribution" class="section level2 hasAnchor" number="2.4">
+<h2><span class="header-section-number">2.4</span> Negative binomial distribution<a href="discrete-probability-distributions.html#negative-binomial-distribution" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The negative binomial distribution (<span class="math inline">\(Z\)</span>) can be defined by the number of failures in a sequence of <span class="math inline">\(n\)</span> independent, identically distributed (“<em>i.i.d.</em>”) Bernoulli trials before a specified number of successes, <span class="math inline">\(r\)</span>, occurs. More formally, if we have, <span class="math inline">\(r &gt;0\)</span> number of successes, <span class="math inline">\(k\)</span> number of failures, <span class="math inline">\(p\)</span> probability of success then:</p>
+<p><span class="math display">\[P(Z = k) = \binom{k+r-1}{k}(1-p)^{k}p^{r}\]</span></p>
+<p>We can see that with <span class="math inline">\(r = 1\)</span>, the binomial distribution is a special case of the more general negative binomial distribution.</p>
+<p>Let us begin by generate random deviates from the negative binomial distribution, <span class="math inline">\(Z \sim NegBin(r, p)\)</span>, using <code class="sourceCode r"><span class="fu">rnbinom</span>(n, size, prob)</code> where:</p>
+<ul>
+<li><em>n</em> is the <em>number</em> of random deviates we want to generate,</li>
+<li><em>size</em> is the target number of successes from i.i.d. Bernoulli trials, and</li>
+<li><em>prob</em> is the probability of success in any given trial</li>
+</ul>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="discrete-probability-distributions.html#cb47-1" tabindex="-1"></a><span class="co"># Generate random deviates from the negative binomial distribution</span></span>
+<span id="cb47-2"><a href="discrete-probability-distributions.html#cb47-2" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
+<span id="cb47-3"><a href="discrete-probability-distributions.html#cb47-3" tabindex="-1"></a><span class="fu">rnbinom</span>(<span class="dv">5</span>, <span class="dv">10</span>, <span class="fl">0.5</span>)</span></code></pre></div>
+<pre><code>## [1] 12  6 10 14 16</code></pre>
+<p>To find <span class="math inline">\(P(Z \leq k)\)</span> we can use the function <code class="sourceCode r"><span class="fu">pnbinom</span>(q, size, prob)</code> where:</p>
+<ul>
+<li><em>q</em> is the quantile of interest,</li>
+<li><em>size</em> is the target number of successes from i.i.d. Bernoulli trials,</li>
+<li><em>prob</em> is the probability of success in any given trial.</li>
+</ul>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="discrete-probability-distributions.html#cb49-1" tabindex="-1"></a><span class="co"># Find P(Z &lt;= 2) with Z~NegBin(5, 0.5)</span></span>
+<span id="cb49-2"><a href="discrete-probability-distributions.html#cb49-2" tabindex="-1"></a>prob_nbinom <span class="ot">&lt;-</span> <span class="fu">pnbinom</span>(<span class="dv">2</span>, <span class="dv">5</span>, <span class="fl">0.5</span>)</span>
+<span id="cb49-3"><a href="discrete-probability-distributions.html#cb49-3" tabindex="-1"></a></span>
+<span id="cb49-4"><a href="discrete-probability-distributions.html#cb49-4" tabindex="-1"></a><span class="fu">paste0</span>(</span>
+<span id="cb49-5"><a href="discrete-probability-distributions.html#cb49-5" tabindex="-1"></a>  <span class="st">&quot;P(Z &lt;= 2) with Z~NegBin(5, 0.5) is &quot;</span>,</span>
+<span id="cb49-6"><a href="discrete-probability-distributions.html#cb49-6" tabindex="-1"></a>  <span class="fu">format</span>(prob_nbinom, <span class="at">digits =</span> <span class="dv">4</span>),</span>
+<span id="cb49-7"><a href="discrete-probability-distributions.html#cb49-7" tabindex="-1"></a>  <span class="st">&quot;.&quot;</span></span>
+<span id="cb49-8"><a href="discrete-probability-distributions.html#cb49-8" tabindex="-1"></a>)</span></code></pre></div>
+<pre><code>## [1] &quot;P(Z &lt;= 2) with Z~NegBin(5, 0.5) is 0.2266.&quot;</code></pre>
+<p>To find <span class="math inline">\(P(Z = k)\)</span> we can use the function <code class="sourceCode r"><span class="fu">dnbinom</span>(x, size, prob)</code> where:</p>
+<ul>
+<li><em>x</em> is the quantile of interest,</li>
+<li><em>size</em> is the target number of successes from i.i.d. Bernoulli trials, and</li>
+<li><em>prob</em> is the probability of success in any given trial.</li>
+</ul>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="discrete-probability-distributions.html#cb51-1" tabindex="-1"></a><span class="co"># Find P(Z = 2) where Z~NegBin(5, 0.5)</span></span>
+<span id="cb51-2"><a href="discrete-probability-distributions.html#cb51-2" tabindex="-1"></a>prob_nbinom <span class="ot">&lt;-</span> <span class="fu">dnbinom</span>(<span class="dv">2</span>, <span class="dv">5</span>, <span class="fl">0.5</span>)</span>
+<span id="cb51-3"><a href="discrete-probability-distributions.html#cb51-3" tabindex="-1"></a></span>
+<span id="cb51-4"><a href="discrete-probability-distributions.html#cb51-4" tabindex="-1"></a><span class="fu">paste0</span>(</span>
+<span id="cb51-5"><a href="discrete-probability-distributions.html#cb51-5" tabindex="-1"></a>  <span class="st">&quot;P(Z = 2) with Z~NegBin(5, 0.5) is &quot;</span>,</span>
+<span id="cb51-6"><a href="discrete-probability-distributions.html#cb51-6" tabindex="-1"></a>  <span class="fu">format</span>(prob_nbinom, <span class="at">digits =</span> <span class="dv">4</span>),</span>
+<span id="cb51-7"><a href="discrete-probability-distributions.html#cb51-7" tabindex="-1"></a>  <span class="st">&quot;.&quot;</span>  </span>
+<span id="cb51-8"><a href="discrete-probability-distributions.html#cb51-8" tabindex="-1"></a>)</span></code></pre></div>
+<pre><code>## [1] &quot;P(Z = 2) with Z~NegBin(5, 0.5) is 0.1172.&quot;</code></pre>
+<p>We can also calculate <span class="math inline">\(P(k_1 \leq Z \leq k_2)\)</span> with <code class="sourceCode r"><span class="fu">dnbinom</span>(x, size, prob)</code> by entering <em>x</em> as a vector input and summing over the output.</p>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="discrete-probability-distributions.html#cb53-1" tabindex="-1"></a><span class="co"># Find P(1 &lt;= Z &lt;= 3) with Z~NegBin(5, 0.5)</span></span>
+<span id="cb53-2"><a href="discrete-probability-distributions.html#cb53-2" tabindex="-1"></a>prob_nbinom <span class="ot">&lt;-</span> <span class="fu">sum</span>(<span class="fu">dnbinom</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="dv">5</span>, <span class="fl">0.5</span>))</span>
+<span id="cb53-3"><a href="discrete-probability-distributions.html#cb53-3" tabindex="-1"></a></span>
+<span id="cb53-4"><a href="discrete-probability-distributions.html#cb53-4" tabindex="-1"></a><span class="fu">paste0</span>(</span>
+<span id="cb53-5"><a href="discrete-probability-distributions.html#cb53-5" tabindex="-1"></a>  <span class="st">&quot;P(1 &lt;= Z &lt;= 3) with Z~NegBin(5, 0.5) is &quot;</span>,</span>
+<span id="cb53-6"><a href="discrete-probability-distributions.html#cb53-6" tabindex="-1"></a>  <span class="fu">format</span>(prob_nbinom, <span class="at">digits =</span> <span class="dv">4</span>),</span>
+<span id="cb53-7"><a href="discrete-probability-distributions.html#cb53-7" tabindex="-1"></a>  <span class="st">&quot;.&quot;</span></span>
+<span id="cb53-8"><a href="discrete-probability-distributions.html#cb53-8" tabindex="-1"></a>)</span></code></pre></div>
+<pre><code>## [1] &quot;P(1 &lt;= Z &lt;= 3) with Z~NegBin(5, 0.5) is 0.332.&quot;</code></pre>
+<p>When we are interested in finding the <em>zth</em> percentile we can make use of the quantile function, <code class="sourceCode r"><span class="fu">qnbinom</span>(p, size, prob)</code> where:</p>
+<ul>
+<li><em>p</em> is the percentile of interest,</li>
+<li><em>size</em> is the target number of successes from i.i.d. Bernoulli trials, and</li>
+<li><em>prob</em> is the probability of success in any given trial.</li>
+</ul>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="discrete-probability-distributions.html#cb55-1" tabindex="-1"></a><span class="co"># Find the 99th percentile of Z~NegBin(100, 0.5)</span></span>
+<span id="cb55-2"><a href="discrete-probability-distributions.html#cb55-2" tabindex="-1"></a>percentile_99 <span class="ot">&lt;-</span> <span class="fu">qnbinom</span>(<span class="fl">0.99</span>, <span class="dv">100</span>, <span class="fl">0.5</span>)</span>
+<span id="cb55-3"><a href="discrete-probability-distributions.html#cb55-3" tabindex="-1"></a></span>
+<span id="cb55-4"><a href="discrete-probability-distributions.html#cb55-4" tabindex="-1"></a><span class="fu">paste0</span>(</span>
+<span id="cb55-5"><a href="discrete-probability-distributions.html#cb55-5" tabindex="-1"></a>  <span class="st">&quot;The 99th percentile of Z~NegBin(100, 0.5) is &quot;</span>,</span>
+<span id="cb55-6"><a href="discrete-probability-distributions.html#cb55-6" tabindex="-1"></a>  percentile_99,</span>
+<span id="cb55-7"><a href="discrete-probability-distributions.html#cb55-7" tabindex="-1"></a>  <span class="st">&quot;.&quot;</span></span>
+<span id="cb55-8"><a href="discrete-probability-distributions.html#cb55-8" tabindex="-1"></a>)</span></code></pre></div>
+<pre><code>## [1] &quot;The 99th percentile of Z~NegBin(100, 0.5) is 135.&quot;</code></pre>
+<p>Finally, we finish with a plot of the negative binomial distribution:</p>
+<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="discrete-probability-distributions.html#cb57-1" tabindex="-1"></a><span class="co"># Plot the distribution function of X, Y, Z with: </span></span>
+<span id="cb57-2"><a href="discrete-probability-distributions.html#cb57-2" tabindex="-1"></a><span class="co"># X,Y,Z~NegBin(r, p) for various {r, p}</span></span>
+<span id="cb57-3"><a href="discrete-probability-distributions.html#cb57-3" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb57-4"><a href="discrete-probability-distributions.html#cb57-4" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
+<span id="cb57-5"><a href="discrete-probability-distributions.html#cb57-5" tabindex="-1"></a></span>
+<span id="cb57-6"><a href="discrete-probability-distributions.html#cb57-6" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb57-7"><a href="discrete-probability-distributions.html#cb57-7" tabindex="-1"></a>  <span class="at">dist_types =</span> <span class="fu">factor</span>(</span>
+<span id="cb57-8"><a href="discrete-probability-distributions.html#cb57-8" tabindex="-1"></a>    <span class="fu">rep</span>(<span class="fu">c</span>(</span>
+<span id="cb57-9"><a href="discrete-probability-distributions.html#cb57-9" tabindex="-1"></a>      <span class="st">&quot;r = 5, p = 0.6&quot;</span>,</span>
+<span id="cb57-10"><a href="discrete-probability-distributions.html#cb57-10" tabindex="-1"></a>      <span class="st">&quot;r = 5, p = 0.5&quot;</span>,</span>
+<span id="cb57-11"><a href="discrete-probability-distributions.html#cb57-11" tabindex="-1"></a>      <span class="st">&quot;r = 10, p = 0.4&quot;</span></span>
+<span id="cb57-12"><a href="discrete-probability-distributions.html#cb57-12" tabindex="-1"></a>    ), <span class="at">each =</span> <span class="dv">1000</span></span>
+<span id="cb57-13"><a href="discrete-probability-distributions.html#cb57-13" tabindex="-1"></a>    )</span>
+<span id="cb57-14"><a href="discrete-probability-distributions.html#cb57-14" tabindex="-1"></a>  ),</span>
+<span id="cb57-15"><a href="discrete-probability-distributions.html#cb57-15" tabindex="-1"></a>  <span class="at">dist_values =</span> <span class="fu">c</span>(</span>
+<span id="cb57-16"><a href="discrete-probability-distributions.html#cb57-16" tabindex="-1"></a>    <span class="fu">rnbinom</span>(<span class="dv">1000</span>, <span class="dv">5</span>, <span class="fl">0.6</span>),</span>
+<span id="cb57-17"><a href="discrete-probability-distributions.html#cb57-17" tabindex="-1"></a>    <span class="fu">rnbinom</span>(<span class="dv">1000</span>, <span class="dv">5</span>, <span class="fl">0.5</span>),</span>
+<span id="cb57-18"><a href="discrete-probability-distributions.html#cb57-18" tabindex="-1"></a>    <span class="fu">rnbinom</span>(<span class="dv">1000</span>, <span class="dv">10</span>, <span class="fl">0.4</span>)</span>
+<span id="cb57-19"><a href="discrete-probability-distributions.html#cb57-19" tabindex="-1"></a>  )</span>
+<span id="cb57-20"><a href="discrete-probability-distributions.html#cb57-20" tabindex="-1"></a>)</span>
+<span id="cb57-21"><a href="discrete-probability-distributions.html#cb57-21" tabindex="-1"></a></span>
+<span id="cb57-22"><a href="discrete-probability-distributions.html#cb57-22" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> dist_values, <span class="at">fill =</span> dist_types)) <span class="sc">+</span></span>
+<span id="cb57-23"><a href="discrete-probability-distributions.html#cb57-23" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">1</span>, <span class="at">alpha =</span> <span class="fl">0.75</span>, <span class="at">position =</span> <span class="st">&quot;identity&quot;</span>) <span class="sc">+</span></span>
+<span id="cb57-24"><a href="discrete-probability-distributions.html#cb57-24" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Distribution values&quot;</span>) <span class="sc">+</span></span>
+<span id="cb57-25"><a href="discrete-probability-distributions.html#cb57-25" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Count&quot;</span>) <span class="sc">+</span></span>
+<span id="cb57-26"><a href="discrete-probability-distributions.html#cb57-26" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb57-27"><a href="discrete-probability-distributions.html#cb57-27" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">fill =</span> <span class="st">&quot;&quot;</span>) <span class="sc">+</span></span>
+<span id="cb57-28"><a href="discrete-probability-distributions.html#cb57-28" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;Histogram of negative binomial distributions for various r, p&quot;</span>)</span></code></pre></div>
+<p><img src="book_files/figure-html/discrete-distributions-negative-binomial-6-1.png" width="672" /></p>
+</div>
+<div id="hypergeometric-distribution" class="section level2 hasAnchor" number="2.5">
+<h2><span class="header-section-number">2.5</span> Hypergeometric distribution<a href="discrete-probability-distributions.html#hypergeometric-distribution" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The hypergeometric distribution (<span class="math inline">\(X\)</span>) can be defined by the probability of <span class="math inline">\(k\)</span> successes in <span class="math inline">\(n\)</span> draws <strong>without</strong> replacement from a finite population <span class="math inline">\(N\)</span> that contains exactly <span class="math inline">\(K\)</span> “<em>success</em>” objects/states.</p>
+<p><span class="math display">\[P(X = k) = \frac{ \binom{K}{k} \binom{N - K}{n - k} }{ \binom{N}{n} }\]</span></p>
+<p>We begin by generating random deviates from the hypergeometric distribution, <span class="math inline">\(X \sim Hyper(N, K, n)\)</span>, using <code class="sourceCode r"><span class="fu">rhyper</span>(nn, m, n, k)</code> where:</p>
+<ul>
+<li><em>nn</em> is <em>number</em> of observations we want to generate,</li>
+<li><em>m</em> is number of “success” objects/states in the population <span class="math inline">\(N\)</span>,</li>
+<li><em>n</em> is number of “failure” objects/states in the population <span class="math inline">\(N\)</span>, and</li>
+<li><em>k</em> is the number of objects drawn / states observed</li>
+</ul>
+<p>Traditionally we have defined the population <span class="math inline">\(N\)</span> as an urn containing <em>m</em> white balls and <em>n</em> black balls and this is how the distribution arguments are specified in the <code class="sourceCode r">stats</code> package. Note that <em>m</em> <span class="math inline">\(= K\)</span> and <em>n</em> <span class="math inline">\(= N - K\)</span>.</p>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="discrete-probability-distributions.html#cb58-1" tabindex="-1"></a><span class="co"># Generate random deviates on X~Hyper(N = 100, K = 90, n = 10)</span></span>
+<span id="cb58-2"><a href="discrete-probability-distributions.html#cb58-2" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
+<span id="cb58-3"><a href="discrete-probability-distributions.html#cb58-3" tabindex="-1"></a><span class="fu">rhyper</span>(<span class="dv">5</span>, <span class="dv">90</span>, <span class="dv">100</span> <span class="sc">-</span> <span class="dv">90</span>, <span class="dv">10</span>)</span></code></pre></div>
+<pre><code>## [1]  8  8 10  8  9</code></pre>
+<p>In the above random deviate generation we specified a 90% (<span class="math inline">\(\frac{90}{90 + 10}\)</span>) chance of drawing a “success” object and we made 10 draws from this population of 100 objects. With such a high proportion of “<em>success</em>” objects it was not suprising to note we generated random deviates from this distribution close to 10/10.</p>
+<p>Next we wish to find <span class="math inline">\(P(X \leq k)\)</span> which involves using <code class="sourceCode r"><span class="fu">phyper</span>(q, m, n, k)</code> where:</p>
+<ul>
+<li><em>q</em> is the quantile of interest (representing the number of “success” objects in the finite population <span class="math inline">\(N\)</span>),</li>
+<li><em>m</em> is the number of “success” objects in the population <span class="math inline">\(N\)</span>,</li>
+<li><em>n</em> is number of “failure” objects in the population <span class="math inline">\(N\)</span>, and</li>
+<li><em>k</em> is the number of objects drawn</li>
+</ul>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="discrete-probability-distributions.html#cb60-1" tabindex="-1"></a><span class="co"># Find P(X &lt;= 5) with X~Hyper(N = 100, K = 90, n = 10)</span></span>
+<span id="cb60-2"><a href="discrete-probability-distributions.html#cb60-2" tabindex="-1"></a>prob_hyper <span class="ot">&lt;-</span> <span class="fu">phyper</span>(<span class="dv">5</span>, <span class="dv">90</span>, <span class="dv">100</span> <span class="sc">-</span> <span class="dv">90</span>, <span class="dv">10</span>)</span>
+<span id="cb60-3"><a href="discrete-probability-distributions.html#cb60-3" tabindex="-1"></a></span>
+<span id="cb60-4"><a href="discrete-probability-distributions.html#cb60-4" tabindex="-1"></a><span class="fu">paste0</span>(</span>
+<span id="cb60-5"><a href="discrete-probability-distributions.html#cb60-5" tabindex="-1"></a>  <span class="st">&quot;With 10 objects drawn from a total 100 possible, &quot;</span>,</span>
+<span id="cb60-6"><a href="discrete-probability-distributions.html#cb60-6" tabindex="-1"></a>  <span class="st">&quot;P(X &lt;= 3) with X~Hyper() is &quot;</span>,</span>
+<span id="cb60-7"><a href="discrete-probability-distributions.html#cb60-7" tabindex="-1"></a>  <span class="fu">format</span>(prob_hyper, <span class="at">digits =</span> <span class="dv">4</span>),</span>
+<span id="cb60-8"><a href="discrete-probability-distributions.html#cb60-8" tabindex="-1"></a>  <span class="st">&quot;.&quot;</span></span>
+<span id="cb60-9"><a href="discrete-probability-distributions.html#cb60-9" tabindex="-1"></a>)</span></code></pre></div>
+<pre><code>## [1] &quot;With 10 objects drawn from a total 100 possible, P(X &lt;= 3) with X~Hyper() is 0.0006716.&quot;</code></pre>
+<p>To find <span class="math inline">\(P(X = k)\)</span> we can use the function <code class="sourceCode r"><span class="fu">dhyper</span>(x, m, n, k)</code> where:</p>
+<ul>
+<li><em>x</em> is the quantile of interest (representing the number of “success” objects in the finite population <span class="math inline">\(N\)</span>),</li>
+<li><em>m</em> is the number of “success” objects in the population <span class="math inline">\(N\)</span>,</li>
+<li><em>n</em> is number of “failure” objects in the population <span class="math inline">\(N\)</span>, and</li>
+<li><em>k</em> is the number of objects drawn</li>
+</ul>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="discrete-probability-distributions.html#cb62-1" tabindex="-1"></a><span class="co"># Find P(X = 5) with X~Hyper(N = 100, K = 90, n = 10)</span></span>
+<span id="cb62-2"><a href="discrete-probability-distributions.html#cb62-2" tabindex="-1"></a>prob_hyper <span class="ot">&lt;-</span> <span class="fu">dhyper</span>(<span class="dv">5</span>, <span class="dv">90</span>, <span class="dv">100</span> <span class="sc">-</span> <span class="dv">90</span>, <span class="dv">10</span>)</span></code></pre></div>
+<p>We can also calculate <span class="math inline">\(P(k_1 \leq X \leq k_2)\)</span> with <code class="sourceCode r"><span class="fu">dhyper</span>(x, m, n, k)</code> by entering <em>x</em> as a vector input and summing over the output.</p>
+<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="discrete-probability-distributions.html#cb63-1" tabindex="-1"></a><span class="co"># Find P(7 &lt;= X &lt;= 9) with X~Hyper(N = 100, K = 90, n = 10)</span></span>
+<span id="cb63-2"><a href="discrete-probability-distributions.html#cb63-2" tabindex="-1"></a>prob_hyper <span class="ot">&lt;-</span> <span class="fu">sum</span>(<span class="fu">dhyper</span>(<span class="dv">7</span><span class="sc">:</span><span class="dv">9</span>, <span class="dv">90</span>, <span class="dv">100</span> <span class="sc">-</span> <span class="dv">90</span>, <span class="dv">10</span>))</span></code></pre></div>
+<p>When we are interested in finding the <em>xth</em> percentile we can make use of the quantile function, <code class="sourceCode r"><span class="fu">qhyper</span>(p, m, n, k)</code> where:</p>
+<ul>
+<li><em>p</em> is the percentile of interest,</li>
+<li><em>m</em> is the number of “success” objects in the population <span class="math inline">\(N\)</span>,</li>
+<li><em>n</em> is number of “failure” objects in the population <span class="math inline">\(N\)</span>, and</li>
+<li><em>k</em> is the number of objects drawn</li>
+</ul>
+<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="discrete-probability-distributions.html#cb64-1" tabindex="-1"></a><span class="co"># Find the 99th percentile of X~Hyper(N = 100, K = 90, n = 50)</span></span>
+<span id="cb64-2"><a href="discrete-probability-distributions.html#cb64-2" tabindex="-1"></a>percentile_99 <span class="ot">&lt;-</span> <span class="fu">qhyper</span>(<span class="fl">0.99</span>, <span class="dv">90</span>, <span class="dv">100</span> <span class="sc">-</span> <span class="dv">90</span>, <span class="dv">50</span>)</span>
+<span id="cb64-3"><a href="discrete-probability-distributions.html#cb64-3" tabindex="-1"></a></span>
+<span id="cb64-4"><a href="discrete-probability-distributions.html#cb64-4" tabindex="-1"></a><span class="fu">paste0</span>(</span>
+<span id="cb64-5"><a href="discrete-probability-distributions.html#cb64-5" tabindex="-1"></a>  <span class="st">&quot;When we draw 50 objects from a population of &quot;</span>,</span>
+<span id="cb64-6"><a href="discrete-probability-distributions.html#cb64-6" tabindex="-1"></a>  <span class="st">&quot;90 &#39;success&#39; objects and 10 &#39;failure&#39; objects, &quot;</span>,</span>
+<span id="cb64-7"><a href="discrete-probability-distributions.html#cb64-7" tabindex="-1"></a>  <span class="st">&quot;we expect the 99th percentile outcome to be &quot;</span>,</span>
+<span id="cb64-8"><a href="discrete-probability-distributions.html#cb64-8" tabindex="-1"></a>  percentile_99,</span>
+<span id="cb64-9"><a href="discrete-probability-distributions.html#cb64-9" tabindex="-1"></a>  <span class="st">&quot;.&quot;</span></span>
+<span id="cb64-10"><a href="discrete-probability-distributions.html#cb64-10" tabindex="-1"></a>)</span></code></pre></div>
+<pre><code>## [1] &quot;When we draw 50 objects from a population of 90 &#39;success&#39; objects and 10 &#39;failure&#39; objects, we expect the 99th percentile outcome to be 48.&quot;</code></pre>
+<p>Finally, we finish with a plot of the hypergeometric distribution:</p>
+<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="discrete-probability-distributions.html#cb66-1" tabindex="-1"></a><span class="co"># Plot the distribution function of X, Y, Z with:</span></span>
+<span id="cb66-2"><a href="discrete-probability-distributions.html#cb66-2" tabindex="-1"></a><span class="co"># X,Y,Z~Hyper(N, K, n) for various {N, K, n}</span></span>
+<span id="cb66-3"><a href="discrete-probability-distributions.html#cb66-3" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb66-4"><a href="discrete-probability-distributions.html#cb66-4" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
+<span id="cb66-5"><a href="discrete-probability-distributions.html#cb66-5" tabindex="-1"></a></span>
+<span id="cb66-6"><a href="discrete-probability-distributions.html#cb66-6" tabindex="-1"></a>inputs <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
+<span id="cb66-7"><a href="discrete-probability-distributions.html#cb66-7" tabindex="-1"></a>  <span class="st">&quot;N = 500, K = 50, n = 100&quot;</span>,</span>
+<span id="cb66-8"><a href="discrete-probability-distributions.html#cb66-8" tabindex="-1"></a>  <span class="st">&quot;N = 500, K = 60, n = 200&quot;</span>,</span>
+<span id="cb66-9"><a href="discrete-probability-distributions.html#cb66-9" tabindex="-1"></a>  <span class="st">&quot;N = 500, K = 70, n = 300&quot;</span></span>
+<span id="cb66-10"><a href="discrete-probability-distributions.html#cb66-10" tabindex="-1"></a>)</span>
+<span id="cb66-11"><a href="discrete-probability-distributions.html#cb66-11" tabindex="-1"></a></span>
+<span id="cb66-12"><a href="discrete-probability-distributions.html#cb66-12" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb66-13"><a href="discrete-probability-distributions.html#cb66-13" tabindex="-1"></a>  <span class="at">dist_types =</span> <span class="fu">rep</span>(inputs, <span class="at">each =</span> <span class="dv">1000</span>),</span>
+<span id="cb66-14"><a href="discrete-probability-distributions.html#cb66-14" tabindex="-1"></a>  <span class="at">dist_values =</span> <span class="fu">c</span>(</span>
+<span id="cb66-15"><a href="discrete-probability-distributions.html#cb66-15" tabindex="-1"></a>    <span class="fu">rhyper</span>(<span class="dv">1000</span>, <span class="dv">50</span>, <span class="dv">500</span> <span class="sc">-</span> <span class="dv">50</span>, <span class="dv">100</span>),</span>
+<span id="cb66-16"><a href="discrete-probability-distributions.html#cb66-16" tabindex="-1"></a>    <span class="fu">rhyper</span>(<span class="dv">1000</span>, <span class="dv">60</span>, <span class="dv">500</span> <span class="sc">-</span> <span class="dv">60</span>, <span class="dv">200</span>),</span>
+<span id="cb66-17"><a href="discrete-probability-distributions.html#cb66-17" tabindex="-1"></a>    <span class="fu">rhyper</span>(<span class="dv">1000</span>, <span class="dv">70</span>, <span class="dv">500</span> <span class="sc">-</span> <span class="dv">70</span>, <span class="dv">300</span>)</span>
+<span id="cb66-18"><a href="discrete-probability-distributions.html#cb66-18" tabindex="-1"></a>  )</span>
+<span id="cb66-19"><a href="discrete-probability-distributions.html#cb66-19" tabindex="-1"></a>)</span>
+<span id="cb66-20"><a href="discrete-probability-distributions.html#cb66-20" tabindex="-1"></a></span>
+<span id="cb66-21"><a href="discrete-probability-distributions.html#cb66-21" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> dist_values, <span class="at">fill =</span> dist_types)) <span class="sc">+</span></span>
+<span id="cb66-22"><a href="discrete-probability-distributions.html#cb66-22" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">1</span>, <span class="at">alpha =</span> <span class="fl">0.75</span>, <span class="at">position =</span> <span class="st">&quot;identity&quot;</span>) <span class="sc">+</span></span>
+<span id="cb66-23"><a href="discrete-probability-distributions.html#cb66-23" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Distribution values&quot;</span>) <span class="sc">+</span></span>
+<span id="cb66-24"><a href="discrete-probability-distributions.html#cb66-24" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Count&quot;</span>) <span class="sc">+</span></span>
+<span id="cb66-25"><a href="discrete-probability-distributions.html#cb66-25" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb66-26"><a href="discrete-probability-distributions.html#cb66-26" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">fill =</span> <span class="st">&quot;&quot;</span>) <span class="sc">+</span></span>
+<span id="cb66-27"><a href="discrete-probability-distributions.html#cb66-27" tabindex="-1"></a>  <span class="fu">scale_fill_discrete</span>(<span class="at">breaks =</span> inputs) <span class="sc">+</span></span>
+<span id="cb66-28"><a href="discrete-probability-distributions.html#cb66-28" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;Histogram of Hypergeometric distributions for various inputs&quot;</span>)</span></code></pre></div>
+<p><img src="book_files/figure-html/discrete-distributions-hypergeometric-6-1.png" width="672" /></p>
+</div>
+<div id="poisson-distribution" class="section level2 hasAnchor" number="2.6">
+<h2><span class="header-section-number">2.6</span> Poisson distribution<a href="discrete-probability-distributions.html#poisson-distribution" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The Poisson distribution (<span class="math inline">\(Y\)</span>) is usually defined as the probability of a given number of events occurring (<span class="math inline">\(k\)</span>) in a fixed interval of time where events occur with a <strong>constant mean rate</strong> (<span class="math inline">\(\lambda\)</span>) and <strong>independently</strong> of the time since the last event. More formally, for <span class="math inline">\(\lambda &gt; 0\)</span> and <span class="math inline">\(k = 0,\,1,\,2,\,\dots\,\)</span>:</p>
+<p><span class="math display">\[P(Y = k) = \frac{\lambda^k e^{-k}}{k!}\]</span></p>
+<p>We can generate random deviates from the Poisson distribution <span class="math inline">\(Y \sim Pois(\lambda)\)</span> using <code class="sourceCode r"><span class="fu">rpois</span>(n, lambda)</code> where:</p>
+<ul>
+<li><em>n</em> is the <em>number</em> of random deviates we want to generate, and</li>
+<li><em>lambda</em> is the constant <em>mean</em> rate.</li>
+</ul>
+<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="discrete-probability-distributions.html#cb67-1" tabindex="-1"></a><span class="co"># Generate 5 random deviates on Y~Pois(8)</span></span>
+<span id="cb67-2"><a href="discrete-probability-distributions.html#cb67-2" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
+<span id="cb67-3"><a href="discrete-probability-distributions.html#cb67-3" tabindex="-1"></a><span class="fu">rpois</span>(<span class="dv">5</span>, <span class="dv">8</span>)</span></code></pre></div>
+<pre><code>## [1] 12 13  6 11  9</code></pre>
+<p>To find <span class="math inline">\(P(Y \leq k)\)</span> we can use the function <code class="sourceCode r"><span class="fu">ppois</span>(q, lambda)</code> where:</p>
+<ul>
+<li><em>q</em> is the quantile of interest, and</li>
+<li><em>lambda</em> is the constant <em>mean</em> rate.</li>
+</ul>
+<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="discrete-probability-distributions.html#cb69-1" tabindex="-1"></a><span class="co"># Find P(Y &lt;= 5) with Y~Pois(8)</span></span>
+<span id="cb69-2"><a href="discrete-probability-distributions.html#cb69-2" tabindex="-1"></a>prob_pois <span class="ot">&lt;-</span> <span class="fu">ppois</span>(<span class="dv">5</span>, <span class="dv">8</span>)</span>
+<span id="cb69-3"><a href="discrete-probability-distributions.html#cb69-3" tabindex="-1"></a></span>
+<span id="cb69-4"><a href="discrete-probability-distributions.html#cb69-4" tabindex="-1"></a><span class="fu">paste0</span>(</span>
+<span id="cb69-5"><a href="discrete-probability-distributions.html#cb69-5" tabindex="-1"></a>  <span class="st">&quot;P(Y &lt;= 5) with Y~Pois(5, 8) is &quot;</span>,</span>
+<span id="cb69-6"><a href="discrete-probability-distributions.html#cb69-6" tabindex="-1"></a>  <span class="fu">format</span>(prob_pois, <span class="at">digits =</span> <span class="dv">4</span>),</span>
+<span id="cb69-7"><a href="discrete-probability-distributions.html#cb69-7" tabindex="-1"></a>  <span class="st">&quot;.&quot;</span></span>
+<span id="cb69-8"><a href="discrete-probability-distributions.html#cb69-8" tabindex="-1"></a>)</span></code></pre></div>
+<pre><code>## [1] &quot;P(Y &lt;= 5) with Y~Pois(5, 8) is 0.1912.&quot;</code></pre>
+<p>To find <span class="math inline">\(P(Y = k)\)</span> we can use the function <code class="sourceCode r"><span class="fu">dpois</span>(x, lambda)</code> where:</p>
+<ul>
+<li><em>x</em> is the quantile of interest, and</li>
+<li><em>lambda</em> is the constant <em>mean</em> rate.</li>
+</ul>
+<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="discrete-probability-distributions.html#cb71-1" tabindex="-1"></a><span class="co"># Find P(Y = 5) with Y~Pois(8)</span></span>
+<span id="cb71-2"><a href="discrete-probability-distributions.html#cb71-2" tabindex="-1"></a>prob_pois <span class="ot">&lt;-</span> <span class="fu">dpois</span>(<span class="dv">5</span>, <span class="dv">8</span>)</span>
+<span id="cb71-3"><a href="discrete-probability-distributions.html#cb71-3" tabindex="-1"></a></span>
+<span id="cb71-4"><a href="discrete-probability-distributions.html#cb71-4" tabindex="-1"></a><span class="fu">paste0</span>(</span>
+<span id="cb71-5"><a href="discrete-probability-distributions.html#cb71-5" tabindex="-1"></a>  <span class="st">&quot;P(Y = 5) with Y~Pois(5, 8) is &quot;</span>,</span>
+<span id="cb71-6"><a href="discrete-probability-distributions.html#cb71-6" tabindex="-1"></a>  <span class="fu">format</span>(prob_pois, <span class="at">digits =</span> <span class="dv">4</span>),</span>
+<span id="cb71-7"><a href="discrete-probability-distributions.html#cb71-7" tabindex="-1"></a>  <span class="st">&quot;.&quot;</span></span>
+<span id="cb71-8"><a href="discrete-probability-distributions.html#cb71-8" tabindex="-1"></a>)</span></code></pre></div>
+<pre><code>## [1] &quot;P(Y = 5) with Y~Pois(5, 8) is 0.0916.&quot;</code></pre>
+<p>If we wanted to find <span class="math inline">\(P(k_1 \leq Y \leq k_2)\)</span> we can also use the function <code class="sourceCode r"><span class="fu">dpois</span>(x, lambda)</code> with <em>x</em> entered as a vector and summing over the output.</p>
+<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="discrete-probability-distributions.html#cb73-1" tabindex="-1"></a><span class="co"># Find P(4 &lt;= Y &lt;= 6) where Y~Pois(8)</span></span>
+<span id="cb73-2"><a href="discrete-probability-distributions.html#cb73-2" tabindex="-1"></a>prob_pois <span class="ot">&lt;-</span> <span class="fu">sum</span>(<span class="fu">dpois</span>(<span class="dv">4</span><span class="sc">:</span><span class="dv">6</span>, <span class="dv">5</span>))</span>
+<span id="cb73-3"><a href="discrete-probability-distributions.html#cb73-3" tabindex="-1"></a></span>
+<span id="cb73-4"><a href="discrete-probability-distributions.html#cb73-4" tabindex="-1"></a><span class="fu">paste0</span>(</span>
+<span id="cb73-5"><a href="discrete-probability-distributions.html#cb73-5" tabindex="-1"></a>  <span class="st">&quot;P(4 &lt;= Y &lt;= 6) with Y~Pois(8) is &quot;</span>,</span>
+<span id="cb73-6"><a href="discrete-probability-distributions.html#cb73-6" tabindex="-1"></a>  <span class="fu">format</span>(prob_pois, <span class="at">digits =</span> <span class="dv">4</span>),</span>
+<span id="cb73-7"><a href="discrete-probability-distributions.html#cb73-7" tabindex="-1"></a>  <span class="st">&quot;.&quot;</span></span>
+<span id="cb73-8"><a href="discrete-probability-distributions.html#cb73-8" tabindex="-1"></a>)</span></code></pre></div>
+<pre><code>## [1] &quot;P(4 &lt;= Y &lt;= 6) with Y~Pois(8) is 0.4972.&quot;</code></pre>
+<p>When we are interested in finding the <em>yth</em> percentile we can use the quantile function, <code class="sourceCode r"><span class="fu">qpois</span>(p, lambda)</code> where:</p>
+<ul>
+<li><em>p</em> is the <em>percentile</em> of interest, and</li>
+<li><em>lambda</em> is the constant <em>mean</em> rate.</li>
+</ul>
+<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="discrete-probability-distributions.html#cb75-1" tabindex="-1"></a><span class="co"># Find the 99th percentile of Y~Poisson(8)</span></span>
+<span id="cb75-2"><a href="discrete-probability-distributions.html#cb75-2" tabindex="-1"></a>percentile_99 <span class="ot">&lt;-</span> <span class="fu">qpois</span>(<span class="fl">0.99</span>, <span class="dv">8</span>)</span>
+<span id="cb75-3"><a href="discrete-probability-distributions.html#cb75-3" tabindex="-1"></a></span>
+<span id="cb75-4"><a href="discrete-probability-distributions.html#cb75-4" tabindex="-1"></a><span class="fu">paste0</span>(</span>
+<span id="cb75-5"><a href="discrete-probability-distributions.html#cb75-5" tabindex="-1"></a>  <span class="st">&quot;The 99th percentile of Y~Pois(8) is &quot;</span>,</span>
+<span id="cb75-6"><a href="discrete-probability-distributions.html#cb75-6" tabindex="-1"></a>  percentile_99,</span>
+<span id="cb75-7"><a href="discrete-probability-distributions.html#cb75-7" tabindex="-1"></a>  <span class="st">&quot;.&quot;</span></span>
+<span id="cb75-8"><a href="discrete-probability-distributions.html#cb75-8" tabindex="-1"></a>)</span></code></pre></div>
+<pre><code>## [1] &quot;The 99th percentile of Y~Pois(8) is 15.&quot;</code></pre>
+<p>Finally, we finish with a plot of Poisson distributions. We note that for large <span class="math inline">\(\lambda\)</span> the Poisson distribution is well approximated by the normal distribution with <span class="math inline">\(\mu = \lambda\)</span> and <span class="math inline">\(\sigma^2 = \lambda\)</span>. We can approximate the Poisson distribution with this normal distribution after allowing for a continuity correction:</p>
+<p><span class="math display">\[F_{Pois}(x; \lambda) \approx F_{normal}(x + 0.5; \mu = \lambda, \sigma^2 = \lambda)\]</span></p>
+<p>Here we have replaced <span class="math inline">\(P(X \leq x)\)</span> with <span class="math inline">\(P(X \leq x + 0.5)\)</span> on account of the continuity correction.</p>
+<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="discrete-probability-distributions.html#cb77-1" tabindex="-1"></a><span class="co"># Plot the distribution function of X, Y, Z with:</span></span>
+<span id="cb77-2"><a href="discrete-probability-distributions.html#cb77-2" tabindex="-1"></a><span class="co"># X,Y,Z~Pois(lambda) for various lambda</span></span>
+<span id="cb77-3"><a href="discrete-probability-distributions.html#cb77-3" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb77-4"><a href="discrete-probability-distributions.html#cb77-4" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
+<span id="cb77-5"><a href="discrete-probability-distributions.html#cb77-5" tabindex="-1"></a></span>
+<span id="cb77-6"><a href="discrete-probability-distributions.html#cb77-6" tabindex="-1"></a>lambdas <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
+<span id="cb77-7"><a href="discrete-probability-distributions.html#cb77-7" tabindex="-1"></a>  <span class="st">&quot;lambda = 8&quot;</span>,</span>
+<span id="cb77-8"><a href="discrete-probability-distributions.html#cb77-8" tabindex="-1"></a>  <span class="st">&quot;lambda = 16&quot;</span>,</span>
+<span id="cb77-9"><a href="discrete-probability-distributions.html#cb77-9" tabindex="-1"></a>  <span class="st">&quot;lambda = 32&quot;</span></span>
+<span id="cb77-10"><a href="discrete-probability-distributions.html#cb77-10" tabindex="-1"></a>)</span>
+<span id="cb77-11"><a href="discrete-probability-distributions.html#cb77-11" tabindex="-1"></a></span>
+<span id="cb77-12"><a href="discrete-probability-distributions.html#cb77-12" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb77-13"><a href="discrete-probability-distributions.html#cb77-13" tabindex="-1"></a>  <span class="at">dist_types =</span> <span class="fu">rep</span>(lambdas, <span class="at">each =</span> <span class="dv">1000</span>),</span>
+<span id="cb77-14"><a href="discrete-probability-distributions.html#cb77-14" tabindex="-1"></a>  <span class="at">dist_values =</span> <span class="fu">c</span>(</span>
+<span id="cb77-15"><a href="discrete-probability-distributions.html#cb77-15" tabindex="-1"></a>    <span class="fu">rpois</span>(<span class="dv">1000</span>, <span class="dv">8</span>),</span>
+<span id="cb77-16"><a href="discrete-probability-distributions.html#cb77-16" tabindex="-1"></a>    <span class="fu">rpois</span>(<span class="dv">1000</span>, <span class="dv">16</span>),</span>
+<span id="cb77-17"><a href="discrete-probability-distributions.html#cb77-17" tabindex="-1"></a>    <span class="fu">rpois</span>(<span class="dv">1000</span>, <span class="dv">32</span>)</span>
+<span id="cb77-18"><a href="discrete-probability-distributions.html#cb77-18" tabindex="-1"></a>  )</span>
+<span id="cb77-19"><a href="discrete-probability-distributions.html#cb77-19" tabindex="-1"></a>) </span>
+<span id="cb77-20"><a href="discrete-probability-distributions.html#cb77-20" tabindex="-1"></a></span>
+<span id="cb77-21"><a href="discrete-probability-distributions.html#cb77-21" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> dist_values, <span class="at">fill =</span> dist_types)) <span class="sc">+</span></span>
+<span id="cb77-22"><a href="discrete-probability-distributions.html#cb77-22" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">1</span>, <span class="at">alpha =</span> <span class="fl">0.75</span>, <span class="at">position =</span> <span class="st">&quot;identity&quot;</span>) <span class="sc">+</span></span>
+<span id="cb77-23"><a href="discrete-probability-distributions.html#cb77-23" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Distribution values&quot;</span>) <span class="sc">+</span></span>
+<span id="cb77-24"><a href="discrete-probability-distributions.html#cb77-24" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Count&quot;</span>) <span class="sc">+</span></span>
+<span id="cb77-25"><a href="discrete-probability-distributions.html#cb77-25" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb77-26"><a href="discrete-probability-distributions.html#cb77-26" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">fill =</span> <span class="st">&quot;&quot;</span>) <span class="sc">+</span></span>
+<span id="cb77-27"><a href="discrete-probability-distributions.html#cb77-27" tabindex="-1"></a>  <span class="fu">scale_fill_discrete</span>(<span class="at">breaks =</span> lambdas) <span class="sc">+</span></span>
+<span id="cb77-28"><a href="discrete-probability-distributions.html#cb77-28" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;Histogram of Poisson distributions for various lambda&quot;</span>)</span></code></pre></div>
+<p><img src="book_files/figure-html/discrete-distributions-poisson-6-1.png" width="672" /></p>
+</div>
+<div id="discrete-uniform" class="section level2 hasAnchor" number="2.7">
+<h2><span class="header-section-number">2.7</span> Uniform distribution<a href="discrete-probability-distributions.html#discrete-uniform" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Our final discrete probability distribution concerns the uniform distribution (<span class="math inline">\(Z\)</span>) defined over a finite set <span class="math inline">\({a, b}\)</span>. This is one discrete probability distribution which is <strong>not</strong> part of the source code for the <code>stats</code> package in base <code>R</code>. We can use <code>rdunif(n, b, a)</code> function within the <code>purrr</code> package<a href="#fn7" class="footnote-ref" id="fnref7"><sup>7</sup></a> to generate random deviates following the discrete uniform distribution.</p>
+<p>We have:</p>
+<p><span class="math display">\[P(Z = k) = \frac{1}{b - a + 1}\]</span></p>
+<p>As an example we can simulate a die throw using <span class="math inline">\(Z \sim \mathcal{U}(1, 6)\)</span> as follows:</p>
+<div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb78-1"><a href="discrete-probability-distributions.html#cb78-1" tabindex="-1"></a><span class="co"># Generate 5 random deviates on Z~Unif(1, 6)</span></span>
+<span id="cb78-2"><a href="discrete-probability-distributions.html#cb78-2" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
+<span id="cb78-3"><a href="discrete-probability-distributions.html#cb78-3" tabindex="-1"></a>purrr<span class="sc">::</span><span class="fu">rdunif</span>(<span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">1</span>)</span></code></pre></div>
+<pre><code>## [1] 1 5 1 1 2</code></pre>
+<p>To find <span class="math inline">\(P(Z \leq k)\)</span> we can calculate this using the CDF:</p>
+<p><span class="math display">\[P(Z \leq k) = \frac{\lfloor k \rfloor - a + 1}{b - a + 1}\]</span></p>
+<div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb80-1"><a href="discrete-probability-distributions.html#cb80-1" tabindex="-1"></a><span class="co"># Find P(Z &lt;= 2) with Z~Unif(1, 6)</span></span>
+<span id="cb80-2"><a href="discrete-probability-distributions.html#cb80-2" tabindex="-1"></a>prob_uniform <span class="ot">&lt;-</span> (<span class="dv">2</span> <span class="sc">-</span> <span class="dv">1</span> <span class="sc">+</span> <span class="dv">1</span>) <span class="sc">/</span> (<span class="dv">6</span> <span class="sc">-</span> <span class="dv">1</span> <span class="sc">+</span> <span class="dv">1</span>)</span>
+<span id="cb80-3"><a href="discrete-probability-distributions.html#cb80-3" tabindex="-1"></a></span>
+<span id="cb80-4"><a href="discrete-probability-distributions.html#cb80-4" tabindex="-1"></a><span class="fu">paste0</span>(</span>
+<span id="cb80-5"><a href="discrete-probability-distributions.html#cb80-5" tabindex="-1"></a>  <span class="st">&quot;P(Z &lt;= 2) with Z~Unif(1, 6) is &quot;</span>,</span>
+<span id="cb80-6"><a href="discrete-probability-distributions.html#cb80-6" tabindex="-1"></a>  <span class="fu">format</span>(prob_uniform, <span class="at">digits =</span> <span class="dv">4</span>),</span>
+<span id="cb80-7"><a href="discrete-probability-distributions.html#cb80-7" tabindex="-1"></a>  <span class="st">&quot;.&quot;</span></span>
+<span id="cb80-8"><a href="discrete-probability-distributions.html#cb80-8" tabindex="-1"></a>)</span></code></pre></div>
+<pre><code>## [1] &quot;P(Z &lt;= 2) with Z~Unif(1, 6) is 0.3333.&quot;</code></pre>
+<p>To find <span class="math inline">\(P(Z = k)\)</span> we can use the PMF, <span class="math inline">\(P(Z = k) = \frac{1}{b - a + 1}\)</span>:</p>
+<div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb82-1"><a href="discrete-probability-distributions.html#cb82-1" tabindex="-1"></a><span class="co"># Find P(Z = 2)  with Z~Unif(1, 6)</span></span>
+<span id="cb82-2"><a href="discrete-probability-distributions.html#cb82-2" tabindex="-1"></a>prob_uniform <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">/</span> (<span class="dv">6</span> <span class="sc">-</span> <span class="dv">1</span> <span class="sc">+</span> <span class="dv">1</span>)</span>
+<span id="cb82-3"><a href="discrete-probability-distributions.html#cb82-3" tabindex="-1"></a></span>
+<span id="cb82-4"><a href="discrete-probability-distributions.html#cb82-4" tabindex="-1"></a><span class="fu">paste0</span>(</span>
+<span id="cb82-5"><a href="discrete-probability-distributions.html#cb82-5" tabindex="-1"></a>  <span class="st">&quot;P(Z = 2) with Z~Unif(1, 6) is &quot;</span>,</span>
+<span id="cb82-6"><a href="discrete-probability-distributions.html#cb82-6" tabindex="-1"></a>  <span class="fu">format</span>(prob_uniform, <span class="at">digits =</span> <span class="dv">4</span>),</span>
+<span id="cb82-7"><a href="discrete-probability-distributions.html#cb82-7" tabindex="-1"></a>  <span class="st">&quot;.&quot;</span></span>
+<span id="cb82-8"><a href="discrete-probability-distributions.html#cb82-8" tabindex="-1"></a>)</span></code></pre></div>
+<pre><code>## [1] &quot;P(Z = 2) with Z~Unif(1, 6) is 0.1667.&quot;</code></pre>
+<p>To find <span class="math inline">\(P(k_1 \leq Z \leq k_2)\)</span> we can sum over the PMFs:</p>
+<div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb84-1"><a href="discrete-probability-distributions.html#cb84-1" tabindex="-1"></a><span class="co"># Find P(3 &lt;= Z &lt;= 5) where Z~Unif(1, 6)</span></span>
+<span id="cb84-2"><a href="discrete-probability-distributions.html#cb84-2" tabindex="-1"></a><span class="co"># P(Z = k) is constant for all k:</span></span>
+<span id="cb84-3"><a href="discrete-probability-distributions.html#cb84-3" tabindex="-1"></a>prob_uniform <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">/</span> (<span class="dv">6</span> <span class="sc">-</span> <span class="dv">1</span> <span class="sc">+</span> <span class="dv">1</span>)</span>
+<span id="cb84-4"><a href="discrete-probability-distributions.html#cb84-4" tabindex="-1"></a><span class="co"># We have k = 3, 4, 5:</span></span>
+<span id="cb84-5"><a href="discrete-probability-distributions.html#cb84-5" tabindex="-1"></a>prob_uniform <span class="ot">&lt;-</span> prob_uniform <span class="sc">*</span> <span class="dv">3</span></span>
+<span id="cb84-6"><a href="discrete-probability-distributions.html#cb84-6" tabindex="-1"></a></span>
+<span id="cb84-7"><a href="discrete-probability-distributions.html#cb84-7" tabindex="-1"></a><span class="fu">paste0</span>(</span>
+<span id="cb84-8"><a href="discrete-probability-distributions.html#cb84-8" tabindex="-1"></a>  <span class="st">&quot;P(3 &lt;= Z &lt;= 5) with Z~Unif(1, 6) is &quot;</span>,</span>
+<span id="cb84-9"><a href="discrete-probability-distributions.html#cb84-9" tabindex="-1"></a>  <span class="fu">format</span>(prob_uniform, <span class="at">digits =</span> <span class="dv">4</span>),</span>
+<span id="cb84-10"><a href="discrete-probability-distributions.html#cb84-10" tabindex="-1"></a>  <span class="st">&quot;.&quot;</span></span>
+<span id="cb84-11"><a href="discrete-probability-distributions.html#cb84-11" tabindex="-1"></a>)</span></code></pre></div>
+<pre><code>## [1] &quot;P(3 &lt;= Z &lt;= 5) with Z~Unif(1, 6) is 0.5.&quot;</code></pre>
+<p>When we are interested in finding the <em>zth</em> percentile we can use the quantile function <span class="math inline">\(F^{-1}_{Z}(p)\)</span>:</p>
+<p><span class="math display">\[F^{-1}(p) = \lfloor (b - a + 1)p \rfloor - 1\]</span></p>
+<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb86-1"><a href="discrete-probability-distributions.html#cb86-1" tabindex="-1"></a><span class="co"># Plot the distribution function of Z~Uniform(1, 6)</span></span>
+<span id="cb86-2"><a href="discrete-probability-distributions.html#cb86-2" tabindex="-1"></a>percentile_99 <span class="ot">&lt;-</span> <span class="fu">floor</span>((<span class="dv">6</span> <span class="sc">-</span> <span class="dv">1</span> <span class="sc">+</span> <span class="dv">1</span>)<span class="sc">*</span><span class="fl">0.99</span>)</span>
+<span id="cb86-3"><a href="discrete-probability-distributions.html#cb86-3" tabindex="-1"></a></span>
+<span id="cb86-4"><a href="discrete-probability-distributions.html#cb86-4" tabindex="-1"></a><span class="fu">paste0</span>(</span>
+<span id="cb86-5"><a href="discrete-probability-distributions.html#cb86-5" tabindex="-1"></a>  <span class="st">&quot;The 99th percentile of Z~Unif(1, 6) is &quot;</span>,</span>
+<span id="cb86-6"><a href="discrete-probability-distributions.html#cb86-6" tabindex="-1"></a>  percentile_99,</span>
+<span id="cb86-7"><a href="discrete-probability-distributions.html#cb86-7" tabindex="-1"></a>  <span class="st">&quot;.&quot;</span></span>
+<span id="cb86-8"><a href="discrete-probability-distributions.html#cb86-8" tabindex="-1"></a>)</span></code></pre></div>
+<pre><code>## [1] &quot;The 99th percentile of Z~Unif(1, 6) is 5.&quot;</code></pre>
+<p>Finally, we finish with a plot of uniform distributions for various inputs.</p>
+<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb88-1"><a href="discrete-probability-distributions.html#cb88-1" tabindex="-1"></a><span class="co"># Plot the distribution function of X, Y, Z with:</span></span>
+<span id="cb88-2"><a href="discrete-probability-distributions.html#cb88-2" tabindex="-1"></a><span class="co"># X,Y,Z~Unif(a, b) for various {a, b}</span></span>
+<span id="cb88-3"><a href="discrete-probability-distributions.html#cb88-3" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb88-4"><a href="discrete-probability-distributions.html#cb88-4" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
+<span id="cb88-5"><a href="discrete-probability-distributions.html#cb88-5" tabindex="-1"></a></span>
+<span id="cb88-6"><a href="discrete-probability-distributions.html#cb88-6" tabindex="-1"></a>finite_sets <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
+<span id="cb88-7"><a href="discrete-probability-distributions.html#cb88-7" tabindex="-1"></a> <span class="st">&quot;a = 1, b = 6&quot;</span>, <span class="co"># 1 die</span></span>
+<span id="cb88-8"><a href="discrete-probability-distributions.html#cb88-8" tabindex="-1"></a> <span class="st">&quot;a = 1, b = 12&quot;</span>, <span class="co"># 2 dice</span></span>
+<span id="cb88-9"><a href="discrete-probability-distributions.html#cb88-9" tabindex="-1"></a> <span class="st">&quot;a = 1, b = 20&quot;</span> <span class="co"># d20 die from D&amp;D</span></span>
+<span id="cb88-10"><a href="discrete-probability-distributions.html#cb88-10" tabindex="-1"></a>)</span>
+<span id="cb88-11"><a href="discrete-probability-distributions.html#cb88-11" tabindex="-1"></a></span>
+<span id="cb88-12"><a href="discrete-probability-distributions.html#cb88-12" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb88-13"><a href="discrete-probability-distributions.html#cb88-13" tabindex="-1"></a>  <span class="at">dist_types =</span> <span class="fu">rep</span>(finite_sets, <span class="at">each =</span> <span class="dv">5000</span>),</span>
+<span id="cb88-14"><a href="discrete-probability-distributions.html#cb88-14" tabindex="-1"></a>  <span class="at">dist_values =</span> <span class="fu">c</span>(</span>
+<span id="cb88-15"><a href="discrete-probability-distributions.html#cb88-15" tabindex="-1"></a>    purrr<span class="sc">::</span><span class="fu">rdunif</span>(<span class="dv">5000</span>, <span class="dv">1</span> , <span class="dv">6</span>),</span>
+<span id="cb88-16"><a href="discrete-probability-distributions.html#cb88-16" tabindex="-1"></a>    purrr<span class="sc">::</span><span class="fu">rdunif</span>(<span class="dv">5000</span>, <span class="dv">1</span>, <span class="dv">12</span>),</span>
+<span id="cb88-17"><a href="discrete-probability-distributions.html#cb88-17" tabindex="-1"></a>    purrr<span class="sc">::</span><span class="fu">rdunif</span>(<span class="dv">5000</span>, <span class="dv">1</span>, <span class="dv">20</span>)</span>
+<span id="cb88-18"><a href="discrete-probability-distributions.html#cb88-18" tabindex="-1"></a>  )</span>
+<span id="cb88-19"><a href="discrete-probability-distributions.html#cb88-19" tabindex="-1"></a>) </span>
+<span id="cb88-20"><a href="discrete-probability-distributions.html#cb88-20" tabindex="-1"></a></span>
+<span id="cb88-21"><a href="discrete-probability-distributions.html#cb88-21" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> dist_values, <span class="at">fill =</span> dist_types)) <span class="sc">+</span></span>
+<span id="cb88-22"><a href="discrete-probability-distributions.html#cb88-22" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">1</span>, <span class="at">alpha =</span> <span class="fl">0.75</span>, <span class="at">position =</span> <span class="st">&quot;identity&quot;</span>) <span class="sc">+</span></span>
+<span id="cb88-23"><a href="discrete-probability-distributions.html#cb88-23" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Distribution values&quot;</span>) <span class="sc">+</span></span>
+<span id="cb88-24"><a href="discrete-probability-distributions.html#cb88-24" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Count&quot;</span>) <span class="sc">+</span></span>
+<span id="cb88-25"><a href="discrete-probability-distributions.html#cb88-25" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb88-26"><a href="discrete-probability-distributions.html#cb88-26" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">fill =</span> <span class="st">&quot;&quot;</span>) <span class="sc">+</span></span>
+<span id="cb88-27"><a href="discrete-probability-distributions.html#cb88-27" tabindex="-1"></a>  <span class="fu">scale_fill_discrete</span>(<span class="at">breaks =</span> finite_sets) <span class="sc">+</span></span>
+<span id="cb88-28"><a href="discrete-probability-distributions.html#cb88-28" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;Histogram of uniform distributions for various inputs&quot;</span>)</span></code></pre></div>
+<p><img src="book_files/figure-html/discrete-distributions-uniform-6-1.png" width="672" /></p>
+</div>
+<div id="practice-discrete-distributions" class="section level2 unnumbered hasAnchor">
+<h2><code>R</code> Practice<a href="discrete-probability-distributions.html#practice-discrete-distributions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>We finish with a comprehensive example of an univariate discrete distribution question in <code>R</code>.</p>
+
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="4">
+<li id="fn4"><p>For inspiration consider the BBC’s <a href="https://bbc.github.io/rcookbook/">cookbook</a> that highlights how to create their distinctive graphics predominately using <code>ggplot2</code>.<a href="discrete-probability-distributions.html#fnref4" class="footnote-back">↩︎</a></p></li>
+<li id="fn5"><p>This probability was chosen based on <em>Table 1</em> from <a href="https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/925066/Sex_ratios_at_birth_in_the_United_Kingdom__2014-18.pdf">Sex ratios at birth in the United Kingdom, 2014-18</a> from the Department of Health &amp; Social Care.<a href="discrete-probability-distributions.html#fnref5" class="footnote-back">↩︎</a></p></li>
+<li id="fn6"><p>This turns out to be the number of live births in Guildford in 2019, as per <em>Table 3</em> of the ONS’ <a href="https://www.ons.gov.uk/peoplepopulationandcommunity/birthsdeathsandmarriages/livebirths/datasets/birthsummarytables">Birth Summary Tables, England and Wales, 2019</a>. Source: Office for National Statistics under the Open Government Licence.<a href="discrete-probability-distributions.html#fnref6" class="footnote-back">↩︎</a></p></li>
+<li id="fn7"><p><a href="https://purrr.tidyverse.org/"><code>purrr</code></a> is a part of the tidyverse suite of packages<a href="discrete-probability-distributions.html#fnref7" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="r-setup.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="continuous-probability-distributions.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+  "sharing": {
+    "github": true,
+    "facebook": false,
+    "twitter": true,
+    "linkedin": true,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["twitter", "linkedin"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": "https://github.com/priyam0k/CS1/edit/main/discrete-distributions.Rmd",
+    "text": "Edit"
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": null,
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "section",
+    "scroll_highlight": true
+  },
+  "toolbar": {
+    "position": "fixed"
+  },
+  "info": true
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
