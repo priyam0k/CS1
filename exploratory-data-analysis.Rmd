@@ -39,7 +39,7 @@ These coefficients quantify the strength and direction of relationships between 
 
 *   **Pearson's Correlation Coefficient (r)**:
     *   **Definition**: Measures the strength and direction of a *linear* relationship between two quantitative variables.
-    *   **Formula**: `r = s_xy / (s_x * s_y)`.
+    *   **Formula**: $r = \frac{s_{xy}}{s_x . s_y}$
     *   **Interpretation**: Values range from -1 to +1. Near +1 indicates a strong positive linear relationship, near -1 indicates a strong negative linear relationship, and near 0 indicates no linear correlation.
     *   **Statistical Inference**: A t-distribution based test is available for the hypothesis that the population correlation coefficient (ρ) is zero. Fisher's transformation can be used for testing hypotheses about specific non-zero values of ρ.
     *   **Crucial Caveat**: Correlation does not necessarily imply causation.

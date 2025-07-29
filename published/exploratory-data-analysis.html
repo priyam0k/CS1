@@ -4,23 +4,23 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 7 Exploratory Data Analysis | Actuarial Statistics</title>
-  <meta name="description" content="Actuarial statistics for actuaries providing R code examples." />
+  <title>Chapter 7 Exploratory Data Analysis | Actuarial Statistics (Priyam’s Fork)</title>
+  <meta name="description" content="A modified version of the book on actuarial statistics, with additional notes and examples." />
   <meta name="generator" content="bookdown 0.43 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 7 Exploratory Data Analysis | Actuarial Statistics" />
+  <meta property="og:title" content="Chapter 7 Exploratory Data Analysis | Actuarial Statistics (Priyam’s Fork)" />
   <meta property="og:type" content="book" />
   
-  <meta property="og:description" content="Actuarial statistics for actuaries providing R code examples." />
-  <meta name="github-repo" content="agarbiak/CS1" />
+  <meta property="og:description" content="A modified version of the book on actuarial statistics, with additional notes and examples." />
+  <meta name="github-repo" content="priyam0k/CS1" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 7 Exploratory Data Analysis | Actuarial Statistics" />
+  <meta name="twitter:title" content="Chapter 7 Exploratory Data Analysis | Actuarial Statistics (Priyam’s Fork)" />
   
-  <meta name="twitter:description" content="Actuarial statistics for actuaries providing R code examples." />
+  <meta name="twitter:description" content="A modified version of the book on actuarial statistics, with additional notes and examples." />
   
 
-<meta name="author" content="Alex Garbiak" />
+<meta name="author" content="Priyam" />
 
 
 
@@ -53,71 +53,6 @@
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
-<style type="text/css">
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { color: #008000; } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { color: #008000; font-weight: bold; } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-</style>
 
 <style type="text/css">
   
@@ -214,7 +149,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6" data-path="data-analysis.html"><a href="data-analysis.html"><i class="fa fa-check"></i><b>6</b> Data Analysis</a>
 <ul>
 <li class="chapter" data-level="" data-path="data-analysis.html"><a href="data-analysis.html#objectives-data-analysis"><i class="fa fa-check"></i>Learning Objectives</a></li>
-<li class="chapter" data-level="" data-path="data-analysis.html"><a href="data-analysis.html#theory-data-analysis"><i class="fa fa-check"></i>Theory</a></li>
+<li class="chapter" data-level="" data-path="data-analysis.html"><a href="data-analysis.html#theory-data-analysis"><i class="fa fa-check"></i>Theory</a>
+<ul>
+<li class="chapter" data-level="6.0.1" data-path="data-analysis.html"><a href="data-analysis.html#definition-and-purpose"><i class="fa fa-check"></i><b>6.0.1</b> 1. Definition and Purpose</a></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="data-analysis.html"><a href="data-analysis.html#practice-data-analysis"><i class="fa fa-check"></i><code>R</code> Practice</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html"><i class="fa fa-check"></i><b>7</b> Exploratory Data Analysis</a>
@@ -282,7 +220,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Actuarial Statistics</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Actuarial Statistics (Priyam’s Fork)</a>
           </h1>
         </div>
 
@@ -303,6 +241,92 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="theory-exploratory-data-analysis" class="section level2 unnumbered hasAnchor">
 <h2>Theory<a href="exploratory-data-analysis.html#theory-exploratory-data-analysis" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="purpose-of-exploratory-data-analysis" class="section level4 hasAnchor" number="7.0.0.1">
+<h4><span class="header-section-number">7.0.0.1</span> 1. Purpose of Exploratory Data Analysis<a href="exploratory-data-analysis.html#purpose-of-exploratory-data-analysis" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<ul>
+<li>EDA is the process of analysing data to gain initial insights into its nature, patterns, and relationships between variables <em>before</em> formal statistical techniques are applied.</li>
+<li>Its primary aim is to understand “what is going on” with the data, summarising it into a more easily understood format.</li>
+</ul>
+</div>
+<div id="tools-for-summary-statistics-and-data-visualisation" class="section level4 hasAnchor" number="7.0.0.2">
+<h4><span class="header-section-number">7.0.0.2</span> 2. Tools for Summary Statistics and Data Visualisation<a href="exploratory-data-analysis.html#tools-for-summary-statistics-and-data-visualisation" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>EDA employs various tools depending on the number of variables:</p>
+<ul>
+<li><strong>For Univariate Data (Single Variable)</strong>:
+<ul>
+<li><strong>Summary Statistics</strong>:
+<ul>
+<li>Measures of central tendency: Mean, Median, Mode.</li>
+<li>Measures of dispersion: Standard Deviation, Interquartile Range (IQR), Range, Skewness.</li>
+</ul></li>
+<li><strong>Graphical Displays</strong>:
+<ul>
+<li>Line plots.</li>
+<li>Bar charts (for discrete or categorical data).</li>
+<li>Histograms (for continuous data, where bar <em>area</em> represents frequency).</li>
+<li>Stem and leaf diagrams (displaying distribution and aiding quartile identification).</li>
+<li>Cumulative frequency graphs (for estimating percentiles).</li>
+<li>Boxplots (Box and Whisker Plots) (showing lowest/highest values, median, quartiles; useful for comparing datasets).</li>
+<li>Quantile-quantile (Q-Q) plots.</li>
+</ul></li>
+</ul></li>
+<li><strong>For Bivariate or Multivariate Data (Multiple Variables)</strong>:
+<ul>
+<li><strong>Summary Statistics</strong>: Individual variable summary statistics.</li>
+<li><strong>Graphical Displays</strong>:
+<ul>
+<li>Scatterplots (to visualise relationships between pairs of variables).</li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+<div id="correlation-measures-for-bivariate-data" class="section level4 hasAnchor" number="7.0.0.3">
+<h4><span class="header-section-number">7.0.0.3</span> 3. Correlation Measures for Bivariate Data<a href="exploratory-data-analysis.html#correlation-measures-for-bivariate-data" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>These coefficients quantify the strength and direction of relationships between variables:</p>
+<ul>
+<li><strong>Pearson’s Correlation Coefficient (r)</strong>:
+<ul>
+<li><strong>Definition</strong>: Measures the strength and direction of a <em>linear</em> relationship between two quantitative variables.</li>
+<li><strong>Formula</strong>: <span class="math inline">\(r = \frac{s_{xy}}{s_x . s_y}\)</span></li>
+<li><strong>Interpretation</strong>: Values range from -1 to +1. Near +1 indicates a strong positive linear relationship, near -1 indicates a strong negative linear relationship, and near 0 indicates no linear correlation.</li>
+<li><strong>Statistical Inference</strong>: A t-distribution based test is available for the hypothesis that the population correlation coefficient (ρ) is zero. Fisher’s transformation can be used for testing hypotheses about specific non-zero values of ρ.</li>
+<li><strong>Crucial Caveat</strong>: Correlation does not necessarily imply causation.</li>
+</ul></li>
+<li><strong>Spearman’s Rank Correlation Coefficient (r_s)</strong>:
+<ul>
+<li><strong>Definition</strong>: Measures the strength of a <em>monotonic</em> (not necessarily linear) relationship between two variables.</li>
+<li><strong>Calculation</strong>: Applied by calculating Pearson’s formula on the <em>ranks</em> of the data.</li>
+<li><strong>Statistical Inference</strong>: Tests exist for both small samples (using permutations of ranks) and medium to large samples (using an approximate Normal distribution).</li>
+</ul></li>
+<li><strong>Kendall’s Rank Correlation Coefficient (τ)</strong>:
+<ul>
+<li><strong>Definition</strong>: Another non-parametric measure of monotonic association, based on the number of concordant and discordant pairs in the data.</li>
+<li><strong>Statistical Inference</strong>: Similar to Spearman’s, tests are available for small samples (permutations) and medium to large samples (using an approximate Normal distribution).</li>
+</ul></li>
+</ul>
+</div>
+<div id="principal-components-analysis-pca" class="section level4 hasAnchor" number="7.0.0.4">
+<h4><span class="header-section-number">7.0.0.4</span> 4. Principal Components Analysis (PCA)<a href="exploratory-data-analysis.html#principal-components-analysis-pca" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<ul>
+<li><strong>Purpose</strong>: PCA is a method for reducing the dimensionality of a complex dataset by identifying the key components necessary to model and understand the data.</li>
+<li><strong>Mechanism</strong>: It creates uncorrelated linear combinations of the original variables, where these new components (principal components) maximise the variance explained.</li>
+<li><strong>Process</strong>:
+<ol style="list-style-type: decimal">
+<li>Calculate the centred data.</li>
+<li>Obtain eigenvectors of the scaled covariance matrix, which represent the “rotation” of the data.</li>
+<li>Compute the principal components, which are the new uncorrelated variables.</li>
+<li>Evaluate the explanatory power (variance) of each component.</li>
+<li>Reduce the number of components by discarding those that explain less variance.</li>
+<li>Reconstruct the original data using the reduced set of components.</li>
+</ol></li>
+<li><strong>Component Selection Criteria</strong>:
+<ul>
+<li><strong>Cumulative Variance Explained</strong>: Retain components that collectively explain a target percentage (e.g., 90%) of the total variance.</li>
+<li><strong>Scree Test</strong>: Plot a scree diagram and keep components before the graph “levels off”.</li>
+<li><strong>Kaiser Criterion</strong>: If data is scaled, keep components whose variance is greater than 1.</li>
+</ul></li>
+</ul>
+</div>
 </div>
 <div id="practice-exploratory-data-analysis" class="section level2 unnumbered hasAnchor">
 <h2><code>R</code> Practice<a href="exploratory-data-analysis.html#practice-exploratory-data-analysis" class="anchor-section" aria-label="Anchor link to header"></a></h2>
