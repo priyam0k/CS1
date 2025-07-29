@@ -14,4 +14,124 @@
 
 ## Theory {-#theory-bayesian-stats}
 
+Chapter: Bayesian Statistics
+
+#### Learning Objectives Summary:
+
+1.  **Use Bayes’ theorem to calculate simple conditional probabilities.**
+    *   **Definition:** Bayes' Theorem updates the probability of a hypothesis (H) given new evidence (E).
+        *   For discrete events: P(H|E) = P(E|H)P(H) / P(E).
+        *   For continuous distributions: posterior ∝ likelihood × prior.
+    *   **Application:** It's used to update beliefs about a parameter after observing data.
+    *   **Example (Discrete):** To find the posterior distribution of a Poisson mean (λ) after observing claims, given a discrete prior distribution for λ.
+
+2.  **Explain what is meant by a prior distribution, a posterior distribution and a conjugate prior distribution.**
+    *   **Prior Distribution:** Represents initial beliefs about a parameter *before* observing any data. It can be discrete or continuous.
+    *   **Posterior Distribution:** Represents the updated beliefs about a parameter *after* observing data. It is the conditional distribution of the parameter given the data. The posterior PDF is proportional to the likelihood function multiplied by the prior PDF.
+    *   **Conjugate Prior Distribution:** A prior distribution is "conjugate" if, when combined with the likelihood function, it results in a posterior distribution that belongs to the *same family* as the prior distribution.
+        *   **Examples:**
+            *   Gamma prior for a Poisson mean (λ).
+            *   Beta prior for a binomial probability (p).
+            *   Normal prior for a Normal mean (with known variance).
+
+3.  **Derive the posterior distribution for a parameter in simple cases.**
+    *   **General Steps (Continuous Prior):**
+        1.  Write down the prior PDF.
+        2.  Write down the likelihood function (probability/PDF of observed data).
+        3.  Use the formula: Posterior PDF ∝ Likelihood × Prior PDF.
+        4.  Identify the posterior distribution by its form (e.g., Gamma for λ, Beta for p, Normal for μ).
+    *   **General Steps (Discrete Prior):**
+        1.  The prior and posterior distributions have the same support.
+        2.  Calculate the conditional probabilities for each possible parameter value using Bayes' Theorem.
+    *   **Simple Cases Covered:**
+        *   Poisson mean (λ) with Gamma prior.
+        *   Binomial probability (p) with Beta prior.
+        *   Normal mean (μ) with Normal prior.
+        *   Exponential parameter (θ) with a specific prior.
+
+4.  **Explain what is meant by a loss function.**
+    *   **Definition:** A loss function is a measure of the penalty incurred when the chosen Bayesian estimate differs from the true value of the parameter.
+    *   It quantifies the cost of making an estimation error.
+
+5.  **Use simple loss functions to derive Bayesian estimates of parameters.**
+    *   **Squared Error Loss:**
+        *   Formula: `Loss = (θ̂ - θ)^2`.
+        *   Bayesian Estimate: The mean of the posterior distribution.
+    *   **Absolute Error Loss:**
+        *   Formula: `Loss = |θ̂ - θ|`.
+        *   Bayesian Estimate: The median of the posterior distribution.
+    *   **0/1 (All-or-Nothing) Loss:**
+        *   Formula: `Loss = 0` if `θ̂ = θ`, `Loss = 1` if `θ̂ ≠ θ`.
+        *   Bayesian Estimate: The mode of the posterior distribution (the value that maximises the posterior PDF).
+
+6.  **Explain what is meant by the credibility premium formula and describe the role played by the credibility factor.**
+    *   **Credibility Premium:** A premium that combines direct data from a specific risk (or group) with collateral data from similar risks (or a broader population).
+    *   **Formula:** `Credibility Premium = Z * x̄ + (1 - Z) * μ₀`.
+        *   `x̄`: Estimate based on the direct data (sample mean).
+        *   `μ₀`: Prior or collective mean (based on collateral data/prior expectation).
+        *   `Z`: The Credibility Factor.
+    *   **Role of Credibility Factor (Z):**
+        *   Determines the weight given to the individual risk's experience (`x̄`) versus the broader population's experience (`μ₀`).
+        *   `Z` ranges from 0 to 1.
+        *   A higher `Z` means more weight is given to the direct data, reflecting greater confidence in the individual experience.
+        *   `Z` increases as the amount of direct data (`n`) increases, as more direct data provides a more reliable estimate from the individual experience.
+        *   `Z` decreases as the reliability (or precision) of the prior/collective information increases (e.g., as the variance of the prior distribution decreases).
+
+7.  **Explain the Bayesian approach to credibility theory and use it to derive credibility premiums in simple cases.**
+    *   **Bayesian Approach to Credibility:** This approach formalises credibility by treating the underlying risk parameter as a random variable with a prior distribution. The "credibility premium" is derived as the mean of the posterior distribution (i.e., the Bayesian estimate under squared error loss).
+    *   **Derivation:** The posterior mean is shown to be a weighted average of the sample mean (MLE) and the prior mean, which directly yields the credibility premium formula.
+    *   **Credibility Factor (Z) Examples:**
+        *   **Poisson/Gamma Model:** `Z = n / (n + β)`.
+            *   `n`: Number of observations (direct data).
+            *   `β`: Parameter of the Gamma prior, related to the reliability of the prior information.
+        *   **Normal/Normal Model:** `Z = (n * σ₀²) / (n * σ₀² + σ²)` or `Z = n / (n + σ² / σ₀²)`.
+            *   `n`: Number of observations.
+            *   `σ₀²`: Variance of the prior distribution (reflects uncertainty in prior beliefs).
+            *   `σ²`: Variance of the data within a risk group.
+        *   **Binomial/Beta Model:** `Z = n / (n + α + β)`.
+            *   `n`: Sample size.
+            *   `α, β`: Parameters of the Beta prior, related to prior reliability.
+
+8.  **Explain the empirical Bayes approach to credibility theory and use it to derive credibility premiums in simple cases.**
+    *   **Empirical Bayes Credibility Theory (EBCT):** This approach combines observed data with prior expectations to set premiums but, crucially, *does not assume a specific parametric form for the prior distribution* of the risk parameter (unlike full Bayesian credibility). Instead, the variance components needed for the credibility factor are *estimated from the data itself*.
+    *   **EBCT Model 1:**
+        *   Assumes observed claim amounts `X_ij` (for risk `i` in year `j`) are conditionally independent given a risk parameter `θ_i`.
+        *   Estimates variance *within* risk groups `E[s²(θ)]` and variance *between* risk groups `var[m(θ)]` from the data.
+        *   **Credibility Factor (Z):** `Z = n / (n + E[s²(θ)] / var[m(θ)])`.
+        *   **Credibility Premium:** `Z * x̄_i + (1 - Z) * x̄`.
+            *   `x̄_i`: Average claims for risk `i`.
+            *   `x̄`: Overall average claims across all risks and years.
+    *   **EBCT Model 2:**
+        *   Extends Model 1 by incorporating a "risk volume" parameter (`P_j`) to account for different sizes of policies or businesses. This acknowledges that the number of observations can vary per risk.
+        *   **Credibility Factor (`Z_i`):** Specific to each risk `i` and influenced by its risk volume.
+        *   **Credibility Premium:** `Z_i * x̄_i + (1 - Z_i) * x̄` (where `x̄_i` and `x̄` are weighted averages by risk volume).
+
+9.  **Explain the differences between the two approaches and state the assumptions underlying each of them.**
+    *   **Key Differences:**
+        *   **Prior Distribution:**
+            *   **Bayesian Credibility:** Assumes a specific, often parametric, prior distribution for the risk parameter (e.g., Gamma, Normal, Beta).
+            *   **Empirical Bayes Credibility:** Does *not* assume a specific prior distribution for the risk parameter. Instead, it estimates the necessary parameters for the credibility factor directly from the observed data.
+        *   **Parameter Estimation:**
+            *   **Bayesian Credibility:** Integrates the likelihood with the specified prior to derive the posterior distribution, from which the premium (posterior mean) is calculated.
+            *   **Empirical Bayes Credibility:** Uses the observed data to estimate the moments (means and variances) of the underlying distributions of the claims, and then uses these empirical estimates in the credibility formula.
+        *   **Information Usage:**
+            *   **Bayesian Credibility:** Uses a pre-specified prior and the current sample data.
+            *   **Empirical Bayes Credibility:** Uses the collective experience from *all* observed risks/years to estimate variance components, even if a specific prior is unknown, and then combines this with individual risk experience.
+
+    *   **Underlying Assumptions:**
+        *   **Bayesian Credibility:**
+            *   The risk parameter (e.g., `λ`, `p`, `μ`) is a random variable.
+            *   A specific parametric form for the prior distribution of the risk parameter is assumed.
+            *   The observations within each risk group are conditionally independent and identically distributed given the risk parameter.
+        *   **Empirical Bayes Credibility:**
+            *   The risk parameter is a random variable, but its specific prior distribution is *unknown* or not explicitly modelled.
+            *   Observations are conditionally independent given the risk parameter (`X_ij | θ_i` are iid).
+            *   The variance of claims within a risk group may depend on the risk parameter (`var(X_j|θ) = s²(θ)`), for Model 1.
+            *   For Model 2, different risk volumes (`P_j`) are incorporated, allowing for varying exposure.
+            *   No assumption of normality for any random variables or parameters in the model (e.g., EBCT Model 1/2).
+
+***
+
+Keep reviewing these core concepts, and remember, practice makes perfect for these types of derivations and explanations!
+
 ## `R` Practice {-#practice-bayesian-stats}

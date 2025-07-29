@@ -4,23 +4,23 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 15 Bayesian Statistics | Actuarial Statistics</title>
-  <meta name="description" content="Actuarial statistics for actuaries providing R code examples." />
+  <title>Chapter 15 Bayesian Statistics | Actuarial Statistics (Priyam’s Fork)</title>
+  <meta name="description" content="A modified version of the book on actuarial statistics, with additional notes and examples." />
   <meta name="generator" content="bookdown 0.43 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 15 Bayesian Statistics | Actuarial Statistics" />
+  <meta property="og:title" content="Chapter 15 Bayesian Statistics | Actuarial Statistics (Priyam’s Fork)" />
   <meta property="og:type" content="book" />
   
-  <meta property="og:description" content="Actuarial statistics for actuaries providing R code examples." />
-  <meta name="github-repo" content="agarbiak/CS1" />
+  <meta property="og:description" content="A modified version of the book on actuarial statistics, with additional notes and examples." />
+  <meta name="github-repo" content="priyam0k/CS1" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 15 Bayesian Statistics | Actuarial Statistics" />
+  <meta name="twitter:title" content="Chapter 15 Bayesian Statistics | Actuarial Statistics (Priyam’s Fork)" />
   
-  <meta name="twitter:description" content="Actuarial statistics for actuaries providing R code examples." />
+  <meta name="twitter:description" content="A modified version of the book on actuarial statistics, with additional notes and examples." />
   
 
-<meta name="author" content="Alex Garbiak" />
+<meta name="author" content="Priyam" />
 
 
 
@@ -53,71 +53,6 @@
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
-<style type="text/css">
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { color: #008000; } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { color: #008000; font-weight: bold; } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-</style>
 
 <style type="text/css">
   
@@ -214,7 +149,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6" data-path="data-analysis.html"><a href="data-analysis.html"><i class="fa fa-check"></i><b>6</b> Data Analysis</a>
 <ul>
 <li class="chapter" data-level="" data-path="data-analysis.html"><a href="data-analysis.html#objectives-data-analysis"><i class="fa fa-check"></i>Learning Objectives</a></li>
-<li class="chapter" data-level="" data-path="data-analysis.html"><a href="data-analysis.html#theory-data-analysis"><i class="fa fa-check"></i>Theory</a></li>
+<li class="chapter" data-level="" data-path="data-analysis.html"><a href="data-analysis.html#theory-data-analysis"><i class="fa fa-check"></i>Theory</a>
+<ul>
+<li class="chapter" data-level="6.0.1" data-path="data-analysis.html"><a href="data-analysis.html#definition-and-purpose"><i class="fa fa-check"></i><b>6.0.1</b> 1. Definition and Purpose</a></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="data-analysis.html"><a href="data-analysis.html#practice-data-analysis"><i class="fa fa-check"></i><code>R</code> Practice</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html"><i class="fa fa-check"></i><b>7</b> Exploratory Data Analysis</a>
@@ -282,7 +220,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Actuarial Statistics</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Actuarial Statistics (Priyam’s Fork)</a>
           </h1>
         </div>
 
@@ -308,24 +246,190 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="theory-bayesian-stats" class="section level2 unnumbered hasAnchor">
 <h2>Theory<a href="bayesian-statistics.html#theory-bayesian-stats" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Chapter: Bayesian Statistics</p>
+<div id="learning-objectives-summary" class="section level4 hasAnchor" number="15.0.0.1">
+<h4><span class="header-section-number">15.0.0.1</span> Learning Objectives Summary:<a href="bayesian-statistics.html#learning-objectives-summary" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<ol style="list-style-type: decimal">
+<li><strong>Use Bayes’ theorem to calculate simple conditional probabilities.</strong>
+<ul>
+<li><strong>Definition:</strong> Bayes’ Theorem updates the probability of a hypothesis (H) given new evidence (E).
+<ul>
+<li>For discrete events: P(H|E) = P(E|H)P(H) / P(E).</li>
+<li>For continuous distributions: posterior ∝ likelihood × prior.</li>
+</ul></li>
+<li><strong>Application:</strong> It’s used to update beliefs about a parameter after observing data.</li>
+<li><strong>Example (Discrete):</strong> To find the posterior distribution of a Poisson mean (λ) after observing claims, given a discrete prior distribution for λ.</li>
+</ul></li>
+<li><strong>Explain what is meant by a prior distribution, a posterior distribution and a conjugate prior distribution.</strong>
+<ul>
+<li><strong>Prior Distribution:</strong> Represents initial beliefs about a parameter <em>before</em> observing any data. It can be discrete or continuous.</li>
+<li><strong>Posterior Distribution:</strong> Represents the updated beliefs about a parameter <em>after</em> observing data. It is the conditional distribution of the parameter given the data. The posterior PDF is proportional to the likelihood function multiplied by the prior PDF.</li>
+<li><strong>Conjugate Prior Distribution:</strong> A prior distribution is “conjugate” if, when combined with the likelihood function, it results in a posterior distribution that belongs to the <em>same family</em> as the prior distribution.
+<ul>
+<li><strong>Examples:</strong>
+<ul>
+<li>Gamma prior for a Poisson mean (λ).</li>
+<li>Beta prior for a binomial probability (p).</li>
+<li>Normal prior for a Normal mean (with known variance).</li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li><strong>Derive the posterior distribution for a parameter in simple cases.</strong>
+<ul>
+<li><strong>General Steps (Continuous Prior):</strong>
+<ol style="list-style-type: decimal">
+<li>Write down the prior PDF.</li>
+<li>Write down the likelihood function (probability/PDF of observed data).</li>
+<li>Use the formula: Posterior PDF ∝ Likelihood × Prior PDF.</li>
+<li>Identify the posterior distribution by its form (e.g., Gamma for λ, Beta for p, Normal for μ).</li>
+</ol></li>
+<li><strong>General Steps (Discrete Prior):</strong>
+<ol style="list-style-type: decimal">
+<li>The prior and posterior distributions have the same support.</li>
+<li>Calculate the conditional probabilities for each possible parameter value using Bayes’ Theorem.</li>
+</ol></li>
+<li><strong>Simple Cases Covered:</strong>
+<ul>
+<li>Poisson mean (λ) with Gamma prior.</li>
+<li>Binomial probability (p) with Beta prior.</li>
+<li>Normal mean (μ) with Normal prior.</li>
+<li>Exponential parameter (θ) with a specific prior.</li>
+</ul></li>
+</ul></li>
+<li><strong>Explain what is meant by a loss function.</strong>
+<ul>
+<li><strong>Definition:</strong> A loss function is a measure of the penalty incurred when the chosen Bayesian estimate differs from the true value of the parameter.</li>
+<li>It quantifies the cost of making an estimation error.</li>
+</ul></li>
+<li><strong>Use simple loss functions to derive Bayesian estimates of parameters.</strong>
+<ul>
+<li><strong>Squared Error Loss:</strong>
+<ul>
+<li>Formula: <code>Loss = (θ̂ - θ)^2</code>.</li>
+<li>Bayesian Estimate: The mean of the posterior distribution.</li>
+</ul></li>
+<li><strong>Absolute Error Loss:</strong>
+<ul>
+<li>Formula: <code>Loss = |θ̂ - θ|</code>.</li>
+<li>Bayesian Estimate: The median of the posterior distribution.</li>
+</ul></li>
+<li><strong>0/1 (All-or-Nothing) Loss:</strong>
+<ul>
+<li>Formula: <code>Loss = 0</code> if <code>θ̂ = θ</code>, <code>Loss = 1</code> if <code>θ̂ ≠ θ</code>.</li>
+<li>Bayesian Estimate: The mode of the posterior distribution (the value that maximises the posterior PDF).</li>
+</ul></li>
+</ul></li>
+<li><strong>Explain what is meant by the credibility premium formula and describe the role played by the credibility factor.</strong>
+<ul>
+<li><strong>Credibility Premium:</strong> A premium that combines direct data from a specific risk (or group) with collateral data from similar risks (or a broader population).</li>
+<li><strong>Formula:</strong> <code>Credibility Premium = Z * x̄ + (1 - Z) * μ₀</code>.
+<ul>
+<li><code>x̄</code>: Estimate based on the direct data (sample mean).</li>
+<li><code>μ₀</code>: Prior or collective mean (based on collateral data/prior expectation).</li>
+<li><code>Z</code>: The Credibility Factor.</li>
+</ul></li>
+<li><strong>Role of Credibility Factor (Z):</strong>
+<ul>
+<li>Determines the weight given to the individual risk’s experience (<code>x̄</code>) versus the broader population’s experience (<code>μ₀</code>).</li>
+<li><code>Z</code> ranges from 0 to 1.</li>
+<li>A higher <code>Z</code> means more weight is given to the direct data, reflecting greater confidence in the individual experience.</li>
+<li><code>Z</code> increases as the amount of direct data (<code>n</code>) increases, as more direct data provides a more reliable estimate from the individual experience.</li>
+<li><code>Z</code> decreases as the reliability (or precision) of the prior/collective information increases (e.g., as the variance of the prior distribution decreases).</li>
+</ul></li>
+</ul></li>
+<li><strong>Explain the Bayesian approach to credibility theory and use it to derive credibility premiums in simple cases.</strong>
+<ul>
+<li><strong>Bayesian Approach to Credibility:</strong> This approach formalises credibility by treating the underlying risk parameter as a random variable with a prior distribution. The “credibility premium” is derived as the mean of the posterior distribution (i.e., the Bayesian estimate under squared error loss).</li>
+<li><strong>Derivation:</strong> The posterior mean is shown to be a weighted average of the sample mean (MLE) and the prior mean, which directly yields the credibility premium formula.</li>
+<li><strong>Credibility Factor (Z) Examples:</strong>
+<ul>
+<li><strong>Poisson/Gamma Model:</strong> <code>Z = n / (n + β)</code>.
+<ul>
+<li><code>n</code>: Number of observations (direct data).</li>
+<li><code>β</code>: Parameter of the Gamma prior, related to the reliability of the prior information.</li>
+</ul></li>
+<li><strong>Normal/Normal Model:</strong> <code>Z = (n * σ₀²) / (n * σ₀² + σ²)</code> or <code>Z = n / (n + σ² / σ₀²)</code>.
+<ul>
+<li><code>n</code>: Number of observations.</li>
+<li><code>σ₀²</code>: Variance of the prior distribution (reflects uncertainty in prior beliefs).</li>
+<li><code>σ²</code>: Variance of the data within a risk group.</li>
+</ul></li>
+<li><strong>Binomial/Beta Model:</strong> <code>Z = n / (n + α + β)</code>.
+<ul>
+<li><code>n</code>: Sample size.</li>
+<li><code>α, β</code>: Parameters of the Beta prior, related to prior reliability.</li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li><strong>Explain the empirical Bayes approach to credibility theory and use it to derive credibility premiums in simple cases.</strong>
+<ul>
+<li><strong>Empirical Bayes Credibility Theory (EBCT):</strong> This approach combines observed data with prior expectations to set premiums but, crucially, <em>does not assume a specific parametric form for the prior distribution</em> of the risk parameter (unlike full Bayesian credibility). Instead, the variance components needed for the credibility factor are <em>estimated from the data itself</em>.</li>
+<li><strong>EBCT Model 1:</strong>
+<ul>
+<li>Assumes observed claim amounts <code>X_ij</code> (for risk <code>i</code> in year <code>j</code>) are conditionally independent given a risk parameter <code>θ_i</code>.</li>
+<li>Estimates variance <em>within</em> risk groups <code>E[s²(θ)]</code> and variance <em>between</em> risk groups <code>var[m(θ)]</code> from the data.</li>
+<li><strong>Credibility Factor (Z):</strong> <code>Z = n / (n + E[s²(θ)] / var[m(θ)])</code>.</li>
+<li><strong>Credibility Premium:</strong> <code>Z * x̄_i + (1 - Z) * x̄</code>.
+<ul>
+<li><code>x̄_i</code>: Average claims for risk <code>i</code>.</li>
+<li><code>x̄</code>: Overall average claims across all risks and years.</li>
+</ul></li>
+</ul></li>
+<li><strong>EBCT Model 2:</strong>
+<ul>
+<li>Extends Model 1 by incorporating a “risk volume” parameter (<code>P_j</code>) to account for different sizes of policies or businesses. This acknowledges that the number of observations can vary per risk.</li>
+<li><strong>Credibility Factor (<code>Z_i</code>):</strong> Specific to each risk <code>i</code> and influenced by its risk volume.</li>
+<li><strong>Credibility Premium:</strong> <code>Z_i * x̄_i + (1 - Z_i) * x̄</code> (where <code>x̄_i</code> and <code>x̄</code> are weighted averages by risk volume).</li>
+</ul></li>
+</ul></li>
+<li><strong>Explain the differences between the two approaches and state the assumptions underlying each of them.</strong>
+<ul>
+<li><strong>Key Differences:</strong>
+<ul>
+<li><strong>Prior Distribution:</strong>
+<ul>
+<li><strong>Bayesian Credibility:</strong> Assumes a specific, often parametric, prior distribution for the risk parameter (e.g., Gamma, Normal, Beta).</li>
+<li><strong>Empirical Bayes Credibility:</strong> Does <em>not</em> assume a specific prior distribution for the risk parameter. Instead, it estimates the necessary parameters for the credibility factor directly from the observed data.</li>
+</ul></li>
+<li><strong>Parameter Estimation:</strong>
+<ul>
+<li><strong>Bayesian Credibility:</strong> Integrates the likelihood with the specified prior to derive the posterior distribution, from which the premium (posterior mean) is calculated.</li>
+<li><strong>Empirical Bayes Credibility:</strong> Uses the observed data to estimate the moments (means and variances) of the underlying distributions of the claims, and then uses these empirical estimates in the credibility formula.</li>
+</ul></li>
+<li><strong>Information Usage:</strong>
+<ul>
+<li><strong>Bayesian Credibility:</strong> Uses a pre-specified prior and the current sample data.</li>
+<li><strong>Empirical Bayes Credibility:</strong> Uses the collective experience from <em>all</em> observed risks/years to estimate variance components, even if a specific prior is unknown, and then combines this with individual risk experience.</li>
+</ul></li>
+</ul></li>
+<li><strong>Underlying Assumptions:</strong>
+<ul>
+<li><strong>Bayesian Credibility:</strong>
+<ul>
+<li>The risk parameter (e.g., <code>λ</code>, <code>p</code>, <code>μ</code>) is a random variable.</li>
+<li>A specific parametric form for the prior distribution of the risk parameter is assumed.</li>
+<li>The observations within each risk group are conditionally independent and identically distributed given the risk parameter.</li>
+</ul></li>
+<li><strong>Empirical Bayes Credibility:</strong>
+<ul>
+<li>The risk parameter is a random variable, but its specific prior distribution is <em>unknown</em> or not explicitly modelled.</li>
+<li>Observations are conditionally independent given the risk parameter (<code>X_ij | θ_i</code> are iid).</li>
+<li>The variance of claims within a risk group may depend on the risk parameter (<code>var(X_j|θ) = s²(θ)</code>), for Model 1.</li>
+<li>For Model 2, different risk volumes (<code>P_j</code>) are incorporated, allowing for varying exposure.</li>
+<li>No assumption of normality for any random variables or parameters in the model (e.g., EBCT Model 1/2).</li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ol>
+<hr />
+<p>Keep reviewing these core concepts, and remember, practice makes perfect for these types of derivations and explanations!</p>
+</div>
 </div>
 <div id="practice-bayesian-stats" class="section level2 unnumbered hasAnchor">
 <h2><code>R</code> Practice<a href="bayesian-statistics.html#practice-bayesian-stats" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 
 </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
             </section>
 
           </div>
