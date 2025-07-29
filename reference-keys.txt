@@ -90,3 +90,5 @@ learning-objective-7-use-measures-of-model-fit-to-select-an-appropriate-set-of-e
 generalised-linear-models
 bayesian-statistics
 learning-objectives-summary
+chi-square-test-for-goodness-of-fit
+chi-square-test-for-independence-contingency-tables

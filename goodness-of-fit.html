@@ -53,71 +53,6 @@
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
-<style type="text/css">
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { color: #008000; } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { color: #008000; font-weight: bold; } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-</style>
 
 <style type="text/css">
   
@@ -304,6 +239,57 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="theory-goodness-of-fit" class="section level2 unnumbered hasAnchor">
 <h2>Theory<a href="goodness-of-fit.html#theory-goodness-of-fit" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Chapter Summary: Goodness of Fit (Chi-square Tests)</p>
+<p>This chapter focuses on using chi-square (<span class="math inline">\(\chi^2\)</span>) tests to assess if observed data aligns with a theoretical distribution or if two categorical variables are independent.</p>
+<div id="chi-square-test-for-goodness-of-fit" class="section level4 hasAnchor" number="12.0.0.1">
+<h4><span class="header-section-number">12.0.0.1</span> 1. Chi-square Test for Goodness-of-Fit<a href="goodness-of-fit.html#chi-square-test-for-goodness-of-fit" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>This test assesses whether observed frequencies from a random sample conform to a specified distribution (e.g., Binomial, Poisson, or a fair die).</p>
+<p><strong>Learning Objective: Use a chi-square test to test the hypothesis that a random sample is from a particular distribution, including cases where parameters are unknown.</strong></p>
+<p><strong>Key Steps:</strong>
+* <strong>Hypotheses:</strong>
+* Null Hypothesis (<span class="math inline">\(H_0\)</span>): The observed frequencies conform to the specified distribution.
+* Alternative Hypothesis (<span class="math inline">\(H_1\)</span>): The observed frequencies do not conform to the specified distribution.
+* <strong>Parameter Estimation (if unknown):</strong> Calculate estimates for any unknown parameters of the theoretical distribution (e.g., <span class="math inline">\(\lambda\)</span> for Poisson, <span class="math inline">\(p\)</span> for Binomial) using Maximum Likelihood Estimation (MLE) from the sample data.
+* <strong>Expected Frequencies (<span class="math inline">\(E_i\)</span>):</strong> Use the estimated parameters to calculate the expected frequency for each category or cell under the null hypothesis. This is done by multiplying the total number of observations by the probability for each category.
+* <strong>Test Statistic:</strong> Calculate the <span class="math inline">\(\chi^2\)</span> test statistic using the formula:
+<span class="math inline">\(\chi^2 = \sum \frac{(O_i - E_i)^2}{E_i}\)</span>.
+* <span class="math inline">\(O_i\)</span> represents the observed frequency in category <span class="math inline">\(i\)</span>.
+* <span class="math inline">\(E_i\)</span> represents the expected frequency in category <span class="math inline">\(i\)</span>.
+* <strong>Degrees of Freedom (dof):</strong> The degrees of freedom for this test are calculated as <span class="math inline">\(n - k - 1\)</span>, where:
+* <span class="math inline">\(n\)</span> is the number of categories/cells.
+* <span class="math inline">\(k\)</span> is the number of parameters estimated from the data.
+* <strong>Decision:</strong>
+* The test is an <strong>upper one-sided test</strong>; a larger test statistic indicates a poorer fit.
+* Compare the calculated <span class="math inline">\(\chi^2\)</span> statistic to the critical value from the <span class="math inline">\(\chi^2\)</span> distribution for the determined dof and chosen significance level.
+* If the test statistic exceeds the critical value, reject <span class="math inline">\(H_0\)</span>. This suggests the data does not fit the specified distribution.
+* <strong>Reliability:</strong> The test becomes unreliable if any expected cell frequency is too small. A common guideline is that all expected frequencies should be greater than 1, and no more than 20% of cells should have expected frequencies under 5. Cells may need to be combined to meet these conditions.
+* <strong>R Implementation:</strong> The <code>chisq.test()</code> function can be used. Note that for cases requiring parameter estimation, manual adjustment of degrees of freedom is needed as the built-in function doesn’t automatically do this.</p>
+</div>
+<div id="chi-square-test-for-independence-contingency-tables" class="section level4 hasAnchor" number="12.0.0.2">
+<h4><span class="header-section-number">12.0.0.2</span> 2. Chi-square Test for Independence (Contingency Tables)<a href="goodness-of-fit.html#chi-square-test-for-independence-contingency-tables" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>This test determines if there is an association between two categorical variables, often presented in a contingency (or two-way) table.</p>
+<p><strong>Learning Objective: Explain what is meant by a contingency (or two-way) table, and use a chi-square test to test the independence of two classification criteria.</strong></p>
+<p><strong>Key Concepts:</strong>
+* <strong>Contingency Table:</strong> A table that displays the observed frequencies of two or more categorical variables, with rows representing one variable’s categories and columns representing another’s.
+* For example, classifying accident victims by seatbelt use and injury severity.
+* <strong>Hypotheses:</strong>
+* Null Hypothesis (<span class="math inline">\(H_0\)</span>): The two classification criteria (variables) are independent.
+* Alternative Hypothesis (<span class="math inline">\(H_1\)</span>): The two classification criteria are not independent (i.e., there is an association).
+* <strong>Expected Frequencies (<span class="math inline">\(E_{ij}\)</span>):</strong> For each cell <span class="math inline">\((i, j)\)</span> in the table, the expected frequency under the assumption of independence is calculated as:
+<span class="math inline">\(E_{ij} = \frac{(\text{Row } i \text{ Total}) \times (\text{Column } j \text{ Total})}{\text{Grand Total}}\)</span>.
+* <strong>Test Statistic:</strong> The <span class="math inline">\(\chi^2\)</span> test statistic is calculated using the same formula as the goodness-of-fit test:
+<span class="math inline">\(\chi^2 = \sum \frac{(O_{ij} - E_{ij})^2}{E_{ij}}\)</span>.
+* <span class="math inline">\(O_{ij}\)</span> is the observed frequency in cell <span class="math inline">\((i, j)\)</span>.
+* <strong>Degrees of Freedom (dof):</strong> For a contingency table with <span class="math inline">\(R\)</span> rows and <span class="math inline">\(C\)</span> columns, the degrees of freedom are <span class="math inline">\((R-1)(C-1)\)</span>.
+* <strong>Decision:</strong>
+* Similar to goodness-of-fit, this is an <strong>upper one-sided test</strong>.
+* Compare the calculated <span class="math inline">\(\chi^2\)</span> statistic to the critical value from the <span class="math inline">\(\chi^2\)</span> distribution for the determined dof and chosen significance level.
+* If the test statistic exceeds the critical value, reject <span class="math inline">\(H_0\)</span>, concluding that there is evidence of an association between the variables.
+* <strong>Special Considerations:</strong>
+* <strong>Yates’ Continuity Correction:</strong> For 2x2 contingency tables, Yates’ continuity correction is often applied to the <span class="math inline">\(\chi^2\)</span> test statistic. This can be turned off in R by adding <code>correct=FALSE</code> to <code>chisq.test()</code> to match Paper A expectations.
+* <strong>Fisher’s Exact Test:</strong> For 2x2 tables, especially with small expected frequencies, Fisher’s exact test is a recommended alternative. It determines the sampling distribution precisely using permutations.
+* <strong>R Implementation:</strong> Use <code>chisq.test()</code> after structuring your observed values into a matrix using <code>matrix()</code>.</p>
+</div>
 </div>
 <div id="practice-goodness-of-fit" class="section level2 unnumbered hasAnchor">
 <h2><code>R</code> Practice<a href="goodness-of-fit.html#practice-goodness-of-fit" class="anchor-section" aria-label="Anchor link to header"></a></h2>
