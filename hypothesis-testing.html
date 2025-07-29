@@ -4,23 +4,23 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 11 Hypothesis Testing | Actuarial Statistics</title>
-  <meta name="description" content="Actuarial statistics for actuaries providing R code examples." />
+  <title>Chapter 11 Hypothesis Testing | Actuarial Statistics (Priyam’s Fork)</title>
+  <meta name="description" content="A modified version of the book on actuarial statistics, with additional notes and examples." />
   <meta name="generator" content="bookdown 0.43 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 11 Hypothesis Testing | Actuarial Statistics" />
+  <meta property="og:title" content="Chapter 11 Hypothesis Testing | Actuarial Statistics (Priyam’s Fork)" />
   <meta property="og:type" content="book" />
   
-  <meta property="og:description" content="Actuarial statistics for actuaries providing R code examples." />
-  <meta name="github-repo" content="agarbiak/CS1" />
+  <meta property="og:description" content="A modified version of the book on actuarial statistics, with additional notes and examples." />
+  <meta name="github-repo" content="priyam0k/CS1" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 11 Hypothesis Testing | Actuarial Statistics" />
+  <meta name="twitter:title" content="Chapter 11 Hypothesis Testing | Actuarial Statistics (Priyam’s Fork)" />
   
-  <meta name="twitter:description" content="Actuarial statistics for actuaries providing R code examples." />
+  <meta name="twitter:description" content="A modified version of the book on actuarial statistics, with additional notes and examples." />
   
 
-<meta name="author" content="Alex Garbiak" />
+<meta name="author" content="Priyam" />
 
 
 
@@ -53,71 +53,6 @@
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
-<style type="text/css">
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { color: #008000; } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { color: #008000; font-weight: bold; } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-</style>
 
 <style type="text/css">
   
@@ -214,7 +149,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6" data-path="data-analysis.html"><a href="data-analysis.html"><i class="fa fa-check"></i><b>6</b> Data Analysis</a>
 <ul>
 <li class="chapter" data-level="" data-path="data-analysis.html"><a href="data-analysis.html#objectives-data-analysis"><i class="fa fa-check"></i>Learning Objectives</a></li>
-<li class="chapter" data-level="" data-path="data-analysis.html"><a href="data-analysis.html#theory-data-analysis"><i class="fa fa-check"></i>Theory</a></li>
+<li class="chapter" data-level="" data-path="data-analysis.html"><a href="data-analysis.html#theory-data-analysis"><i class="fa fa-check"></i>Theory</a>
+<ul>
+<li class="chapter" data-level="6.0.1" data-path="data-analysis.html"><a href="data-analysis.html#definition-and-purpose"><i class="fa fa-check"></i><b>6.0.1</b> 1. Definition and Purpose</a></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="data-analysis.html"><a href="data-analysis.html#practice-data-analysis"><i class="fa fa-check"></i><code>R</code> Practice</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html"><i class="fa fa-check"></i><b>7</b> Exploratory Data Analysis</a>
@@ -282,7 +220,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Actuarial Statistics</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Actuarial Statistics (Priyam’s Fork)</a>
           </h1>
         </div>
 
@@ -302,6 +240,124 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="theory-hypothesis-testing" class="section level2 unnumbered hasAnchor">
 <h2>Theory<a href="hypothesis-testing.html#theory-hypothesis-testing" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Hypothesis Testing</p>
+<p>This chapter is designed to equip you with the essential statistical inference tools to draw conclusions about populations from sample data. Mastering these concepts is vital for your CS1 examination and future actuarial practice.</p>
+<div id="learning-objective-1-core-concepts-of-hypothesis-testing" class="section level4 hasAnchor" number="11.0.0.1">
+<h4><span class="header-section-number">11.0.0.1</span> <strong>Learning Objective 1: Core Concepts of Hypothesis Testing</strong><a href="hypothesis-testing.html#learning-objective-1-core-concepts-of-hypothesis-testing" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>To begin, you must clearly understand the terminology that underpins all hypothesis tests:</p>
+<ul>
+<li><strong>Null Hypothesis (H₀)</strong>: This completely specifies the underlying distribution, typically stating an exact value for the unknown parameter under investigation. For instance, H₀: μ = 20 [10.1, 461].</li>
+<li><strong>Alternative Hypothesis (H₁)</strong>: This hypothesis does <em>not</em> completely specify the underlying distribution. It usually defines a range of values for the parameter, such as μ ≠ 20, μ &gt; 20, or μ &lt; 20 [10.1, 461, 462].</li>
+<li><strong>Simple Hypothesis</strong>: A hypothesis that completely specifies the underlying distribution, often taking the form θ = θ₀ [10.1, 461].</li>
+<li><strong>Composite Hypothesis</strong>: A hypothesis that does not completely specify the underlying distribution, often taking the form θ &gt; θ₀, θ &lt; θ₀, or θ ≠ θ₀ [10.1, 461].</li>
+<li><strong>Type I Error (α)</strong>: This occurs when you <strong>reject a true null hypothesis</strong> [4, 10.3, 463]. In binary classification, it’s a “false positive,” where a healthy individual tests positive [10.4, 464]. Its probability is the <strong>level of significance</strong> of the test [10.3, 463].</li>
+<li><strong>Type II Error (β)</strong>: This occurs when you <strong>fail to reject a false null hypothesis</strong> [4, 10.3, 463]. In binary classification, it’s a “false negative,” where a diseased individual tests negative [10.4, 464].</li>
+<li><strong>Test Statistic</strong>: This is a function of a random sample used to make decisions about the null hypothesis. Its observed value is calculated under the assumption that H₀ is true [10.8, 468].</li>
+<li><strong>Likelihood Ratio</strong>: While listed as a syllabus objective (Syllabus objective 3.3.1), its specific definition is not detailed in the provided sources.</li>
+<li><strong>Critical Region</strong>: This is the range of values for the test statistic that leads to the rejection of the null hypothesis. It is determined by the <strong>critical value(s)</strong> and the chosen <strong>level of significance</strong> [10.8, 468].</li>
+<li><strong>Level of Significance (α)</strong>: This is the <strong>probability of making a Type I error</strong> [4, 10.3, 463]. It defines the threshold for rejecting H₀.</li>
+<li><strong>Probability-value (p-value)</strong>: This is the probability of observing a test statistic as extreme as, or more extreme than, the one obtained from the sample data, <em>assuming the null hypothesis is true</em> [4, 10.7, 467].
+<ul>
+<li><strong>Significance</strong>: A smaller p-value provides stronger evidence against the null hypothesis. If p-value &lt; α (level of significance), you reject H₀ [10.7, 468].</li>
+</ul></li>
+<li><strong>Power of a Test</strong>: This is the <strong>probability of correctly rejecting a false null hypothesis</strong> [10.6, 466]. It is calculated as 1 – β (1 minus the probability of a Type II error) [10.6, 467].</li>
+</ul>
+</div>
+<div id="learning-objective-2-basic-tests-for-one-sample-and-two-sample-situations" class="section level4 hasAnchor" number="11.0.0.2">
+<h4><span class="header-section-number">11.0.0.2</span> <strong>Learning Objective 2: Basic Tests for One-Sample and Two-Sample Situations</strong><a href="hypothesis-testing.html#learning-objective-2-basic-tests-for-one-sample-and-two-sample-situations" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Applying these tests effectively is a core CS1 skill. Here’s a structured approach for various distributions and scenarios:</p>
+<p><strong>General Steps for Hypothesis Testing [10.8, 468]:</strong>
+1. <strong>State Hypotheses</strong>: Clearly define H₀ and H₁.
+2. <strong>Choose Test Statistic</strong>: Select the appropriate formula based on the parameter being tested and data characteristics.
+3. <strong>Calculate Observed Value</strong>: Compute the test statistic’s value assuming H₀ is true.
+4. <strong>Obtain Critical Value(s)</strong>: Find these from statistical tables corresponding to your chosen α and distribution.
+5. <strong>Compare and Conclude</strong>: Compare the observed value to the critical value(s) and state your decision regarding H₀ and the practical implication.</p>
+<p><strong>I. One-Sample Tests:</strong></p>
+<ul>
+<li><strong>Normal Mean (Known Variance, σ²)</strong>:
+<ul>
+<li><strong>Test Statistic</strong>: <span class="math inline">\(Z = \frac{\bar{X} - \mu_0}{\sigma/\sqrt{n}}\)</span> [10.9, 470].</li>
+<li><strong>Distribution (under H₀)</strong>: Approximately <span class="math inline">\(N(0,1)\)</span> for large samples; exactly <span class="math inline">\(N(0,1)\)</span> for normal populations [10.9, 470].</li>
+</ul></li>
+<li><strong>Normal Mean (Unknown Variance, σ²)</strong>:
+<ul>
+<li><strong>Test Statistic</strong>: <span class="math inline">\(T = \frac{\bar{X} - \mu_0}{S/\sqrt{n}}\)</span> [10.10, 470].</li>
+<li><strong>Distribution (under H₀)</strong>: <span class="math inline">\(t_{n-1}\)</span> (t-distribution with <span class="math inline">\(n-1\)</span> degrees of freedom) [10.10, 470].</li>
+<li><strong>Example</strong>: Test μ = 19 for a sample mean of 15.8 with <span class="math inline">\(S^2 = 895.243\)</span> and <span class="math inline">\(n=15\)</span>. Observed <span class="math inline">\(T = -0.414\)</span>. Compared to <span class="math inline">\(t_{14}\)</span> critical values. At 5% level, insufficient evidence to reject H₀ [10.10a, 471, 472].</li>
+</ul></li>
+<li><strong>Normal Variance (σ²)</strong>:
+<ul>
+<li><strong>Test Statistic</strong>: <span class="math inline">\(\frac{(n-1)S^2}{\sigma_0^2}\)</span> [10.11, 472].</li>
+<li><strong>Distribution (under H₀)</strong>: <span class="math inline">\(\chi^2_{n-1}\)</span> (Chi-squared distribution with <span class="math inline">\(n-1\)</span> degrees of freedom) [10.11, 472].</li>
+<li><strong>Example</strong>: Test σ² = 190 for a sample <span class="math inline">\(S = 15\)</span> with <span class="math inline">\(n=20\)</span>. Observed statistic = 22.5. Compared to <span class="math inline">\(\chi^2_{19}\)</span> critical values. At 5% level, insufficient evidence to reject H₀ [10.11a, 473, 474].</li>
+</ul></li>
+<li><strong>Binomial Parameter (Proportion, p)</strong>:
+<ul>
+<li><strong>Test Statistic (large <span class="math inline">\(n\)</span>)</strong>: <span class="math inline">\(\frac{\hat{p} - p_0}{\sqrt{p_0(1-p_0)/n}}\)</span> (often with continuity correction) [10.12, 475].</li>
+<li><strong>Distribution (under H₀)</strong>: Approximately <span class="math inline">\(N(0,1)\)</span> [10.12, 475].</li>
+</ul></li>
+<li><strong>Poisson Parameter (Mean, λ)</strong>:
+<ul>
+<li><strong>Test Statistic (large <span class="math inline">\(n\)</span>)</strong>: <span class="math inline">\(\frac{\bar{X} - \lambda_0}{\sqrt{\lambda_0/n}}\)</span> (often with continuity correction) [10.13, 476].</li>
+<li><strong>Distribution (under H₀)</strong>: Approximately <span class="math inline">\(N(0,1)\)</span> [10.13, 476].</li>
+<li><strong>Example</strong>: Test λ &gt; 50 for 2,710 claims in 50 days. Observed statistic = 4.19. Compared to <span class="math inline">\(N(0,1)\)</span> critical value (1.6449). At 5% level, sufficient evidence to reject H₀ [10.13a, 477, 478].</li>
+</ul></li>
+</ul>
+<p><strong>II. Two-Sample Tests:</strong></p>
+<ul>
+<li><strong>Difference in Normal Means (Known Variances, σ₁², σ₂²)</strong>:
+<ul>
+<li><strong>Test Statistic</strong>: <span class="math inline">\(\frac{(\bar{X}_1 - \bar{X}_2) - (\mu_1 - \mu_2)}{\sqrt{\sigma_1^2/n_1 + \sigma_2^2/n_2}}\)</span> [10.14, 478, 479].</li>
+<li><strong>Distribution (under H₀)</strong>: Exactly <span class="math inline">\(N(0,1)\)</span> for normal populations, approximately <span class="math inline">\(N(0,1)\)</span> for large samples [10.14, 479].</li>
+</ul></li>
+<li><strong>Difference in Normal Means (Unknown but Equal Variances)</strong>:
+<ul>
+<li><strong>Test Statistic</strong>: <span class="math inline">\(\frac{(\bar{X}_1 - \bar{X}_2) - (\mu_1 - \mu_2)}{S_p\sqrt{1/n_1 + 1/n_2}}\)</span>, where <span class="math inline">\(S_p\)</span> is the pooled standard deviation [10.15, 480].</li>
+<li><strong>Distribution (under H₀)</strong>: <span class="math inline">\(t_{n_1+n_2-2}\)</span> [10.15, 480].</li>
+<li><strong>Example</strong>: Test if a treatment improves physical strength (μ_A &gt; μ_B) with pooled variance. Observed statistic = 1.32. Compared to <span class="math inline">\(t_{14}\)</span> critical value (1.761). At 5% level, insufficient evidence to reject H₀ [10.15a, 481, 482].</li>
+</ul></li>
+<li><strong>Ratio of Normal Variances (σ₁²/σ₂²)</strong>:
+<ul>
+<li><strong>Test Statistic</strong>: <span class="math inline">\(\frac{S_1^2/\sigma_1^2}{S_2^2/\sigma_2^2}\)</span> [10.16, 483].</li>
+<li><strong>Distribution (under H₀: σ₁² = σ₂²)</strong>: <span class="math inline">\(F_{n_1-1, n_2-1}\)</span> [10.16, 483].</li>
+<li><strong>Example</strong>: Test for equal variances. Observed statistic = 0.630. Compared to <span class="math inline">\(F_{7,7}\)</span> critical values (0.200, 4.995). At 5% level, insufficient evidence to reject H₀ [10.16a, 484].</li>
+</ul></li>
+<li><strong>Equality of Binomial Parameters (Proportions, p₁, p₂)</strong>:
+<ul>
+<li><strong>Test Statistic (large <span class="math inline">\(n_1, n_2\)</span>)</strong>: <span class="math inline">\(\frac{(\hat{p}_1 - \hat{p}_2) - (p_1 - p_2)}{\sqrt{\hat{p}(1-\hat{p})(1/n_1 + 1/n_2)}}\)</span>, where <span class="math inline">\(\hat{p}\)</span> is the pooled sample proportion [10.17, 485, 486].</li>
+<li><strong>Distribution (under H₀: p₁ = p₂)</strong>: Approximately <span class="math inline">\(N(0,1)\)</span> [10.17, 486].</li>
+<li><strong>Example</strong>: Test if a product helps students pass exams (p_A &gt; p_B). Observed statistic = 0.852. Compared to <span class="math inline">\(N(0,1)\)</span> critical value (1.6449). At 5% level, insufficient evidence to reject H₀ [10.17a, 486, 487].</li>
+</ul></li>
+<li><strong>Equality of Poisson Parameters (Means, λ₁, λ₂)</strong>:
+<ul>
+<li><strong>Test Statistic (large <span class="math inline">\(n_1, n_2\)</span>)</strong>: <span class="math inline">\(\frac{(\hat{\lambda}_1 - \hat{\lambda}_2) - (\lambda_1 - \lambda_2)}{\sqrt{\hat{\lambda}(1/n_1 + 1/n_2)}}\)</span>, where <span class="math inline">\(\hat{\lambda}\)</span> is the pooled sample mean [10.18, 488].</li>
+<li><strong>Distribution (under H₀: λ₁ = λ₂)</strong>: Approximately <span class="math inline">\(N(0,1)\)</span> [10.18, 488].</li>
+</ul></li>
+<li><strong>Paired Data (Mean Difference, μ_D)</strong>:
+<ul>
+<li><strong>Approach</strong>: Calculate the differences between corresponding data points (<span class="math inline">\(D_i = X_i - Y_i\)</span>) to create a single sample of differences. Then, perform a one-sample t-test on these differences [10.19, 489, 490].</li>
+<li><strong>Test Statistic</strong>: <span class="math inline">\(T = \frac{\bar{D} - \mu_D}{S_D/\sqrt{n}}\)</span> [10.19, 489].</li>
+<li><strong>Distribution (under H₀: μ_D = 0)</strong>: <span class="math inline">\(t_{n-1}\)</span> (assuming differences are normally distributed) [10.19, 489].</li>
+<li><strong>Example</strong>: Test if a treatment increases physical strength for paired data. Observed statistic = 1.73. Compared to <span class="math inline">\(t_{5}\)</span> critical value (2.015). At 5% level, insufficient evidence to reject H₀ [10.19a, 490].</li>
+</ul></li>
+</ul>
+</div>
+<div id="learning-objective-3-permutation-approach-to-non-parametric-hypothesis-tests" class="section level4 hasAnchor" number="11.0.0.3">
+<h4><span class="header-section-number">11.0.0.3</span> <strong>Learning Objective 3: Permutation Approach to Non-Parametric Hypothesis Tests</strong><a href="hypothesis-testing.html#learning-objective-3-permutation-approach-to-non-parametric-hypothesis-tests" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>For non-parametric tests, especially when distributional assumptions are not met or sample sizes are small, the permutation approach is key:</p>
+<ul>
+<li><strong>Permutation Approach</strong>: This method involves [10.20, 490, 491]:
+<ol style="list-style-type: decimal">
+<li><strong>Calculate Observed Statistic</strong>: Compute the test statistic for the original sample data.</li>
+<li><strong>Generate Permutations</strong>: Randomly re-assign (permute) the data values between the groups (or within the sample, depending on the test).</li>
+<li><strong>Calculate Statistic for Each Permutation</strong>: Compute the test statistic for each generated permutation.</li>
+<li><strong>Construct Null Distribution</strong>: The distribution of these permuted test statistics forms the empirical null distribution.</li>
+<li><strong>Calculate p-value</strong>: Determine the proportion of permuted statistics that are as extreme as, or more extreme than, the observed statistic.</li>
+</ol></li>
+<li><strong>Practicality</strong>: Due to its computational intensity, this test is generally easier to perform using software (like R) rather than manually, even for moderate sample sizes [10.20, 491].</li>
+</ul>
+<p>Keep these notes concise and focus on the key components. Practice applying these principles with exam-style questions to solidify your understanding. You’ve got this!</p>
+</div>
 </div>
 <div id="practice-hypothesis-testing" class="section level2 unnumbered hasAnchor">
 <h2><code>R</code> Practice<a href="hypothesis-testing.html#practice-hypothesis-testing" class="anchor-section" aria-label="Anchor link to header"></a></h2>
