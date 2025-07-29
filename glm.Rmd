@@ -13,4 +13,197 @@
 
 ## Theory {-#theory-glm}
 
+Generalised Linear Models (GLMs): Core Concepts & Applications
+
+**Learning Objective 1: Define an exponential family of distributions. Show that the following distributions may be written in this form: binomial, Poisson, exponential, gamma, normal.**
+
+At the heart of GLMs lies the **exponential family of distributions**.
+
+*   **Definition:** A probability function (PF) or probability density function (PDF), *f(y)*, belongs to the exponential family if it can be written in the form:
+    *   *f(y; θ, φ) = exp{ (yθ - b(θ))/a(φ) + c(y, φ) }*.
+    *   Here, *θ* is the **natural parameter** (a function of the mean, *μ*) and *φ* is the **scale (or dispersion) parameter**.
+
+*   **Distributions in Exponential Family Form:**
+    *   **Binomial (Y ~ Bin(n, μ)):**
+        *   Natural Parameter (θ): *log(μ / (1-μ))*.
+        *   Function *b(θ)*: *-n*log*(1-μ)* or *n*log*(1 + e^θ)*.
+        *   Function *a(φ)*: *1/φ = 1/n*.
+        *   Scale Parameter (φ): *n*.
+    *   **Poisson (Y ~ Poi(μ)):**
+        *   PF: *P(Y=y) = (e^(-μ)μ^y) / y!*.
+        *   Can be rewritten as: *exp{ y ln(μ) - μ - ln(y!) }*.
+        *   Natural Parameter (θ): *ln(μ)*.
+        *   Function *b(θ)*: *μ = e^θ*.
+        *   Function *a(φ)*: *1*.
+        *   Scale Parameter (φ): *1*.
+    *   **Exponential (Y ~ Exp(λ) or Exp(1/μ)):**
+        *   PDF: *f(x) = λe^(-λx)*.
+        *   Can be rewritten as: *exp{ -λx + ln(λ) }*.
+        *   Natural Parameter (θ): *-λ* or *-1/μ*.
+        *   Function *b(θ)*: *-ln(-θ)* or *ln(μ)*.
+        *   Function *a(φ)*: *1*.
+        *   Scale Parameter (φ): *1*.
+    *   **Gamma (Y ~ Gamma(α, λ) or Gamma(α, μ)):**
+        *   PDF: *(λ^α / Γ(α)) x^(α-1)e^(-λx)*.
+        *   Natural Parameter (θ): *-λ* or *-1/μ*.
+        *   Function *b(θ)*: *-α ln(-θ)* or *α ln(μ)*.
+        *   Function *a(φ)*: *1/α*.
+        *   Scale Parameter (φ): *α*.
+    *   **Normal (Y ~ N(μ, σ²)):**
+        *   PDF: *(1/(σ√(2π)))exp(-(x-μ)²/(2σ²))*.
+        *   Natural Parameter (θ): *μ*.
+        *   Function *b(θ)*: *μ²*.
+        *   Function *a(φ)*: *σ²*.
+        *   Scale Parameter (φ): *σ²*.
+
+**Learning Objective 2: State the mean and variance for an exponential family, and define the variance function and the scale parameter. Derive these quantities for the distributions above.**
+
+For a distribution in the exponential family form *exp{ (yθ - b(θ))/a(φ) + c(y, φ) }*:
+*   **Mean:** *E[Y] = b'(θ)*.
+*   **Variance:** *Var[Y] = a(φ) * b''(θ)*.
+*   **Variance Function (V(μ)):** This is *b''(θ)* expressed in terms of the mean *μ*. It shows the relationship between the mean and variance of a distribution.
+*   **Scale Parameter (φ):** This is typically the parameter in the distribution other than the mean, often represented by *a(φ)*.
+
+*   **Derivations/Values for Distributions:**
+    *   **Poisson:**
+        *   E[Y] = μ.
+        *   Var[Y] = μ.
+        *   Variance Function: *V(μ) = μ*.
+    *   **Exponential:**
+        *   E[Y] = 1/λ.
+        *   Var[Y] = 1/λ².
+        *   Variance Function: *V(μ) = μ²*.
+    *   **Gamma:**
+        *   E[Y] = α/λ.
+        *   Var[Y] = α/λ².
+        *   Variance Function: *V(μ) = μ²/α*.
+    *   **Normal:**
+        *   E[Y] = μ.
+        *   Var[Y] = σ².
+        *   Variance Function: *V(μ) = 1* (since *b''(θ)=1* and *a(φ)=σ²*, so *Var(Y)=σ²*).
+    *   **Binomial:**
+        *   E[Y] = np.
+        *   Var[Y] = np(1-p).
+        *   Variance Function: *V(μ) = μ(1-μ/n)*.
+
+**Learning Objective 3: Explain what is meant by the link function and the canonical link function, referring to the distributions above.**
+
+*   **Link Function (g(μ)):**
+    *   The link function *g(μ)* connects the mean of the response variable *μ = E[Y]* to the **linear predictor** *η*.
+    *   It must be invertible and differentiable.
+*   **Canonical Link Function:**
+    *   A specific link function for each exponential family distribution that simplifies the estimation process.
+    *   If not specified, the canonical link function is usually used.
+    *   It directly relates the linear predictor *η* to the natural parameter *θ* (*η = θ*).
+*   **Examples of Canonical Link Functions:**
+    *   **Poisson:** *log(μ)*. This ensures the mean *μ* is always positive (*μ = e^η*).
+    *   **Normal:** *identity (μ)*.
+    *   **Exponential:** *inverse (-1/μ)*.
+    *   **Binomial:** *logit (log(μ/(1-μ)))*. This ensures the probability *μ* is between 0 and 1 (*μ = e^η / (1 + e^η)*).
+    *   **Gamma:** *inverse (-1/μ)*.
+
+**Learning Objective 4: Explain what is meant by a variable, a factor taking categorical values and an interaction term. Define the linear predictor, illustrating its form for simple models, including polynomial models and models involving factors.**
+
+*   **Linear Predictor (η):**
+    *   A function of the covariates that is **linear in the parameters**.
+    *   It's what we believe influences the response (e.g., premium, claim numbers).
+*   **Types of Covariates:**
+    *   **Variable:** A covariate whose actual numerical value directly enters the linear predictor.
+        *   *Example:* Age, duration. Linear predictor form: *α + βx*.
+    *   **Factor:** A covariate that takes categorical values.
+        *   *Example:* Sex (male/female), vehicle rating group. A parameter is assigned for each category.
+        *   *Form:* If 'Sex' is a factor (Male, Female), the linear predictor might include *α_i* where *i* is Male or Female.
+*   **Interaction Term:**
+    *   Occurs when one explanatory variable's effect on the response depends on the value of another explanatory variable.
+    *   *Form:* An interaction between *X1* and *X2* is denoted *X1:X2* or included in *X1*X2, adding a term like *γX1X2* to the linear predictor.
+*   **Illustrative Linear Predictor Forms:**
+    *   **Simple Linear Model:** *η = α + βX*.
+    *   **Polynomial Model:** *η = α + βX + γX²* (linear in parameters *α, β, γ*).
+    *   **Models with Factors:**
+        *   *Age + Sex:* *η = α_i + βx* (where *i* represents sex category).
+        *   *Age * Sex:* *η = α_i + β_i x* (allows different slopes for each sex category).
+
+**Learning Objective 5: Define the deviance and scaled deviance and state how the parameters of a generalised linear model may be estimated. Describe how a suitable model may be chosen by using an analysis of deviance and by examining the significance of the parameters.**
+
+*   **Parameter Estimation (Maximum Likelihood Estimates - MLEs):**
+    *   For GLMs, parameters in the linear predictor are typically estimated using the method of **Maximum Likelihood Estimation (MLE)**.
+    *   This involves:
+        1.  Obtaining the log-likelihood function of the observed data in terms of the means (μ).
+        2.  Rearranging the link function to express μ in terms of the linear predictor (η).
+        3.  Substituting this into the log-likelihood to express it in terms of the parameters of the linear predictor (α, β, etc.).
+        4.  Differentiating the log-likelihood with respect to each parameter and setting the derivatives to zero to find the MLEs.
+
+*   **Deviance (D) and Scaled Deviance (D\*):**
+    *   Measures the **goodness-of-fit** of a GLM.
+    *   **Scaled Deviance (D\*):** *D\* = 2 * (lnL_SAT - lnL_M)*, where *lnL_SAT* is the log-likelihood of the saturated model (perfect fit) and *lnL_M* is the log-likelihood of the current model.
+    *   **Deviance (D):** *D = D\* * φ*, where *φ* is the dispersion parameter.
+    *   A smaller deviance indicates a better fit.
+    *   The scaled deviance asymptotically follows a **Chi-squared (χ²)** distribution, particularly if the Y values are normally distributed.
+
+*   **Model Selection:**
+    *   **Analysis of Deviance:**
+        *   Increasing the number of parameters in a model always reduces the deviance.
+        *   To formally compare nested models, calculate the difference in scaled deviances between the two models. This difference follows a *χ²* distribution with degrees of freedom equal to the difference in the number of parameters between the models.
+        *   The `anova()` function in R can be used, often with `test="Chisq"` for non-normal distributions, to perform these tests.
+    *   **Significance of Parameters:**
+        *   Examine the *p-values* for each parameter in the model output (e.g., from `summary()` in R).
+        *   Parameters with small p-values (e.g., < 0.05) are considered statistically significant and contribute meaningfully to the model.
+    *   **Akaike's Information Criterion (AIC):**
+        *   AIC is a penalized log-likelihood that balances model fit and complexity.
+        *   Lower AIC values indicate preferred models.
+    *   **Forward and Backward Selection:** These are systematic approaches to add or remove variables from the model based on criteria like AIC or deviance tests.
+
+**Learning Objective 6: Define the Pearson and deviance residuals and describe how they may be used.**
+
+*   **Residuals (General):** The difference between the actual observed responses (*y_i*) and the fitted responses (*μ̂_i*). *e_i = y_i - μ̂_i*. Raw residuals are not directly used for checking due to unknown distributions.
+
+*   **Pearson Residuals:**
+    *   Definition: *(y_i - μ̂_i) / √V(μ̂_i)*. Where *V(μ̂_i)* is the estimated variance function.
+    *   Primarily used for **normally distributed data**, as they are then approximately *N(0,1)*.
+    *   For non-normal data, they can be skewed and hard to interpret.
+
+*   **Deviance Residuals:**
+    *   Definition: *sign(y_i - μ̂_i) * √d_i*, where *d_i* is the *i*-th component of the scaled deviance.
+    *   Suitable for **all distributions** within the exponential family.
+    *   They tend to be symmetrically distributed and approximately normal, even for non-normal data, making them preferred for actuarial applications.
+
+*   **How Residuals are Used to Check Model Fit:**
+    *   **Plots of residuals vs. fitted values/covariates:** Used to check for randomness and constant variance. A patternless plot indicates a good fit.
+    *   **Q-Q plots (Quantile-Quantile plots) or Histograms of residuals:** Used to check for normality of errors. Deviations from a straight line on a Q-Q plot suggest non-normality.
+
+**Learning Objective 7: Apply statistical tests to determine the acceptability of a fitted model: Pearson’s chi-square test and the likelihood ratio test.**
+
+*   **Pearson's Chi-Square (χ²) Test:**
+    *   **Goodness-of-Fit:** Used to assess if observed frequencies conform to a specified distribution (e.g., fair die, Poisson, binomial).
+        *   *Example:* CS1-AS, Q45, 47, 48, 59, 62 illustrate checking if observed data fits a Poisson or binomial model.
+    *   **Independence (Contingency Tables):** Used to test for association between two categorical variables.
+        *   *Example:* CS1-AS, Q51, 60, 61 demonstrate testing for association between marital status and BMI, or characteristics of HIV positive men.
+    *   The test statistic follows a χ² distribution.
+
+*   **Likelihood Ratio Test (LRT):**
+    *   Often used for comparing nested GLMs. It is directly related to the **difference in deviances**.
+    *   Test statistic: Difference in scaled deviances between two models (*D\*_Model A - D\*_Model B*).
+    *   This statistic follows a *χ²* distribution with degrees of freedom equal to the difference in the number of parameters between the two models.
+    *   *Example:* CS1-AS, Q47(v) compares Model A and Model B using the difference in their scaled deviances to determine if one is a significant improvement.
+
+**Learning Objective 8: Fit a generalised linear model to a data set and interpret the output.**
+
+*   **Fitting a GLM (e.g., using R):**
+    *   The `glm()` function is commonly used.
+    *   Specify the response variable, explanatory covariates, and the `family` (e.g., `gaussian`, `binomial`, `Gamma`, `poisson`) and `link` function (e.g., `identity`, `log`, `inverse`, `logit`).
+    *   *Example R code:* `<name> <- glm(<response> ~ <covariate1> + <covariate2>, family=gaussian(link="identity"))`.
+
+*   **Interpreting Output (from `summary(<model_name>)`):**
+    *   **Coefficients:** Estimates for the parameters in the linear predictor (intercept and slopes for covariates).
+    *   **Standard Errors:** Measure the precision of the coefficient estimates.
+    *   **Z or t Test Values:** Used to assess the significance of individual parameters. Large absolute values suggest significance.
+    *   **P-values:** Probability of observing a test statistic as extreme as, or more extreme than, the one observed, assuming the null hypothesis (parameter = 0) is true. Small p-values (e.g., < 0.05) indicate that the parameter is statistically significant.
+        *   *Example:* In CS1-AS, Q40(ii), p-values less than 0.05 indicate that 'Intercept', 'drug_1', and 'drug_2' are all significantly different from zero.
+    *   **Deviance/Scaled Deviance:** Measures the goodness-of-fit of the overall model (as discussed in Objective 5).
+    *   **AIC:** Aids in model selection (as discussed in Objective 5).
+    *   **Fitted Values:** Estimates of the mean response for each data point. Obtained using `fitted()` or `predict(..., type="response")`.
+    *   **Residuals:** Can be extracted and plotted (e.g., using `plot(<model_name>, 1)` for residuals vs. fitted values, or `plot(<model_name>, 2)` for Q-Q plot) to check model assumptions.
+
+This comprehensive overview should give you a solid foundation for mastering GLMs in CS1. Keep practicing those derivations and interpretations – they're key to exam success!
+
 ## `R` Practice {-#practice-glm}

@@ -12,4 +12,65 @@
 
 ## Theory {-#theory-estimators}
 
+Point Estimation (Estimation and Estimators)
+
+This chapter focuses on different methods for estimating unknown population parameters from sample data and evaluating the quality of those estimators.
+
+#### 1. Method of Moments (MOM) for Constructing Estimators
+
+*   **Definition:** The Method of Moments involves equating sample moments to their corresponding population (or theoretical) moments.
+*   **Application:**
+    *   **For 1 unknown parameter (e.g., Poi(μ), Exp(λ)):** Equate the sample mean (x̄) to the population mean (E[X]).
+        *   *Example:* For an Exp(λ) distribution, λ̂ = 1/x̄.
+    *   **For 2 unknown parameters (e.g., NBin(k,p), Gamma(α,λ), N(μ,σ²)):** Equate the sample mean and sample variance to their population counterparts. Alternatively, equate the first two moments about zero.
+*   **Characteristics:**
+    *   May be simple to calculate.
+    *   May sometimes produce inadmissible values (estimates that are not possible within the parameter space).
+
+#### 2. Method of Maximum Likelihood (MLE) for Constructing Estimators
+
+*   **Definition:** The Maximum Likelihood Estimate (MLE) is the value of the parameter that maximizes the likelihood of observing the given sample data. In essence, it finds the parameter value that makes the observed data "most probable".
+*   **Application Stages (Single-parameter case):**
+    1.  **Write down the likelihood function (L):** This is the probability (for discrete data) or probability density (for continuous data) of obtaining the observed sample, viewed as a function of the parameter(s).
+    2.  **Obtain the log-likelihood (ln L):** Taking the natural logarithm simplifies differentiation.
+    3.  **Differentiate and set to zero:** Differentiate ln L with respect to the parameter(s) and set the derivative(s) equal to zero. Solving these equations yields the MLE(s).
+    4.  **(Optional check):** Differentiate again to ensure the second derivative is negative, confirming a maximum.
+*   **Examples:** For a Poisson(μ) distribution, the MLE of μ is the sample mean (x̄).
+*   **Tricky Situations:**
+    *   **Incomplete data:** For censored or truncated data, the method requires careful formulation of the likelihood function.
+    *   **Domain parameters:** When the parameter's possible values are bounded (e.g., uniform distribution's upper bound), the MLE might be found at the boundary of the parameter space, often requiring visual inspection or numerical methods rather than differentiation.
+
+#### 3. Definitions: Efficiency, Bias, Consistency, Mean Squared Error
+
+*   **Bias:** For an estimator θ̂ of a parameter θ, the bias is defined as `Bias(θ̂) = E[θ̂] - θ`.
+*   **Mean Squared Error (MSE):** For an estimator θ̂ of a parameter θ, the MSE is defined as `MSE(θ̂) = E[(θ̂ - θ)²]`.
+*   **Efficiency:** An estimator θ̂₁ is considered more efficient than another estimator θ̂₂ if `MSE(θ̂₁) < MSE(θ̂₂)`. A lower MSE means the estimator is, on average, closer to the true parameter value.
+*   **Consistency:** An estimator θ̂ is consistent if its `MSE(θ̂) → 0` as the sample size `n → ∞`. This implies that with a sufficiently large sample, the estimator will converge to the true parameter value.
+
+#### 4. Property of Unbiasedness of an Estimator
+
+*   **Definition:** An estimator θ̂ is unbiased for θ if its bias is zero, i.e., `E[θ̂] = θ`. This means, on average, the estimator will hit the true parameter value.
+*   **Application:**
+    *   The sample mean (x̄) is an unbiased estimator of the population mean (μ).
+    *   The sample variance (S²) calculated with `1/(n-1)` in the denominator is an unbiased estimator of the population variance (σ²).
+
+#### 5. Mean Squared Error (MSE) and Comparison of Estimators
+
+*   **Formula:** The MSE can be decomposed into the variance of the estimator and the square of its bias: `MSE(θ̂) = Var(θ̂) + (Bias(θ̂))²`. This formula is key for evaluating an estimator's overall quality.
+*   **Comparison:** To compare estimators, calculate their MSEs. The estimator with the smaller MSE is preferred because it represents a better balance between bias and variance, indicating greater accuracy around the true parameter. Sometimes, a slightly biased estimator might be chosen over an unbiased one if its MSE is significantly lower.
+
+#### 6. Asymptotic Distribution of Maximum Likelihood Estimators
+
+*   **Asymptotic Property:** For large sample sizes, the Maximum Likelihood Estimator (MLE), θ̂, is asymptotically normally distributed: `θ̂ ~ N(θ, CRLB)`.
+*   **Approximate Standard Error:** For a sufficiently large sample size, the standard error of the MLE is approximately equal to the square root of the Cramer-Rao Lower Bound (CRLB).
+*   **Cramer-Rao Lower Bound (CRLB):** This is the theoretical minimum variance an unbiased estimator can achieve. It's given by `CRLB = 1 / E[-(d²lnL/dθ²)]`. For instance, for the Poisson(μ) parameter, the CRLB is `μ/n`. If an unbiased estimator's variance equals the CRLB, it is considered a minimum variance unbiased estimator (MVUE).
+
+#### 7. Bootstrap Method to Estimate Properties of an Estimator
+
+*   **Purpose:** The bootstrap method is a resampling technique used to estimate the sampling distribution of a statistic, which in turn helps in constructing confidence intervals or estimating other properties of an estimator when analytical methods are difficult or impossible.
+*   **Method Outline:**
+    1.  **Generate Resamples:** Create multiple "bootstrap samples" by drawing observations with replacement from the original observed sample (non-parametric bootstrap). Alternatively, if a distribution is assumed, simulate samples from the fitted distribution (parametric bootstrap).
+    2.  **Calculate Statistic:** For each of these bootstrap samples, calculate the statistic of interest (e.g., the estimator of the parameter).
+    3.  **Empirical Distribution:** The collection of calculated statistics from all bootstrap samples forms an empirical sampling distribution. This distribution can then be used for statistical inference, such as deriving confidence intervals by finding appropriate quantiles of the bootstrap distribution.
+
 ## `R` Practice {-#practice-estimators}

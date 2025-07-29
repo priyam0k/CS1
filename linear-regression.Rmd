@@ -16,4 +16,130 @@
 
 ## Theory {-#theory-linear-regression}
 
+Chapter: Linear Regression
+
+This chapter delves into quantifying and modelling relationships between variables, specifically focusing on linear associations. You'll learn how to construct, fit, and assess linear regression models.
+
+#### **Learning Objective 1: Explain what is meant by response and explanatory variables.**
+
+*   **Response Variable (Y):** This is the variable whose values are thought to depend on, or be explained by, another variable [CS1 Summary, Q3, 421]. It is the outcome or dependent variable in the model [CS1 CMP 2023.pdf, 139].
+*   **Explanatory Variable (X):** This is the variable that is thought to influence or explain the values of the response variable [CS1 Summary, Q3, 421]. It is also known as the predictor or independent variable [CS1 CMP 2023.pdf, 139]. Ideally, its values are under the experimenter's control [CS1 Summary, Q3, 421-422].
+
+#### **Learning Objective 2: State the simple regression model (with a single explanatory variable).**
+
+The simple linear regression model describes the relationship between a single response variable (Y) and a single explanatory variable (X) [CS1 Summary, Q1, 419].
+
+*   **Model Equation:** $Y_i = \alpha + \beta X_i + \epsilon_i$ [CS1 Summary, Q1, 419].
+    *   $Y_i$: The $i$-th observation of the response variable [CS1 Summary, Q1, 419].
+    *   $X_i$: The $i$-th observation of the explanatory variable [CS1 Summary, Q1, 419].
+    *   $\alpha$: The intercept parameter (the expected value of Y when X is 0) [CS1 Summary, Q5, 424].
+    *   $\beta$: The slope parameter (the expected change in Y for a one-unit increase in X) [CS1 Summary, Q5, 424].
+    *   $\epsilon_i$: The error term for the $i$-th observation [CS1 Summary, Q1, 420].
+*   **Assumptions (Basic Model):**
+    *   Errors ($\epsilon_i$) are uncorrelated [CS1 Summary, Q1, 420].
+    *   Expected value of errors: $E[\epsilon_i] = 0$ [CS1 Summary, Q1, 420].
+    *   Constant variance of errors: $Var(\epsilon_i) = \sigma^2$ [CS1 Summary, Q1, 420].
+*   **Full Normal Model:** In addition to the basic assumptions:
+    *   Errors ($\epsilon_i$) are independent and normally distributed: $\epsilon_i \sim N(0, \sigma^2)$ [CS1 Summary, Q1, 420].
+    *   Consequently, $Y_i \sim N(\alpha + \beta X_i, \sigma^2)$ [CS1 Summary, Q1, 420].
+
+#### **Learning Objective 3: Derive the least squares estimates of the slope and intercept parameters in a simple linear regression model.**
+
+The **least squares method** aims to find the $\alpha$ and $\beta$ that minimise the sum of squared residuals (errors) [CS1 Summary, Q4, 422].
+*   **Objective:** Minimise $\sum \epsilon_i^2 = \sum (Y_i - \alpha - \beta X_i)^2$ [CS1 Summary, Q4, 422].
+*   **Derivation Steps:**
+    1.  Differentiate the sum of squared errors with respect to $\alpha$ and set the partial derivative to zero [CS1 Summary, Q4, 422].
+    2.  Differentiate the sum of squared errors with respect to $\beta$ and set the partial derivative to zero [CS1 Summary, Q4, 422].
+    3.  Solve the resulting two equations simultaneously to obtain the estimates [CS1 Summary, Q4, 423].
+*   **Least Squares Estimates:**
+    *   **Slope ($\hat{\beta}$):** $\hat{\beta} = s_{xy} / s_{xx}$ [CS1 Summary, Q5, 424].
+    *   **Intercept ($\hat{\alpha}$):** $\hat{\alpha} = \bar{y} - \hat{\beta}\bar{x}$ [CS1 Summary, Q5, 424].
+    *   **Estimated Error Variance ($\hat{\sigma}^2$):** $\hat{\sigma}^2 = \frac{1}{n-2} \left(s_{yy} - \frac{s_{xy}^2}{s_{xx}}\right)$ [CS1 Summary, Q5, 424].
+    *   *Note:* The fitted regression line $\hat{y} = \hat{\alpha} + \hat{\beta}x$ always passes through the point $(\bar{x}, \bar{y})$ [CS1 Summary, Q5b, 426].
+    *   The terms $s_{xx}$, $s_{yy}$, $s_{xy}$ are sum of squares and products, found on page 24 of the Tables and in CS1 Summary [CS1 Summary, Q2, 420-421].
+
+#### **Learning Objective 4: Use R to fit a simple linear regression model to a data set and interpret the output.**
+
+*   **Fitting a Model in R:**
+    *   Use the `lm()` function: `<name_of_model> <- lm(<response_variable> ~ <explanatory_variable>)` [Copy of CS1B Summary 4 - Regression 2020.pdf, 539].
+    *   To display coefficients: `<name_of_model>` [Copy of CS1B Summary 4 - Regression 2020.pdf, 539].
+    *   For comprehensive output (estimates, standard errors, t-values, p-values): `summary(<name_of_model>)` [Copy of CS1B Summary 4 - Regression 2020.pdf, 540].
+*   **Perform Statistical Inference on the Slope Parameter ($\beta$):**
+    *   **Test Statistic:** Under the full normal model, $\frac{\hat{\beta} - \beta}{\hat{\sigma}/\sqrt{s_{xx}}} \sim t_{n-2}$ [CS1 Summary, Q8, 431].
+    *   **Hypotheses for testing $\beta = 0$ (no linear relationship):**
+        *   $H_0: \beta = 0$
+        *   $H_1: \beta \neq 0$ (or one-sided alternatives) [CS1 Summary, Q12, 440].
+    *   **Interpretation:** The `summary()` output provides the t-value and p-value for testing if $\beta$ is significantly different from zero. A low p-value (e.g., < 0.05) indicates sufficient evidence to reject $H_0$, suggesting a significant linear relationship [CS1 Summary, Q8b, 434].
+    *   **Confidence Intervals:** Use `confint(<name_of_model>, level=0.95)` to get CIs for slope and intercept [Copy of CS1B Summary 4 - Regression 2020.pdf, 541].
+*   **Describe the Use of Measures of Goodness of Fit of a Linear Regression Model:**
+    *   **Coefficient of Determination ($R^2$):**
+        *   Defined as $R^2 = \frac{SS_{REG}}{SS_{TOT}}$ [CS1 Summary, Q7, 429].
+        *   Measures the proportion of the total variation in the response variable (Y) that is explained by the regression model [CS1 Summary, Q7, 429].
+        *   Ranges from 0 to 1, often quoted as a percentage [CS1 Summary, Q7, 429].
+        *   Higher $R^2$ indicates a better fit [CS1 Summary, Q7a, 430].
+        *   It is equal to the square of Pearson's sample correlation coefficient, $R^2 = r^2$ [CS1 Summary, Q7, 429].
+    *   **ANOVA (Analysis of Variance) Table:**
+        *   Partitions the total variation ($SS_{TOT}$) into variation explained by the regression ($SS_{REG}$) and unexplained residual variation ($SS_{RES}$) [CS1 Summary, Q6, 426]. $SS_{TOT} = SS_{REG} + SS_{RES}$ [CS1 Summary, Q6, 426].
+        *   Used to perform an F-test for the overall significance of the regression model (i.e., whether $\beta=0$) [CS1 Summary, Q12, 440]. A large F-statistic and small p-value lead to rejection of $H_0$ [CS1 Summary, Q12, 442].
+        *   `anova(<name_of_model>)` in R provides the ANOVA table [Copy of CS1B Summary 4 - Regression 2020.pdf, 540].
+*   **Use a Fitted Linear Relationship to Predict a Mean Response or an Individual Response with Confidence Limits:**
+    *   **Mean Response ($\hat{\mu}_0$):** An estimate of the average Y value for a given X value ($X_0$) [CS1 Summary, Q19, 451].
+        *   Formula: $\hat{\mu}_0 = \hat{\alpha} + \hat{\beta}X_0$ [CS1 Summary, Q19, 451].
+        *   Confidence interval for the mean response: Accounts for uncertainty in estimating $\alpha$ and $\beta$ [CS1 Summary, Q10, 437].
+    *   **Individual Response ($\hat{y}_0$):** A prediction for a single future Y observation at a given X value ($X_0$) [CS1 Summary, Q19, 452].
+        *   Formula: $\hat{y}_0 = \hat{\alpha} + \hat{\beta}X_0$ [CS1 Summary, Q19, 452].
+        *   Prediction interval for an individual response: Accounts for both estimation uncertainty AND the inherent variability of individual observations [CS1 Summary, Q10, 437]. Thus, prediction intervals are always wider than confidence intervals for the mean [CS1-AS, Q26 (iii)(b), 104].
+    *   **In R:** `predict(<name_of_model>, <new_data_frame>, interval="confidence", level=0.9)` for mean response CI, and `interval="predict"` for individual response PI [Copy of CS1B Summary 4 - Regression 2020.pdf, 541-542].
+*   **Use Residuals to Check the Suitability and Validity of a Linear Regression Model:**
+    *   **Residuals ($\hat{\epsilon}_i$ or $e_i$):** The difference between the observed value and the fitted value: $\hat{e}_i = Y_i - \hat{Y}_i$ [CS1 Summary, Q13, 442].
+    *   **Checks:** Residuals should be small, patternless, and normally distributed [CS1 Summary, Q13, 442].
+        *   **Plot residuals vs. fitted values (or explanatory variable):** `plot(<name_of_model>, 1)` in R [Copy of CS1B Summary 4 - Regression 2020.pdf, 542]. Look for:
+            *   **Patternlessness:** Indicates independence of errors [CS1 Summary, Q13c, 445].
+            *   **Constant Variance (Homoscedasticity):** The spread of residuals should be consistent across the range of fitted values [CS1 Summary, Q13c, 445].
+        *   **Normal Q-Q Plot of residuals:** `plot(<name_of_model>, 2)` in R [Copy of CS1B Summary 4 - Regression 2020.pdf, 542].
+            *   Points should lie approximately along a straight diagonal line, indicating normality of errors [CS1 Summary, Q13b, 444]. Deviations suggest non-normality.
+        *   Summary of residuals: `summary(<name_of_model>)` provides min, max, median, quartiles of residuals [Copy of CS1B Summary 4 - Regression 2020.pdf, 546].
+
+#### **Learning Objective 5: State the multiple linear regression model (with several explanatory variables).**
+
+The multiple linear regression model extends the simple linear model to include multiple explanatory variables [CS1 Summary, Q14, 445].
+*   **Model Equation:** $Y_i = \alpha + \beta_1 X_{i1} + \beta_2 X_{i2} + \dots + \beta_k X_{ik} + \epsilon_i$ [CS1 Summary, Q14, 445].
+    *   $Y_i$: Response variable for the $i$-th observation [CS1 Summary, Q14, 445].
+    *   $X_{i1}, \dots, X_{ik}$: $k$ explanatory variables for the $i$-th observation [CS1 Summary, Q14, 445].
+    *   $\alpha$: Intercept [CS1 Summary, Q14, 445].
+    *   $\beta_1, \dots, \beta_k$: Slope parameters for each explanatory variable [CS1 Summary, Q14, 445].
+    *   $\epsilon_i$: Error term [CS1 Summary, Q14, 446].
+*   **Full Normal Model Assumptions:** Similar to simple linear regression, the errors $\epsilon_i$ are independent and normally distributed: $\epsilon_i \sim N(0, \sigma^2)$ [CS1 Summary, Q14, 446].
+
+#### **Learning Objective 6: Use R to fit a multiple linear regression model to a data set and interpret the output.**
+
+*   **Fitting a Model in R:**
+    *   Use the `lm()` function, listing all explanatory variables separated by `+`: `<name_of_model> <- lm(<response_variable> ~ <X1> + <X2> + ...)` [Copy of CS1B Summary 4 - Regression 2020.pdf, 543].
+    *   For interactions, use `X1:X2` or `X1*X2` (which includes main effects and interaction) [Copy of CS1B Summary 4 - Regression 2020.pdf, 544].
+    *   Output is accessed via `summary(<name_of_model>)` [Copy of CS1B Summary 4 - Regression 2020.pdf, 544].
+*   **Interpreting Output:**
+    *   **Coefficients Table:** Provides estimates, standard errors, t-values, and p-values for $\alpha$ and each $\beta_j$ [CS1 Summary, Q18a, 450; Copy of CS1B Summary 4 - Regression 2020.pdf, 544].
+        *   A low p-value for a $\beta_j$ indicates that $X_j$ is a significant predictor *after accounting for other variables in the model* [CS1 Summary, Q18, 449].
+    *   **R-squared ($R^2$) and Adjusted R-squared (Adjusted $R^2$):**
+        *   $R^2$ is the proportion of variability explained by the model [Copy of CS1B Summary 4 - Regression 2020.pdf, 545].
+        *   Adjusted $R^2$ adjusts $R^2$ for the number of predictors, penalising models with more parameters [CS1 Summary, Q17, 448]. It is generally preferred for model comparison [CS1 Summary, Q17, 448].
+    *   **F-statistic and overall p-value:**
+        *   Tests the global null hypothesis that *all* slope parameters are zero ($H_0: \beta_1 = \beta_2 = \dots = \beta_k = 0$) [CS1 Summary, Q20, 453].
+        *   A low p-value indicates that at least one explanatory variable is a significant predictor [CS1 Summary, Q20, 455].
+    *   Confidence intervals for parameters: `confint(<name_of_model>, level=0.95)` [Copy of CS1B Summary 4 - Regression 2020.pdf, 545].
+
+#### **Learning Objective 7: Use measures of model fit to select an appropriate set of explanatory variables.**
+
+Selecting the optimal set of explanatory variables is crucial for building parsimonious yet accurate models.
+*   **Adjusted R-squared ($R^2_{adj}$):**
+    *   As noted above, it accounts for the number of predictors [CS1 Summary, Q17, 448].
+    *   A higher $R^2_{adj}$ generally indicates a better model [CS1 Summary, Q17, 448].
+*   **Akaike Information Criterion (AIC):** A measure that balances model fit and complexity; lower AIC indicates a better model [CS1 Summary, Q22, 482]. (Note: AIC is not explicitly detailed in the provided sources for linear regression, but it is mentioned for GLMs and variable selection generally. It is a common measure in model selection.)
+*   **Statistical Significance of Parameters:** Include only covariates where the hypothesis that $\beta_j=0$ can be rejected (i.e., they are statistically significant) [CS1 Summary, Q18, 449].
+*   **Stepwise Selection Methods:**
+    *   **Forward Selection:** Start with a null model (intercept only) and iteratively add the covariate that most significantly improves the model (e.g., reduces AIC the most or causes a significant decrease in deviance) until no further significant improvement is found [CS1 Summary, Q22, 482; Copy of CS1B Summary 4 - Regression 2020.pdf, 546].
+    *   **Backward Elimination:** Start with a full model (all available covariates) and iteratively remove the least significant covariate (e.g., highest p-value for $\beta_j$ coefficient, or causes AIC to reach a minimum) until all remaining covariates are statistically significant [CS1 Summary, Q23, 483].
+
+These tools and techniques are vital for developing robust predictive models in actuarial science. Keep practicing!
+
 ## `R` Practice {-#practice-linear-regression}

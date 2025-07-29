@@ -4,23 +4,23 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 13 Linear Regression | Actuarial Statistics</title>
-  <meta name="description" content="Actuarial statistics for actuaries providing R code examples." />
+  <title>Chapter 13 Linear Regression | Actuarial Statistics (Priyam’s Fork)</title>
+  <meta name="description" content="A modified version of the book on actuarial statistics, with additional notes and examples." />
   <meta name="generator" content="bookdown 0.43 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 13 Linear Regression | Actuarial Statistics" />
+  <meta property="og:title" content="Chapter 13 Linear Regression | Actuarial Statistics (Priyam’s Fork)" />
   <meta property="og:type" content="book" />
   
-  <meta property="og:description" content="Actuarial statistics for actuaries providing R code examples." />
-  <meta name="github-repo" content="agarbiak/CS1" />
+  <meta property="og:description" content="A modified version of the book on actuarial statistics, with additional notes and examples." />
+  <meta name="github-repo" content="priyam0k/CS1" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 13 Linear Regression | Actuarial Statistics" />
+  <meta name="twitter:title" content="Chapter 13 Linear Regression | Actuarial Statistics (Priyam’s Fork)" />
   
-  <meta name="twitter:description" content="Actuarial statistics for actuaries providing R code examples." />
+  <meta name="twitter:description" content="A modified version of the book on actuarial statistics, with additional notes and examples." />
   
 
-<meta name="author" content="Alex Garbiak" />
+<meta name="author" content="Priyam" />
 
 
 
@@ -53,71 +53,6 @@
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
-<style type="text/css">
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { color: #008000; } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { color: #008000; font-weight: bold; } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-</style>
 
 <style type="text/css">
   
@@ -214,7 +149,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6" data-path="data-analysis.html"><a href="data-analysis.html"><i class="fa fa-check"></i><b>6</b> Data Analysis</a>
 <ul>
 <li class="chapter" data-level="" data-path="data-analysis.html"><a href="data-analysis.html#objectives-data-analysis"><i class="fa fa-check"></i>Learning Objectives</a></li>
-<li class="chapter" data-level="" data-path="data-analysis.html"><a href="data-analysis.html#theory-data-analysis"><i class="fa fa-check"></i>Theory</a></li>
+<li class="chapter" data-level="" data-path="data-analysis.html"><a href="data-analysis.html#theory-data-analysis"><i class="fa fa-check"></i>Theory</a>
+<ul>
+<li class="chapter" data-level="6.0.1" data-path="data-analysis.html"><a href="data-analysis.html#definition-and-purpose"><i class="fa fa-check"></i><b>6.0.1</b> 1. Definition and Purpose</a></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="data-analysis.html"><a href="data-analysis.html#practice-data-analysis"><i class="fa fa-check"></i><code>R</code> Practice</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html"><i class="fa fa-check"></i><b>7</b> Exploratory Data Analysis</a>
@@ -282,7 +220,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Actuarial Statistics</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Actuarial Statistics (Priyam’s Fork)</a>
           </h1>
         </div>
 
@@ -314,6 +252,178 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="theory-linear-regression" class="section level2 unnumbered hasAnchor">
 <h2>Theory<a href="linear-regression.html#theory-linear-regression" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Chapter: Linear Regression</p>
+<p>This chapter delves into quantifying and modelling relationships between variables, specifically focusing on linear associations. You’ll learn how to construct, fit, and assess linear regression models.</p>
+<div id="learning-objective-1-explain-what-is-meant-by-response-and-explanatory-variables." class="section level4 hasAnchor" number="13.0.0.1">
+<h4><span class="header-section-number">13.0.0.1</span> <strong>Learning Objective 1: Explain what is meant by response and explanatory variables.</strong><a href="linear-regression.html#learning-objective-1-explain-what-is-meant-by-response-and-explanatory-variables." class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<ul>
+<li><strong>Response Variable (Y):</strong> This is the variable whose values are thought to depend on, or be explained by, another variable [CS1 Summary, Q3, 421]. It is the outcome or dependent variable in the model [CS1 CMP 2023.pdf, 139].</li>
+<li><strong>Explanatory Variable (X):</strong> This is the variable that is thought to influence or explain the values of the response variable [CS1 Summary, Q3, 421]. It is also known as the predictor or independent variable [CS1 CMP 2023.pdf, 139]. Ideally, its values are under the experimenter’s control [CS1 Summary, Q3, 421-422].</li>
+</ul>
+</div>
+<div id="learning-objective-2-state-the-simple-regression-model-with-a-single-explanatory-variable." class="section level4 hasAnchor" number="13.0.0.2">
+<h4><span class="header-section-number">13.0.0.2</span> <strong>Learning Objective 2: State the simple regression model (with a single explanatory variable).</strong><a href="linear-regression.html#learning-objective-2-state-the-simple-regression-model-with-a-single-explanatory-variable." class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>The simple linear regression model describes the relationship between a single response variable (Y) and a single explanatory variable (X) [CS1 Summary, Q1, 419].</p>
+<ul>
+<li><strong>Model Equation:</strong> <span class="math inline">\(Y_i = \alpha + \beta X_i + \epsilon_i\)</span> [CS1 Summary, Q1, 419].
+<ul>
+<li><span class="math inline">\(Y_i\)</span>: The <span class="math inline">\(i\)</span>-th observation of the response variable [CS1 Summary, Q1, 419].</li>
+<li><span class="math inline">\(X_i\)</span>: The <span class="math inline">\(i\)</span>-th observation of the explanatory variable [CS1 Summary, Q1, 419].</li>
+<li><span class="math inline">\(\alpha\)</span>: The intercept parameter (the expected value of Y when X is 0) [CS1 Summary, Q5, 424].</li>
+<li><span class="math inline">\(\beta\)</span>: The slope parameter (the expected change in Y for a one-unit increase in X) [CS1 Summary, Q5, 424].</li>
+<li><span class="math inline">\(\epsilon_i\)</span>: The error term for the <span class="math inline">\(i\)</span>-th observation [CS1 Summary, Q1, 420].</li>
+</ul></li>
+<li><strong>Assumptions (Basic Model):</strong>
+<ul>
+<li>Errors (<span class="math inline">\(\epsilon_i\)</span>) are uncorrelated [CS1 Summary, Q1, 420].</li>
+<li>Expected value of errors: <span class="math inline">\(E[\epsilon_i] = 0\)</span> [CS1 Summary, Q1, 420].</li>
+<li>Constant variance of errors: <span class="math inline">\(Var(\epsilon_i) = \sigma^2\)</span> [CS1 Summary, Q1, 420].</li>
+</ul></li>
+<li><strong>Full Normal Model:</strong> In addition to the basic assumptions:
+<ul>
+<li>Errors (<span class="math inline">\(\epsilon_i\)</span>) are independent and normally distributed: <span class="math inline">\(\epsilon_i \sim N(0, \sigma^2)\)</span> [CS1 Summary, Q1, 420].</li>
+<li>Consequently, <span class="math inline">\(Y_i \sim N(\alpha + \beta X_i, \sigma^2)\)</span> [CS1 Summary, Q1, 420].</li>
+</ul></li>
+</ul>
+</div>
+<div id="learning-objective-3-derive-the-least-squares-estimates-of-the-slope-and-intercept-parameters-in-a-simple-linear-regression-model." class="section level4 hasAnchor" number="13.0.0.3">
+<h4><span class="header-section-number">13.0.0.3</span> <strong>Learning Objective 3: Derive the least squares estimates of the slope and intercept parameters in a simple linear regression model.</strong><a href="linear-regression.html#learning-objective-3-derive-the-least-squares-estimates-of-the-slope-and-intercept-parameters-in-a-simple-linear-regression-model." class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>The <strong>least squares method</strong> aims to find the <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span> that minimise the sum of squared residuals (errors) [CS1 Summary, Q4, 422].
+* <strong>Objective:</strong> Minimise <span class="math inline">\(\sum \epsilon_i^2 = \sum (Y_i - \alpha - \beta X_i)^2\)</span> [CS1 Summary, Q4, 422].
+* <strong>Derivation Steps:</strong>
+1. Differentiate the sum of squared errors with respect to <span class="math inline">\(\alpha\)</span> and set the partial derivative to zero [CS1 Summary, Q4, 422].
+2. Differentiate the sum of squared errors with respect to <span class="math inline">\(\beta\)</span> and set the partial derivative to zero [CS1 Summary, Q4, 422].
+3. Solve the resulting two equations simultaneously to obtain the estimates [CS1 Summary, Q4, 423].
+* <strong>Least Squares Estimates:</strong>
+* <strong>Slope (<span class="math inline">\(\hat{\beta}\)</span>):</strong> <span class="math inline">\(\hat{\beta} = s_{xy} / s_{xx}\)</span> [CS1 Summary, Q5, 424].
+* <strong>Intercept (<span class="math inline">\(\hat{\alpha}\)</span>):</strong> <span class="math inline">\(\hat{\alpha} = \bar{y} - \hat{\beta}\bar{x}\)</span> [CS1 Summary, Q5, 424].
+* <strong>Estimated Error Variance (<span class="math inline">\(\hat{\sigma}^2\)</span>):</strong> <span class="math inline">\(\hat{\sigma}^2 = \frac{1}{n-2} \left(s_{yy} - \frac{s_{xy}^2}{s_{xx}}\right)\)</span> [CS1 Summary, Q5, 424].
+* <em>Note:</em> The fitted regression line <span class="math inline">\(\hat{y} = \hat{\alpha} + \hat{\beta}x\)</span> always passes through the point <span class="math inline">\((\bar{x}, \bar{y})\)</span> [CS1 Summary, Q5b, 426].
+* The terms <span class="math inline">\(s_{xx}\)</span>, <span class="math inline">\(s_{yy}\)</span>, <span class="math inline">\(s_{xy}\)</span> are sum of squares and products, found on page 24 of the Tables and in CS1 Summary [CS1 Summary, Q2, 420-421].</p>
+</div>
+<div id="learning-objective-4-use-r-to-fit-a-simple-linear-regression-model-to-a-data-set-and-interpret-the-output." class="section level4 hasAnchor" number="13.0.0.4">
+<h4><span class="header-section-number">13.0.0.4</span> <strong>Learning Objective 4: Use R to fit a simple linear regression model to a data set and interpret the output.</strong><a href="linear-regression.html#learning-objective-4-use-r-to-fit-a-simple-linear-regression-model-to-a-data-set-and-interpret-the-output." class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<ul>
+<li><strong>Fitting a Model in R:</strong>
+<ul>
+<li>Use the <code>lm()</code> function: <code>&lt;name_of_model&gt; &lt;- lm(&lt;response_variable&gt; ~ &lt;explanatory_variable&gt;)</code> [Copy of CS1B Summary 4 - Regression 2020.pdf, 539].</li>
+<li>To display coefficients: <code>&lt;name_of_model&gt;</code> [Copy of CS1B Summary 4 - Regression 2020.pdf, 539].</li>
+<li>For comprehensive output (estimates, standard errors, t-values, p-values): <code>summary(&lt;name_of_model&gt;)</code> [Copy of CS1B Summary 4 - Regression 2020.pdf, 540].</li>
+</ul></li>
+<li><strong>Perform Statistical Inference on the Slope Parameter (<span class="math inline">\(\beta\)</span>):</strong>
+<ul>
+<li><strong>Test Statistic:</strong> Under the full normal model, <span class="math inline">\(\frac{\hat{\beta} - \beta}{\hat{\sigma}/\sqrt{s_{xx}}} \sim t_{n-2}\)</span> [CS1 Summary, Q8, 431].</li>
+<li><strong>Hypotheses for testing <span class="math inline">\(\beta = 0\)</span> (no linear relationship):</strong>
+<ul>
+<li><span class="math inline">\(H_0: \beta = 0\)</span></li>
+<li><span class="math inline">\(H_1: \beta \neq 0\)</span> (or one-sided alternatives) [CS1 Summary, Q12, 440].</li>
+</ul></li>
+<li><strong>Interpretation:</strong> The <code>summary()</code> output provides the t-value and p-value for testing if <span class="math inline">\(\beta\)</span> is significantly different from zero. A low p-value (e.g., &lt; 0.05) indicates sufficient evidence to reject <span class="math inline">\(H_0\)</span>, suggesting a significant linear relationship [CS1 Summary, Q8b, 434].</li>
+<li><strong>Confidence Intervals:</strong> Use <code>confint(&lt;name_of_model&gt;, level=0.95)</code> to get CIs for slope and intercept [Copy of CS1B Summary 4 - Regression 2020.pdf, 541].</li>
+</ul></li>
+<li><strong>Describe the Use of Measures of Goodness of Fit of a Linear Regression Model:</strong>
+<ul>
+<li><strong>Coefficient of Determination (<span class="math inline">\(R^2\)</span>):</strong>
+<ul>
+<li>Defined as <span class="math inline">\(R^2 = \frac{SS_{REG}}{SS_{TOT}}\)</span> [CS1 Summary, Q7, 429].</li>
+<li>Measures the proportion of the total variation in the response variable (Y) that is explained by the regression model [CS1 Summary, Q7, 429].</li>
+<li>Ranges from 0 to 1, often quoted as a percentage [CS1 Summary, Q7, 429].</li>
+<li>Higher <span class="math inline">\(R^2\)</span> indicates a better fit [CS1 Summary, Q7a, 430].</li>
+<li>It is equal to the square of Pearson’s sample correlation coefficient, <span class="math inline">\(R^2 = r^2\)</span> [CS1 Summary, Q7, 429].</li>
+</ul></li>
+<li><strong>ANOVA (Analysis of Variance) Table:</strong>
+<ul>
+<li>Partitions the total variation (<span class="math inline">\(SS_{TOT}\)</span>) into variation explained by the regression (<span class="math inline">\(SS_{REG}\)</span>) and unexplained residual variation (<span class="math inline">\(SS_{RES}\)</span>) [CS1 Summary, Q6, 426]. <span class="math inline">\(SS_{TOT} = SS_{REG} + SS_{RES}\)</span> [CS1 Summary, Q6, 426].</li>
+<li>Used to perform an F-test for the overall significance of the regression model (i.e., whether <span class="math inline">\(\beta=0\)</span>) [CS1 Summary, Q12, 440]. A large F-statistic and small p-value lead to rejection of <span class="math inline">\(H_0\)</span> [CS1 Summary, Q12, 442].</li>
+<li><code>anova(&lt;name_of_model&gt;)</code> in R provides the ANOVA table [Copy of CS1B Summary 4 - Regression 2020.pdf, 540].</li>
+</ul></li>
+</ul></li>
+<li><strong>Use a Fitted Linear Relationship to Predict a Mean Response or an Individual Response with Confidence Limits:</strong>
+<ul>
+<li><strong>Mean Response (<span class="math inline">\(\hat{\mu}_0\)</span>):</strong> An estimate of the average Y value for a given X value (<span class="math inline">\(X_0\)</span>) [CS1 Summary, Q19, 451].
+<ul>
+<li>Formula: <span class="math inline">\(\hat{\mu}_0 = \hat{\alpha} + \hat{\beta}X_0\)</span> [CS1 Summary, Q19, 451].</li>
+<li>Confidence interval for the mean response: Accounts for uncertainty in estimating <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span> [CS1 Summary, Q10, 437].</li>
+</ul></li>
+<li><strong>Individual Response (<span class="math inline">\(\hat{y}_0\)</span>):</strong> A prediction for a single future Y observation at a given X value (<span class="math inline">\(X_0\)</span>) [CS1 Summary, Q19, 452].
+<ul>
+<li>Formula: <span class="math inline">\(\hat{y}_0 = \hat{\alpha} + \hat{\beta}X_0\)</span> [CS1 Summary, Q19, 452].</li>
+<li>Prediction interval for an individual response: Accounts for both estimation uncertainty AND the inherent variability of individual observations [CS1 Summary, Q10, 437]. Thus, prediction intervals are always wider than confidence intervals for the mean [CS1-AS, Q26 (iii)(b), 104].</li>
+</ul></li>
+<li><strong>In R:</strong> <code>predict(&lt;name_of_model&gt;, &lt;new_data_frame&gt;, interval="confidence", level=0.9)</code> for mean response CI, and <code>interval="predict"</code> for individual response PI [Copy of CS1B Summary 4 - Regression 2020.pdf, 541-542].</li>
+</ul></li>
+<li><strong>Use Residuals to Check the Suitability and Validity of a Linear Regression Model:</strong>
+<ul>
+<li><strong>Residuals (<span class="math inline">\(\hat{\epsilon}_i\)</span> or <span class="math inline">\(e_i\)</span>):</strong> The difference between the observed value and the fitted value: <span class="math inline">\(\hat{e}_i = Y_i - \hat{Y}_i\)</span> [CS1 Summary, Q13, 442].</li>
+<li><strong>Checks:</strong> Residuals should be small, patternless, and normally distributed [CS1 Summary, Q13, 442].
+<ul>
+<li><strong>Plot residuals vs. fitted values (or explanatory variable):</strong> <code>plot(&lt;name_of_model&gt;, 1)</code> in R [Copy of CS1B Summary 4 - Regression 2020.pdf, 542]. Look for:
+<ul>
+<li><strong>Patternlessness:</strong> Indicates independence of errors [CS1 Summary, Q13c, 445].</li>
+<li><strong>Constant Variance (Homoscedasticity):</strong> The spread of residuals should be consistent across the range of fitted values [CS1 Summary, Q13c, 445].</li>
+</ul></li>
+<li><strong>Normal Q-Q Plot of residuals:</strong> <code>plot(&lt;name_of_model&gt;, 2)</code> in R [Copy of CS1B Summary 4 - Regression 2020.pdf, 542].
+<ul>
+<li>Points should lie approximately along a straight diagonal line, indicating normality of errors [CS1 Summary, Q13b, 444]. Deviations suggest non-normality.</li>
+</ul></li>
+<li>Summary of residuals: <code>summary(&lt;name_of_model&gt;)</code> provides min, max, median, quartiles of residuals [Copy of CS1B Summary 4 - Regression 2020.pdf, 546].</li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+<div id="learning-objective-5-state-the-multiple-linear-regression-model-with-several-explanatory-variables." class="section level4 hasAnchor" number="13.0.0.5">
+<h4><span class="header-section-number">13.0.0.5</span> <strong>Learning Objective 5: State the multiple linear regression model (with several explanatory variables).</strong><a href="linear-regression.html#learning-objective-5-state-the-multiple-linear-regression-model-with-several-explanatory-variables." class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>The multiple linear regression model extends the simple linear model to include multiple explanatory variables [CS1 Summary, Q14, 445].
+* <strong>Model Equation:</strong> <span class="math inline">\(Y_i = \alpha + \beta_1 X_{i1} + \beta_2 X_{i2} + \dots + \beta_k X_{ik} + \epsilon_i\)</span> [CS1 Summary, Q14, 445].
+* <span class="math inline">\(Y_i\)</span>: Response variable for the <span class="math inline">\(i\)</span>-th observation [CS1 Summary, Q14, 445].
+* <span class="math inline">\(X_{i1}, \dots, X_{ik}\)</span>: <span class="math inline">\(k\)</span> explanatory variables for the <span class="math inline">\(i\)</span>-th observation [CS1 Summary, Q14, 445].
+* <span class="math inline">\(\alpha\)</span>: Intercept [CS1 Summary, Q14, 445].
+* <span class="math inline">\(\beta_1, \dots, \beta_k\)</span>: Slope parameters for each explanatory variable [CS1 Summary, Q14, 445].
+* <span class="math inline">\(\epsilon_i\)</span>: Error term [CS1 Summary, Q14, 446].
+* <strong>Full Normal Model Assumptions:</strong> Similar to simple linear regression, the errors <span class="math inline">\(\epsilon_i\)</span> are independent and normally distributed: <span class="math inline">\(\epsilon_i \sim N(0, \sigma^2)\)</span> [CS1 Summary, Q14, 446].</p>
+</div>
+<div id="learning-objective-6-use-r-to-fit-a-multiple-linear-regression-model-to-a-data-set-and-interpret-the-output." class="section level4 hasAnchor" number="13.0.0.6">
+<h4><span class="header-section-number">13.0.0.6</span> <strong>Learning Objective 6: Use R to fit a multiple linear regression model to a data set and interpret the output.</strong><a href="linear-regression.html#learning-objective-6-use-r-to-fit-a-multiple-linear-regression-model-to-a-data-set-and-interpret-the-output." class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<ul>
+<li><strong>Fitting a Model in R:</strong>
+<ul>
+<li>Use the <code>lm()</code> function, listing all explanatory variables separated by <code>+</code>: <code>&lt;name_of_model&gt; &lt;- lm(&lt;response_variable&gt; ~ &lt;X1&gt; + &lt;X2&gt; + ...)</code> [Copy of CS1B Summary 4 - Regression 2020.pdf, 543].</li>
+<li>For interactions, use <code>X1:X2</code> or <code>X1*X2</code> (which includes main effects and interaction) [Copy of CS1B Summary 4 - Regression 2020.pdf, 544].</li>
+<li>Output is accessed via <code>summary(&lt;name_of_model&gt;)</code> [Copy of CS1B Summary 4 - Regression 2020.pdf, 544].</li>
+</ul></li>
+<li><strong>Interpreting Output:</strong>
+<ul>
+<li><strong>Coefficients Table:</strong> Provides estimates, standard errors, t-values, and p-values for <span class="math inline">\(\alpha\)</span> and each <span class="math inline">\(\beta_j\)</span> [CS1 Summary, Q18a, 450; Copy of CS1B Summary 4 - Regression 2020.pdf, 544].
+<ul>
+<li>A low p-value for a <span class="math inline">\(\beta_j\)</span> indicates that <span class="math inline">\(X_j\)</span> is a significant predictor <em>after accounting for other variables in the model</em> [CS1 Summary, Q18, 449].</li>
+</ul></li>
+<li><strong>R-squared (<span class="math inline">\(R^2\)</span>) and Adjusted R-squared (Adjusted <span class="math inline">\(R^2\)</span>):</strong>
+<ul>
+<li><span class="math inline">\(R^2\)</span> is the proportion of variability explained by the model [Copy of CS1B Summary 4 - Regression 2020.pdf, 545].</li>
+<li>Adjusted <span class="math inline">\(R^2\)</span> adjusts <span class="math inline">\(R^2\)</span> for the number of predictors, penalising models with more parameters [CS1 Summary, Q17, 448]. It is generally preferred for model comparison [CS1 Summary, Q17, 448].</li>
+</ul></li>
+<li><strong>F-statistic and overall p-value:</strong>
+<ul>
+<li>Tests the global null hypothesis that <em>all</em> slope parameters are zero (<span class="math inline">\(H_0: \beta_1 = \beta_2 = \dots = \beta_k = 0\)</span>) [CS1 Summary, Q20, 453].</li>
+<li>A low p-value indicates that at least one explanatory variable is a significant predictor [CS1 Summary, Q20, 455].</li>
+</ul></li>
+<li>Confidence intervals for parameters: <code>confint(&lt;name_of_model&gt;, level=0.95)</code> [Copy of CS1B Summary 4 - Regression 2020.pdf, 545].</li>
+</ul></li>
+</ul>
+</div>
+<div id="learning-objective-7-use-measures-of-model-fit-to-select-an-appropriate-set-of-explanatory-variables." class="section level4 hasAnchor" number="13.0.0.7">
+<h4><span class="header-section-number">13.0.0.7</span> <strong>Learning Objective 7: Use measures of model fit to select an appropriate set of explanatory variables.</strong><a href="linear-regression.html#learning-objective-7-use-measures-of-model-fit-to-select-an-appropriate-set-of-explanatory-variables." class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Selecting the optimal set of explanatory variables is crucial for building parsimonious yet accurate models.
+* <strong>Adjusted R-squared (<span class="math inline">\(R^2_{adj}\)</span>):</strong>
+* As noted above, it accounts for the number of predictors [CS1 Summary, Q17, 448].
+* A higher <span class="math inline">\(R^2_{adj}\)</span> generally indicates a better model [CS1 Summary, Q17, 448].
+* <strong>Akaike Information Criterion (AIC):</strong> A measure that balances model fit and complexity; lower AIC indicates a better model [CS1 Summary, Q22, 482]. (Note: AIC is not explicitly detailed in the provided sources for linear regression, but it is mentioned for GLMs and variable selection generally. It is a common measure in model selection.)
+* <strong>Statistical Significance of Parameters:</strong> Include only covariates where the hypothesis that <span class="math inline">\(\beta_j=0\)</span> can be rejected (i.e., they are statistically significant) [CS1 Summary, Q18, 449].
+* <strong>Stepwise Selection Methods:</strong>
+* <strong>Forward Selection:</strong> Start with a null model (intercept only) and iteratively add the covariate that most significantly improves the model (e.g., reduces AIC the most or causes a significant decrease in deviance) until no further significant improvement is found [CS1 Summary, Q22, 482; Copy of CS1B Summary 4 - Regression 2020.pdf, 546].
+* <strong>Backward Elimination:</strong> Start with a full model (all available covariates) and iteratively remove the least significant covariate (e.g., highest p-value for <span class="math inline">\(\beta_j\)</span> coefficient, or causes AIC to reach a minimum) until all remaining covariates are statistically significant [CS1 Summary, Q23, 483].</p>
+<p>These tools and techniques are vital for developing robust predictive models in actuarial science. Keep practicing!</p>
+</div>
 </div>
 <div id="practice-linear-regression" class="section level2 unnumbered hasAnchor">
 <h2><code>R</code> Practice<a href="linear-regression.html#practice-linear-regression" class="anchor-section" aria-label="Anchor link to header"></a></h2>

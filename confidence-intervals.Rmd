@@ -12,4 +12,96 @@
 
 ## Theory {-#theory-confidence-intervals}
 
+Confidence Intervals
+
+This chapter focuses on constructing intervals that, with a specified level of confidence, contain the true (but unknown) value of a population parameter.
+
+#### 1. Define in general terms a confidence interval for an unknown parameter of a distribution based on a random sample.
+
+*   **Definition:** A confidence interval (CI) for a population parameter $\theta$ is an interval `(A, B)` whose bounds (A and B) are random variables.
+*   **Purpose:** This interval is constructed such that it contains the fixed but unknown value of the parameter $\theta$ with a specified probability, for example, 95%.
+*   **Notation:** `P(A < θ < B) = 95%`.
+*   **Key Distinction:** It is crucial to differentiate a confidence interval from a **prediction interval**. A CI estimates a population parameter ($\theta$), while a prediction interval estimates a *future observed value* (`X_(n+1)`) from the population.
+
+#### 2. Derive a confidence interval for an unknown parameter using a given sampling distribution.
+
+The general approach to deriving confidence intervals is the **Pivotal Method**:
+1.  **Identify a Pivotal Quantity:** Find a formula (a "pivotal quantity") that involves the unknown parameter $\theta$ (or the future random variable $X_{n+1}$) and has a *known* sampling distribution.
+2.  **Determine Critical Values:** Use the percentage point tables of the known distribution to find the appropriate critical values corresponding to the desired confidence level (e.g., for a 95% symmetrical CI, you'd find the 2.5th and 97.5th percentiles).
+3.  **Construct and Rearrange:** Set up an inequality using the pivotal quantity and the critical values, then algebraically rearrange this inequality to isolate the unknown parameter $\theta$ in the middle. The resulting bounds will form the confidence interval.
+
+#### 3. Calculate confidence intervals for the mean and the variance of a normal distribution.
+
+*   **For the Mean ($\mu$) of a Normal Population:**
+    *   **Variance ($\sigma^2$) Known:**
+        *   Pivotal Quantity: $\frac{\bar{X} - \mu}{\sigma/\sqrt{n}} \sim N(0,1)$.
+        *   This is exact for normal populations and approximate for large samples from any distribution (due to the CLT).
+        *   Example calculation for 95% CI: $\bar{x} \pm 1.96 \frac{\sigma}{\sqrt{n}}$.
+    *   **Variance ($\sigma^2$) Unknown:**
+        *   Pivotal Quantity: $\frac{\bar{X} - \mu}{S/\sqrt{n}} \sim t_{n-1}$.
+        *   This is given on page 22 of the Tables.
+        *   Example calculation for 95% CI: $\bar{x} \pm t_{n-1, 0.025} \frac{S}{\sqrt{n}}$.
+
+*   **For the Variance ($\sigma^2$) of a Normal Population:**
+    *   Pivotal Quantity: $\frac{(n-1)S^2}{\sigma^2} \sim \chi^2_{n-1}$.
+    *   This result *only holds for samples from a normal distribution*.
+    *   This is given on page 22 of the Tables.
+    *   Example calculation for 95% CI for $\sigma$: $\sqrt{\left(\frac{(n-1)S^2}{\chi^2_{n-1, 0.025}}\right)}, \sqrt{\left(\frac{(n-1)S^2}{\chi^2_{n-1, 0.975}}\right)}$.
+
+#### 4. Calculate confidence intervals for a binomial probability and a Poisson mean, including the use of the normal approximation in both cases.
+
+*   **For a Binomial Probability ($p$):**
+    *   **Exact:** The exact distribution is $X \sim Bin(n,p)$.
+    *   **Normal Approximation (for large $n$):**
+        *   $X \sim N(np, npq)$.
+        *   Pivotal Quantity: $\frac{\hat{p} - p}{\sqrt{\hat{p}(1-\hat{p})/n}} \sim N(0,1)$.
+        *   The approximation is reasonable if $np > 5$ and $n(1-p) > 5$.
+        *   Example calculation for 95% CI: $\hat{p} \pm 1.96 \sqrt{\hat{p}(1-\hat{p})/n}$.
+
+*   **For a Poisson Mean ($\lambda$):**
+    *   **Exact:** The exact distribution of the sum of observations is $X \sim Poi(n\lambda)$.
+    *   **Normal Approximation (for large $n$):**
+        *   $\sum X_i \sim N(n\lambda, n\lambda)$.
+        *   Pivotal Quantity: $\frac{\bar{X} - \lambda}{\sqrt{\bar{X}/n}} \sim N(0,1)$.
+        *   The approximation is reasonable if $\lambda$ is large, typically $\lambda > 5$.
+
+#### 5. Calculate confidence intervals for two-sample situations involving the normal distribution, and the binomial and Poisson distributions using the normal approximation.
+
+*   **Normal Distribution (Difference in Means, $\mu_1 - \mu_2$):**
+    *   **Known Variances ($\sigma_1^2, \sigma_2^2$):**
+        *   Pivotal Quantity: $\frac{(\bar{X}_1 - \bar{X}_2) - (\mu_1 - \mu_2)}{\sqrt{\sigma_1^2/n_1 + \sigma_2^2/n_2}} \sim N(0,1)$.
+        *   Exact for independent normal samples, approximate for large independent samples.
+    *   **Unknown but Equal Variances ($\sigma_1^2 = \sigma_2^2 = \sigma^2$):**
+        *   Pivotal Quantity: $\frac{(\bar{X}_1 - \bar{X}_2) - (\mu_1 - \mu_2)}{S_p \sqrt{1/n_1 + 1/n_2}} \sim t_{n_1+n_2-2}$.
+        *   $S_p^2$ is the pooled variance. This is given on page 23 of the Tables.
+
+*   **Normal Distribution (Ratio of Variances, $\sigma_1^2 / \sigma_2^2$):**
+    *   Pivotal Quantity: $\frac{S_1^2/\sigma_1^2}{S_2^2/\sigma_2^2} \sim F_{n_1-1, n_2-1}$.
+    *   This result *only holds for samples from independent normal distributions*. Given on page 22 of the Tables. Lower percentage points are found using the relationship $F_{n,m, \alpha} = 1/F_{m,n, 1-\alpha}$.
+
+*   **Binomial Distributions (Difference in Proportions, $p_1 - p_2$):**
+    *   **Normal Approximation (for large $n_1, n_2$):**
+        *   Pivotal Quantity: $\frac{(\hat{p}_1 - \hat{p}_2) - (p_1 - p_2)}{\sqrt{\hat{p}_1(1-\hat{p}_1)/n_1 + \hat{p}_2(1-\hat{p}_2)/n_2}} \sim N(0,1)$.
+
+*   **Poisson Distributions (Difference in Means, $\lambda_1 - \lambda_2$):**
+    *   **Normal Approximation (for large $n_1, n_2$):**
+        *   Pivotal Quantity: $\frac{(\bar{X}_1 - \bar{X}_2) - (\lambda_1 - \lambda_2)}{\sqrt{\bar{X}_1/n_1 + \bar{X}_2/n_2}} \sim N(0,1)$.
+
+#### 6. Calculate confidence intervals for a difference between two means from paired data.
+
+*   **Method:**
+    1.  Calculate the differences (`d`) between corresponding data points for each pair. This transforms the two-sample paired problem into a one-sample problem with these differences.
+    2.  Treat these differences ($d_1, d_2, \dots, d_n$) as a single random sample from a normal distribution.
+    3.  Construct a one-sample confidence interval for the mean difference ($\mu_D$) using the t-distribution: $\frac{\bar{D} - \mu_D}{S_D/\sqrt{n}} \sim t_{n-1}$.
+
+#### 7. Use the bootstrap method to obtain confidence intervals.
+
+*   **Purpose:** The bootstrap is a resampling technique used to estimate the sampling distribution of a statistic when analytical methods are difficult or impossible.
+*   **Method Outline (for CIs):**
+    1.  **Resampling:** Create a large number (e.g., 1,000) of "bootstrap samples" by drawing observations *with replacement* from the original observed sample (non-parametric bootstrap). Alternatively, if a distribution is assumed, simulate samples from the fitted distribution (parametric bootstrap).
+    2.  **Estimate Statistic:** For each bootstrap sample, calculate the statistic of interest (e.g., the estimator of the parameter, or the bounds of a confidence interval).
+    3.  **Empirical Distribution:** The collection of these calculated statistics forms an *empirical sampling distribution*.
+    4.  **Confidence Interval Construction:** The desired confidence interval can then be derived by finding the appropriate quantiles of this empirical distribution (e.g., for a 95% CI, use the 2.5th and 97.5th percentiles of the bootstrap distribution).
+*   **Relevance to CS1:** The syllabus objective 3.1.7 specifically mentions using the bootstrap method to estimate *properties of an estimator*, and it's also noted for obtaining confidence intervals.
+
 ## `R` Practice {-#practice-confidence-intervals}

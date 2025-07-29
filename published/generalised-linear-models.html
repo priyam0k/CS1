@@ -4,23 +4,23 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 14 Generalised Linear Models | Actuarial Statistics</title>
-  <meta name="description" content="Actuarial statistics for actuaries providing R code examples." />
+  <title>Chapter 14 Generalised Linear Models | Actuarial Statistics (Priyam’s Fork)</title>
+  <meta name="description" content="A modified version of the book on actuarial statistics, with additional notes and examples." />
   <meta name="generator" content="bookdown 0.43 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 14 Generalised Linear Models | Actuarial Statistics" />
+  <meta property="og:title" content="Chapter 14 Generalised Linear Models | Actuarial Statistics (Priyam’s Fork)" />
   <meta property="og:type" content="book" />
   
-  <meta property="og:description" content="Actuarial statistics for actuaries providing R code examples." />
-  <meta name="github-repo" content="agarbiak/CS1" />
+  <meta property="og:description" content="A modified version of the book on actuarial statistics, with additional notes and examples." />
+  <meta name="github-repo" content="priyam0k/CS1" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 14 Generalised Linear Models | Actuarial Statistics" />
+  <meta name="twitter:title" content="Chapter 14 Generalised Linear Models | Actuarial Statistics (Priyam’s Fork)" />
   
-  <meta name="twitter:description" content="Actuarial statistics for actuaries providing R code examples." />
+  <meta name="twitter:description" content="A modified version of the book on actuarial statistics, with additional notes and examples." />
   
 
-<meta name="author" content="Alex Garbiak" />
+<meta name="author" content="Priyam" />
 
 
 
@@ -53,71 +53,6 @@
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
-<style type="text/css">
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { color: #008000; } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { color: #008000; font-weight: bold; } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-</style>
 
 <style type="text/css">
   
@@ -214,7 +149,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6" data-path="data-analysis.html"><a href="data-analysis.html"><i class="fa fa-check"></i><b>6</b> Data Analysis</a>
 <ul>
 <li class="chapter" data-level="" data-path="data-analysis.html"><a href="data-analysis.html#objectives-data-analysis"><i class="fa fa-check"></i>Learning Objectives</a></li>
-<li class="chapter" data-level="" data-path="data-analysis.html"><a href="data-analysis.html#theory-data-analysis"><i class="fa fa-check"></i>Theory</a></li>
+<li class="chapter" data-level="" data-path="data-analysis.html"><a href="data-analysis.html#theory-data-analysis"><i class="fa fa-check"></i>Theory</a>
+<ul>
+<li class="chapter" data-level="6.0.1" data-path="data-analysis.html"><a href="data-analysis.html#definition-and-purpose"><i class="fa fa-check"></i><b>6.0.1</b> 1. Definition and Purpose</a></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="data-analysis.html"><a href="data-analysis.html#practice-data-analysis"><i class="fa fa-check"></i><code>R</code> Practice</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html"><i class="fa fa-check"></i><b>7</b> Exploratory Data Analysis</a>
@@ -282,7 +220,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Actuarial Statistics</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Actuarial Statistics (Priyam’s Fork)</a>
           </h1>
         </div>
 
@@ -307,6 +245,267 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="theory-glm" class="section level2 unnumbered hasAnchor">
 <h2>Theory<a href="generalised-linear-models.html#theory-glm" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Generalised Linear Models (GLMs): Core Concepts &amp; Applications</p>
+<p><strong>Learning Objective 1: Define an exponential family of distributions. Show that the following distributions may be written in this form: binomial, Poisson, exponential, gamma, normal.</strong></p>
+<p>At the heart of GLMs lies the <strong>exponential family of distributions</strong>.</p>
+<ul>
+<li><strong>Definition:</strong> A probability function (PF) or probability density function (PDF), <em>f(y)</em>, belongs to the exponential family if it can be written in the form:
+<ul>
+<li><em>f(y; θ, φ) = exp{ (yθ - b(θ))/a(φ) + c(y, φ) }</em>.</li>
+<li>Here, <em>θ</em> is the <strong>natural parameter</strong> (a function of the mean, <em>μ</em>) and <em>φ</em> is the <strong>scale (or dispersion) parameter</strong>.</li>
+</ul></li>
+<li><strong>Distributions in Exponential Family Form:</strong>
+<ul>
+<li><strong>Binomial (Y ~ Bin(n, μ)):</strong>
+<ul>
+<li>Natural Parameter (θ): <em>log(μ / (1-μ))</em>.</li>
+<li>Function <em>b(θ)</em>: <em>-n</em>log<em>(1-μ)</em> or <em>n</em>log<em>(1 + e^θ)</em>.</li>
+<li>Function <em>a(φ)</em>: <em>1/φ = 1/n</em>.</li>
+<li>Scale Parameter (φ): <em>n</em>.</li>
+</ul></li>
+<li><strong>Poisson (Y ~ Poi(μ)):</strong>
+<ul>
+<li>PF: <em>P(Y=y) = (e<sup>(-μ)μ</sup>y) / y!</em>.</li>
+<li>Can be rewritten as: <em>exp{ y ln(μ) - μ - ln(y!) }</em>.</li>
+<li>Natural Parameter (θ): <em>ln(μ)</em>.</li>
+<li>Function <em>b(θ)</em>: <em>μ = e^θ</em>.</li>
+<li>Function <em>a(φ)</em>: <em>1</em>.</li>
+<li>Scale Parameter (φ): <em>1</em>.</li>
+</ul></li>
+<li><strong>Exponential (Y ~ Exp(λ) or Exp(1/μ)):</strong>
+<ul>
+<li>PDF: <em>f(x) = λe^(-λx)</em>.</li>
+<li>Can be rewritten as: <em>exp{ -λx + ln(λ) }</em>.</li>
+<li>Natural Parameter (θ): <em>-λ</em> or <em>-1/μ</em>.</li>
+<li>Function <em>b(θ)</em>: <em>-ln(-θ)</em> or <em>ln(μ)</em>.</li>
+<li>Function <em>a(φ)</em>: <em>1</em>.</li>
+<li>Scale Parameter (φ): <em>1</em>.</li>
+</ul></li>
+<li><strong>Gamma (Y ~ Gamma(α, λ) or Gamma(α, μ)):</strong>
+<ul>
+<li>PDF: <em>(λ^α / Γ(α)) x<sup>(α-1)e</sup>(-λx)</em>.</li>
+<li>Natural Parameter (θ): <em>-λ</em> or <em>-1/μ</em>.</li>
+<li>Function <em>b(θ)</em>: <em>-α ln(-θ)</em> or <em>α ln(μ)</em>.</li>
+<li>Function <em>a(φ)</em>: <em>1/α</em>.</li>
+<li>Scale Parameter (φ): <em>α</em>.</li>
+</ul></li>
+<li><strong>Normal (Y ~ N(μ, σ²)):</strong>
+<ul>
+<li>PDF: <em>(1/(σ√(2π)))exp(-(x-μ)²/(2σ²))</em>.</li>
+<li>Natural Parameter (θ): <em>μ</em>.</li>
+<li>Function <em>b(θ)</em>: <em>μ²</em>.</li>
+<li>Function <em>a(φ)</em>: <em>σ²</em>.</li>
+<li>Scale Parameter (φ): <em>σ²</em>.</li>
+</ul></li>
+</ul></li>
+</ul>
+<p><strong>Learning Objective 2: State the mean and variance for an exponential family, and define the variance function and the scale parameter. Derive these quantities for the distributions above.</strong></p>
+<p>For a distribution in the exponential family form <em>exp{ (yθ - b(θ))/a(φ) + c(y, φ) }</em>:
+* <strong>Mean:</strong> <em>E[Y] = b’(θ)</em>.
+* <strong>Variance:</strong> <em>Var[Y] = a(φ) </em> b’’(θ)<em>.
+</em> <strong>Variance Function (V(μ)):</strong> This is <em>b’’(θ)</em> expressed in terms of the mean <em>μ</em>. It shows the relationship between the mean and variance of a distribution.
+* <strong>Scale Parameter (φ):</strong> This is typically the parameter in the distribution other than the mean, often represented by <em>a(φ)</em>.</p>
+<ul>
+<li><strong>Derivations/Values for Distributions:</strong>
+<ul>
+<li><strong>Poisson:</strong>
+<ul>
+<li>E[Y] = μ.</li>
+<li>Var[Y] = μ.</li>
+<li>Variance Function: <em>V(μ) = μ</em>.</li>
+</ul></li>
+<li><strong>Exponential:</strong>
+<ul>
+<li>E[Y] = 1/λ.</li>
+<li>Var[Y] = 1/λ².</li>
+<li>Variance Function: <em>V(μ) = μ²</em>.</li>
+</ul></li>
+<li><strong>Gamma:</strong>
+<ul>
+<li>E[Y] = α/λ.</li>
+<li>Var[Y] = α/λ².</li>
+<li>Variance Function: <em>V(μ) = μ²/α</em>.</li>
+</ul></li>
+<li><strong>Normal:</strong>
+<ul>
+<li>E[Y] = μ.</li>
+<li>Var[Y] = σ².</li>
+<li>Variance Function: <em>V(μ) = 1</em> (since <em>b’’(θ)=1</em> and <em>a(φ)=σ²</em>, so <em>Var(Y)=σ²</em>).</li>
+</ul></li>
+<li><strong>Binomial:</strong>
+<ul>
+<li>E[Y] = np.</li>
+<li>Var[Y] = np(1-p).</li>
+<li>Variance Function: <em>V(μ) = μ(1-μ/n)</em>.</li>
+</ul></li>
+</ul></li>
+</ul>
+<p><strong>Learning Objective 3: Explain what is meant by the link function and the canonical link function, referring to the distributions above.</strong></p>
+<ul>
+<li><strong>Link Function (g(μ)):</strong>
+<ul>
+<li>The link function <em>g(μ)</em> connects the mean of the response variable <em>μ = E[Y]</em> to the <strong>linear predictor</strong> <em>η</em>.</li>
+<li>It must be invertible and differentiable.</li>
+</ul></li>
+<li><strong>Canonical Link Function:</strong>
+<ul>
+<li>A specific link function for each exponential family distribution that simplifies the estimation process.</li>
+<li>If not specified, the canonical link function is usually used.</li>
+<li>It directly relates the linear predictor <em>η</em> to the natural parameter <em>θ</em> (<em>η = θ</em>).</li>
+</ul></li>
+<li><strong>Examples of Canonical Link Functions:</strong>
+<ul>
+<li><strong>Poisson:</strong> <em>log(μ)</em>. This ensures the mean <em>μ</em> is always positive (<em>μ = e^η</em>).</li>
+<li><strong>Normal:</strong> <em>identity (μ)</em>.</li>
+<li><strong>Exponential:</strong> <em>inverse (-1/μ)</em>.</li>
+<li><strong>Binomial:</strong> <em>logit (log(μ/(1-μ)))</em>. This ensures the probability <em>μ</em> is between 0 and 1 (<em>μ = e^η / (1 + e^η)</em>).</li>
+<li><strong>Gamma:</strong> <em>inverse (-1/μ)</em>.</li>
+</ul></li>
+</ul>
+<p><strong>Learning Objective 4: Explain what is meant by a variable, a factor taking categorical values and an interaction term. Define the linear predictor, illustrating its form for simple models, including polynomial models and models involving factors.</strong></p>
+<ul>
+<li><strong>Linear Predictor (η):</strong>
+<ul>
+<li>A function of the covariates that is <strong>linear in the parameters</strong>.</li>
+<li>It’s what we believe influences the response (e.g., premium, claim numbers).</li>
+</ul></li>
+<li><strong>Types of Covariates:</strong>
+<ul>
+<li><strong>Variable:</strong> A covariate whose actual numerical value directly enters the linear predictor.
+<ul>
+<li><em>Example:</em> Age, duration. Linear predictor form: <em>α + βx</em>.</li>
+</ul></li>
+<li><strong>Factor:</strong> A covariate that takes categorical values.
+<ul>
+<li><em>Example:</em> Sex (male/female), vehicle rating group. A parameter is assigned for each category.</li>
+<li><em>Form:</em> If ‘Sex’ is a factor (Male, Female), the linear predictor might include <em>α_i</em> where <em>i</em> is Male or Female.</li>
+</ul></li>
+</ul></li>
+<li><strong>Interaction Term:</strong>
+<ul>
+<li>Occurs when one explanatory variable’s effect on the response depends on the value of another explanatory variable.</li>
+<li><em>Form:</em> An interaction between <em>X1</em> and <em>X2</em> is denoted <em>X1:X2</em> or included in <em>X1</em>X2, adding a term like <em>γX1X2</em> to the linear predictor.</li>
+</ul></li>
+<li><strong>Illustrative Linear Predictor Forms:</strong>
+<ul>
+<li><strong>Simple Linear Model:</strong> <em>η = α + βX</em>.</li>
+<li><strong>Polynomial Model:</strong> <em>η = α + βX + γX²</em> (linear in parameters <em>α, β, γ</em>).</li>
+<li><strong>Models with Factors:</strong>
+<ul>
+<li><em>Age + Sex:</em> <em>η = α_i + βx</em> (where <em>i</em> represents sex category).</li>
+<li><em>Age </em> Sex:* <em>η = α_i + β_i x</em> (allows different slopes for each sex category).</li>
+</ul></li>
+</ul></li>
+</ul>
+<p><strong>Learning Objective 5: Define the deviance and scaled deviance and state how the parameters of a generalised linear model may be estimated. Describe how a suitable model may be chosen by using an analysis of deviance and by examining the significance of the parameters.</strong></p>
+<ul>
+<li><strong>Parameter Estimation (Maximum Likelihood Estimates - MLEs):</strong>
+<ul>
+<li>For GLMs, parameters in the linear predictor are typically estimated using the method of <strong>Maximum Likelihood Estimation (MLE)</strong>.</li>
+<li>This involves:
+<ol style="list-style-type: decimal">
+<li>Obtaining the log-likelihood function of the observed data in terms of the means (μ).</li>
+<li>Rearranging the link function to express μ in terms of the linear predictor (η).</li>
+<li>Substituting this into the log-likelihood to express it in terms of the parameters of the linear predictor (α, β, etc.).</li>
+<li>Differentiating the log-likelihood with respect to each parameter and setting the derivatives to zero to find the MLEs.</li>
+</ol></li>
+</ul></li>
+<li><strong>Deviance (D) and Scaled Deviance (D*):</strong>
+<ul>
+<li>Measures the <strong>goodness-of-fit</strong> of a GLM.</li>
+<li><strong>Scaled Deviance (D*):</strong> <em>D* = 2 </em> (lnL_SAT - lnL_M)<em>, where </em>lnL_SAT* is the log-likelihood of the saturated model (perfect fit) and <em>lnL_M</em> is the log-likelihood of the current model.</li>
+<li><strong>Deviance (D):</strong> <em>D = D* </em> φ<em>, where </em>φ* is the dispersion parameter.</li>
+<li>A smaller deviance indicates a better fit.</li>
+<li>The scaled deviance asymptotically follows a <strong>Chi-squared (χ²)</strong> distribution, particularly if the Y values are normally distributed.</li>
+</ul></li>
+<li><strong>Model Selection:</strong>
+<ul>
+<li><strong>Analysis of Deviance:</strong>
+<ul>
+<li>Increasing the number of parameters in a model always reduces the deviance.</li>
+<li>To formally compare nested models, calculate the difference in scaled deviances between the two models. This difference follows a <em>χ²</em> distribution with degrees of freedom equal to the difference in the number of parameters between the models.</li>
+<li>The <code>anova()</code> function in R can be used, often with <code>test="Chisq"</code> for non-normal distributions, to perform these tests.</li>
+</ul></li>
+<li><strong>Significance of Parameters:</strong>
+<ul>
+<li>Examine the <em>p-values</em> for each parameter in the model output (e.g., from <code>summary()</code> in R).</li>
+<li>Parameters with small p-values (e.g., &lt; 0.05) are considered statistically significant and contribute meaningfully to the model.</li>
+</ul></li>
+<li><strong>Akaike’s Information Criterion (AIC):</strong>
+<ul>
+<li>AIC is a penalized log-likelihood that balances model fit and complexity.</li>
+<li>Lower AIC values indicate preferred models.</li>
+</ul></li>
+<li><strong>Forward and Backward Selection:</strong> These are systematic approaches to add or remove variables from the model based on criteria like AIC or deviance tests.</li>
+</ul></li>
+</ul>
+<p><strong>Learning Objective 6: Define the Pearson and deviance residuals and describe how they may be used.</strong></p>
+<ul>
+<li><p><strong>Residuals (General):</strong> The difference between the actual observed responses (<em>y_i</em>) and the fitted responses (*μ̂_i<em>). </em>e_i = y_i - μ̂_i*. Raw residuals are not directly used for checking due to unknown distributions.</p></li>
+<li><p><strong>Pearson Residuals:</strong></p>
+<ul>
+<li>Definition: *(y_i - μ̂_i) / √V(μ̂_i)<em>. Where </em>V(μ̂_i)* is the estimated variance function.</li>
+<li>Primarily used for <strong>normally distributed data</strong>, as they are then approximately <em>N(0,1)</em>.</li>
+<li>For non-normal data, they can be skewed and hard to interpret.</li>
+</ul></li>
+<li><p><strong>Deviance Residuals:</strong></p>
+<ul>
+<li>Definition: *sign(y_i - μ̂_i) * √d_i<em>, where </em>d_i* is the <em>i</em>-th component of the scaled deviance.</li>
+<li>Suitable for <strong>all distributions</strong> within the exponential family.</li>
+<li>They tend to be symmetrically distributed and approximately normal, even for non-normal data, making them preferred for actuarial applications.</li>
+</ul></li>
+<li><p><strong>How Residuals are Used to Check Model Fit:</strong></p>
+<ul>
+<li><strong>Plots of residuals vs. fitted values/covariates:</strong> Used to check for randomness and constant variance. A patternless plot indicates a good fit.</li>
+<li><strong>Q-Q plots (Quantile-Quantile plots) or Histograms of residuals:</strong> Used to check for normality of errors. Deviations from a straight line on a Q-Q plot suggest non-normality.</li>
+</ul></li>
+</ul>
+<p><strong>Learning Objective 7: Apply statistical tests to determine the acceptability of a fitted model: Pearson’s chi-square test and the likelihood ratio test.</strong></p>
+<ul>
+<li><strong>Pearson’s Chi-Square (χ²) Test:</strong>
+<ul>
+<li><strong>Goodness-of-Fit:</strong> Used to assess if observed frequencies conform to a specified distribution (e.g., fair die, Poisson, binomial).
+<ul>
+<li><em>Example:</em> CS1-AS, Q45, 47, 48, 59, 62 illustrate checking if observed data fits a Poisson or binomial model.</li>
+</ul></li>
+<li><strong>Independence (Contingency Tables):</strong> Used to test for association between two categorical variables.
+<ul>
+<li><em>Example:</em> CS1-AS, Q51, 60, 61 demonstrate testing for association between marital status and BMI, or characteristics of HIV positive men.</li>
+</ul></li>
+<li>The test statistic follows a χ² distribution.</li>
+</ul></li>
+<li><strong>Likelihood Ratio Test (LRT):</strong>
+<ul>
+<li>Often used for comparing nested GLMs. It is directly related to the <strong>difference in deviances</strong>.</li>
+<li>Test statistic: Difference in scaled deviances between two models (*D*_Model A - D*_Model B*).</li>
+<li>This statistic follows a <em>χ²</em> distribution with degrees of freedom equal to the difference in the number of parameters between the two models.</li>
+<li><em>Example:</em> CS1-AS, Q47(v) compares Model A and Model B using the difference in their scaled deviances to determine if one is a significant improvement.</li>
+</ul></li>
+</ul>
+<p><strong>Learning Objective 8: Fit a generalised linear model to a data set and interpret the output.</strong></p>
+<ul>
+<li><strong>Fitting a GLM (e.g., using R):</strong>
+<ul>
+<li>The <code>glm()</code> function is commonly used.</li>
+<li>Specify the response variable, explanatory covariates, and the <code>family</code> (e.g., <code>gaussian</code>, <code>binomial</code>, <code>Gamma</code>, <code>poisson</code>) and <code>link</code> function (e.g., <code>identity</code>, <code>log</code>, <code>inverse</code>, <code>logit</code>).</li>
+<li><em>Example R code:</em> <code>&lt;name&gt; &lt;- glm(&lt;response&gt; ~ &lt;covariate1&gt; + &lt;covariate2&gt;, family=gaussian(link="identity"))</code>.</li>
+</ul></li>
+<li><strong>Interpreting Output (from <code>summary(&lt;model_name&gt;)</code>):</strong>
+<ul>
+<li><strong>Coefficients:</strong> Estimates for the parameters in the linear predictor (intercept and slopes for covariates).</li>
+<li><strong>Standard Errors:</strong> Measure the precision of the coefficient estimates.</li>
+<li><strong>Z or t Test Values:</strong> Used to assess the significance of individual parameters. Large absolute values suggest significance.</li>
+<li><strong>P-values:</strong> Probability of observing a test statistic as extreme as, or more extreme than, the one observed, assuming the null hypothesis (parameter = 0) is true. Small p-values (e.g., &lt; 0.05) indicate that the parameter is statistically significant.
+<ul>
+<li><em>Example:</em> In CS1-AS, Q40(ii), p-values less than 0.05 indicate that ‘Intercept’, ‘drug_1’, and ‘drug_2’ are all significantly different from zero.</li>
+</ul></li>
+<li><strong>Deviance/Scaled Deviance:</strong> Measures the goodness-of-fit of the overall model (as discussed in Objective 5).</li>
+<li><strong>AIC:</strong> Aids in model selection (as discussed in Objective 5).</li>
+<li><strong>Fitted Values:</strong> Estimates of the mean response for each data point. Obtained using <code>fitted()</code> or <code>predict(..., type="response")</code>.</li>
+<li><strong>Residuals:</strong> Can be extracted and plotted (e.g., using <code>plot(&lt;model_name&gt;, 1)</code> for residuals vs. fitted values, or <code>plot(&lt;model_name&gt;, 2)</code> for Q-Q plot) to check model assumptions.</li>
+</ul></li>
+</ul>
+<p>This comprehensive overview should give you a solid foundation for mastering GLMs in CS1. Keep practicing those derivations and interpretations – they’re key to exam success!</p>
 </div>
 <div id="practice-glm" class="section level2 unnumbered hasAnchor">
 <h2><code>R</code> Practice<a href="generalised-linear-models.html#practice-glm" class="anchor-section" aria-label="Anchor link to header"></a></h2>

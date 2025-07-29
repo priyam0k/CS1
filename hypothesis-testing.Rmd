@@ -8,4 +8,99 @@
 
 ## Theory {-#theory-hypothesis-testing}
 
+Hypothesis Testing
+
+This chapter is designed to equip you with the essential statistical inference tools to draw conclusions about populations from sample data. Mastering these concepts is vital for your CS1 examination and future actuarial practice.
+
+#### **Learning Objective 1: Core Concepts of Hypothesis Testing**
+
+To begin, you must clearly understand the terminology that underpins all hypothesis tests:
+
+*   **Null Hypothesis (H₀)**: This completely specifies the underlying distribution, typically stating an exact value for the unknown parameter under investigation. For instance, H₀: μ = 20 [10.1, 461].
+*   **Alternative Hypothesis (H₁)**: This hypothesis does *not* completely specify the underlying distribution. It usually defines a range of values for the parameter, such as μ ≠ 20, μ > 20, or μ < 20 [10.1, 461, 462].
+*   **Simple Hypothesis**: A hypothesis that completely specifies the underlying distribution, often taking the form θ = θ₀ [10.1, 461].
+*   **Composite Hypothesis**: A hypothesis that does not completely specify the underlying distribution, often taking the form θ > θ₀, θ < θ₀, or θ ≠ θ₀ [10.1, 461].
+*   **Type I Error (α)**: This occurs when you **reject a true null hypothesis** [4, 10.3, 463]. In binary classification, it's a "false positive," where a healthy individual tests positive [10.4, 464]. Its probability is the **level of significance** of the test [10.3, 463].
+*   **Type II Error (β)**: This occurs when you **fail to reject a false null hypothesis** [4, 10.3, 463]. In binary classification, it's a "false negative," where a diseased individual tests negative [10.4, 464].
+*   **Test Statistic**: This is a function of a random sample used to make decisions about the null hypothesis. Its observed value is calculated under the assumption that H₀ is true [10.8, 468].
+*   **Likelihood Ratio**: While listed as a syllabus objective (Syllabus objective 3.3.1), its specific definition is not detailed in the provided sources.
+*   **Critical Region**: This is the range of values for the test statistic that leads to the rejection of the null hypothesis. It is determined by the **critical value(s)** and the chosen **level of significance** [10.8, 468].
+*   **Level of Significance (α)**: This is the **probability of making a Type I error** [4, 10.3, 463]. It defines the threshold for rejecting H₀.
+*   **Probability-value (p-value)**: This is the probability of observing a test statistic as extreme as, or more extreme than, the one obtained from the sample data, *assuming the null hypothesis is true* [4, 10.7, 467].
+    *   **Significance**: A smaller p-value provides stronger evidence against the null hypothesis. If p-value < α (level of significance), you reject H₀ [10.7, 468].
+*   **Power of a Test**: This is the **probability of correctly rejecting a false null hypothesis** [10.6, 466]. It is calculated as 1 – β (1 minus the probability of a Type II error) [10.6, 467].
+
+#### **Learning Objective 2: Basic Tests for One-Sample and Two-Sample Situations**
+
+Applying these tests effectively is a core CS1 skill. Here's a structured approach for various distributions and scenarios:
+
+**General Steps for Hypothesis Testing [10.8, 468]:**
+1.  **State Hypotheses**: Clearly define H₀ and H₁.
+2.  **Choose Test Statistic**: Select the appropriate formula based on the parameter being tested and data characteristics.
+3.  **Calculate Observed Value**: Compute the test statistic's value assuming H₀ is true.
+4.  **Obtain Critical Value(s)**: Find these from statistical tables corresponding to your chosen α and distribution.
+5.  **Compare and Conclude**: Compare the observed value to the critical value(s) and state your decision regarding H₀ and the practical implication.
+
+**I. One-Sample Tests:**
+
+*   **Normal Mean (Known Variance, σ²)**:
+    *   **Test Statistic**: $Z = \frac{\bar{X} - \mu_0}{\sigma/\sqrt{n}}$ [10.9, 470].
+    *   **Distribution (under H₀)**: Approximately $N(0,1)$ for large samples; exactly $N(0,1)$ for normal populations [10.9, 470].
+*   **Normal Mean (Unknown Variance, σ²)**:
+    *   **Test Statistic**: $T = \frac{\bar{X} - \mu_0}{S/\sqrt{n}}$ [10.10, 470].
+    *   **Distribution (under H₀)**: $t_{n-1}$ (t-distribution with $n-1$ degrees of freedom) [10.10, 470].
+    *   **Example**: Test μ = 19 for a sample mean of 15.8 with $S^2 = 895.243$ and $n=15$. Observed $T = -0.414$. Compared to $t_{14}$ critical values. At 5% level, insufficient evidence to reject H₀ [10.10a, 471, 472].
+*   **Normal Variance (σ²)**:
+    *   **Test Statistic**: $\frac{(n-1)S^2}{\sigma_0^2}$ [10.11, 472].
+    *   **Distribution (under H₀)**: $\chi^2_{n-1}$ (Chi-squared distribution with $n-1$ degrees of freedom) [10.11, 472].
+    *   **Example**: Test σ² = 190 for a sample $S = 15$ with $n=20$. Observed statistic = 22.5. Compared to $\chi^2_{19}$ critical values. At 5% level, insufficient evidence to reject H₀ [10.11a, 473, 474].
+*   **Binomial Parameter (Proportion, p)**:
+    *   **Test Statistic (large $n$)**: $\frac{\hat{p} - p_0}{\sqrt{p_0(1-p_0)/n}}$ (often with continuity correction) [10.12, 475].
+    *   **Distribution (under H₀)**: Approximately $N(0,1)$ [10.12, 475].
+*   **Poisson Parameter (Mean, λ)**:
+    *   **Test Statistic (large $n$)**: $\frac{\bar{X} - \lambda_0}{\sqrt{\lambda_0/n}}$ (often with continuity correction) [10.13, 476].
+    *   **Distribution (under H₀)**: Approximately $N(0,1)$ [10.13, 476].
+    *   **Example**: Test λ > 50 for 2,710 claims in 50 days. Observed statistic = 4.19. Compared to $N(0,1)$ critical value (1.6449). At 5% level, sufficient evidence to reject H₀ [10.13a, 477, 478].
+
+**II. Two-Sample Tests:**
+
+*   **Difference in Normal Means (Known Variances, σ₁², σ₂²)**:
+    *   **Test Statistic**: $\frac{(\bar{X}_1 - \bar{X}_2) - (\mu_1 - \mu_2)}{\sqrt{\sigma_1^2/n_1 + \sigma_2^2/n_2}}$ [10.14, 478, 479].
+    *   **Distribution (under H₀)**: Exactly $N(0,1)$ for normal populations, approximately $N(0,1)$ for large samples [10.14, 479].
+*   **Difference in Normal Means (Unknown but Equal Variances)**:
+    *   **Test Statistic**: $\frac{(\bar{X}_1 - \bar{X}_2) - (\mu_1 - \mu_2)}{S_p\sqrt{1/n_1 + 1/n_2}}$, where $S_p$ is the pooled standard deviation [10.15, 480].
+    *   **Distribution (under H₀)**: $t_{n_1+n_2-2}$ [10.15, 480].
+    *   **Example**: Test if a treatment improves physical strength (μ_A > μ_B) with pooled variance. Observed statistic = 1.32. Compared to $t_{14}$ critical value (1.761). At 5% level, insufficient evidence to reject H₀ [10.15a, 481, 482].
+*   **Ratio of Normal Variances (σ₁²/σ₂²)**:
+    *   **Test Statistic**: $\frac{S_1^2/\sigma_1^2}{S_2^2/\sigma_2^2}$ [10.16, 483].
+    *   **Distribution (under H₀: σ₁² = σ₂²)**: $F_{n_1-1, n_2-1}$ [10.16, 483].
+    *   **Example**: Test for equal variances. Observed statistic = 0.630. Compared to $F_{7,7}$ critical values (0.200, 4.995). At 5% level, insufficient evidence to reject H₀ [10.16a, 484].
+*   **Equality of Binomial Parameters (Proportions, p₁, p₂)**:
+    *   **Test Statistic (large $n_1, n_2$)**: $\frac{(\hat{p}_1 - \hat{p}_2) - (p_1 - p_2)}{\sqrt{\hat{p}(1-\hat{p})(1/n_1 + 1/n_2)}}$, where $\hat{p}$ is the pooled sample proportion [10.17, 485, 486].
+    *   **Distribution (under H₀: p₁ = p₂)**: Approximately $N(0,1)$ [10.17, 486].
+    *   **Example**: Test if a product helps students pass exams (p_A > p_B). Observed statistic = 0.852. Compared to $N(0,1)$ critical value (1.6449). At 5% level, insufficient evidence to reject H₀ [10.17a, 486, 487].
+*   **Equality of Poisson Parameters (Means, λ₁, λ₂)**:
+    *   **Test Statistic (large $n_1, n_2$)**: $\frac{(\hat{\lambda}_1 - \hat{\lambda}_2) - (\lambda_1 - \lambda_2)}{\sqrt{\hat{\lambda}(1/n_1 + 1/n_2)}}$, where $\hat{\lambda}$ is the pooled sample mean [10.18, 488].
+    *   **Distribution (under H₀: λ₁ = λ₂)**: Approximately $N(0,1)$ [10.18, 488].
+*   **Paired Data (Mean Difference, μ_D)**:
+    *   **Approach**: Calculate the differences between corresponding data points ($D_i = X_i - Y_i$) to create a single sample of differences. Then, perform a one-sample t-test on these differences [10.19, 489, 490].
+    *   **Test Statistic**: $T = \frac{\bar{D} - \mu_D}{S_D/\sqrt{n}}$ [10.19, 489].
+    *   **Distribution (under H₀: μ_D = 0)**: $t_{n-1}$ (assuming differences are normally distributed) [10.19, 489].
+    *   **Example**: Test if a treatment increases physical strength for paired data. Observed statistic = 1.73. Compared to $t_{5}$ critical value (2.015). At 5% level, insufficient evidence to reject H₀ [10.19a, 490].
+
+#### **Learning Objective 3: Permutation Approach to Non-Parametric Hypothesis Tests**
+
+For non-parametric tests, especially when distributional assumptions are not met or sample sizes are small, the permutation approach is key:
+
+*   **Permutation Approach**: This method involves [10.20, 490, 491]:
+    1.  **Calculate Observed Statistic**: Compute the test statistic for the original sample data.
+    2.  **Generate Permutations**: Randomly re-assign (permute) the data values between the groups (or within the sample, depending on the test).
+    3.  **Calculate Statistic for Each Permutation**: Compute the test statistic for each generated permutation.
+    4.  **Construct Null Distribution**: The distribution of these permuted test statistics forms the empirical null distribution.
+    5.  **Calculate p-value**: Determine the proportion of permuted statistics that are as extreme as, or more extreme than, the observed statistic.
+
+*   **Practicality**: Due to its computational intensity, this test is generally easier to perform using software (like R) rather than manually, even for moderate sample sizes [10.20, 491].
+
+Keep these notes concise and focus on the key components. Practice applying these principles with exam-style questions to solidify your understanding. You've got this!
+
 ## `R` Practice {-#practice-hypothesis-testing}
