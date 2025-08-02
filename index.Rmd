@@ -15,7 +15,7 @@ favicon: img/favicon.ico
 
 # Introduction {-}
 
-This book is a modified version of the original work by **Alex Garbiak**. As an adapted version, there may be changes, bugs, typos, or errors. Please report any issues you find [here](https://github.com/priyam0k/CS1/issues).
+As an adapted version, there may be changes, bugs, typos, or errors. Please report any issues you find [here](https://github.com/priyam0k/CS1/issues).
 
 ## Motivation {-}
 
